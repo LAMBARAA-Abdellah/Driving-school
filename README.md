@@ -1,4 +1,4 @@
-# hello-world
+# AUTO ECOLE
 
 ## Project setup
 ```
