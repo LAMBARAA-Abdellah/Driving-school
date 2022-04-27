@@ -18,19 +18,25 @@
         </div>
         <div class="social">
             <i class="fab fa-facebook-f"></i>
+            <!-- <i class="fab fa-facebook"></i> -->
             <i class="fab fa-twitter"></i>
             <i class="fab fa-instagram"></i>
             <i class="fab fa-google"></i>
         </div>
     </div>
-    <div class="nav-bar">
+    <div class=" nav-bar ">
         <div class="logo">
-            <img src="../../assets/images/logo2.png" alt="">
+            <img src="../../assets/images/logo3.png" alt="">
+            <img src="../../assets/images/Driving School.svg" alt="">
+
         </div>
         <div class="menu">
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
+                <li><a href="#">Faqs</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Programe</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -55,7 +61,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style scoped lang="scss" >
 $color-sousnavbar: #383838;
 $hover:#F8CE03;
 
@@ -65,22 +71,27 @@ $hover:#F8CE03;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-items: baseline;
 }
 
 .sous-nav {
     @include flex;
     background-color: $color-sousnavbar;
-    padding: 20px;
+    padding: 10px;
     color: #fff;
     font-weight: bold;
     font-size: 14px;
-    border-bottom: 1px solid #fff;
+
 }
 
 .sous-nav {
+    padding: 6px 30px;
+
     div {
         @include flex;
         cursor: pointer;
+        font-size: 15px;
+
     }
 
     i {
@@ -90,15 +101,15 @@ $hover:#F8CE03;
     .social {
 
         i {
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             cursor: pointer;
             color: black;
             align-items: center;
             border: 10px;
-            font-size: 20px;
-            padding: 2px;
-            border-radius: 5px;
+            font-size: 23px;
+            padding: 3px;
+            border-radius: 25px;
             background-color: #fff;
         }
 
@@ -113,14 +124,65 @@ $hover:#F8CE03;
     }
 
 }
-.nav-bar{
+
+.nav-bar {
+    height: 140px;
     @include flex;
+    padding: 10px 100px;
 
-
-    img{
-    width: 300px;
-    
+    img {
+        width: 300px;
+        height: 120px;
+        background-size: cover;
+        background-position: center;
     }
 
+    .logo {
+        h1 {
+            font-family: "Nico Moji"
+        }
+    }
+
+    ul {
+        @include flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            @include flex;
+
+            a {
+                @include flex;
+                text-decoration: none;
+                color: black;
+                font-size: 18px;
+                padding: 10px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 20px;
+                margin: 20px;
+
+                &:hover {
+                    color: $hover;
+                }
+            }
+        }
+
+    }
+
+    button {
+        width: 120px;
+        height: 40px;
+        background-color: $color-sousnavbar;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 10px;
+    }
+
+    button:hover {
+        background-color: $hover;
+        color: black;
+    }
 }
 </style>
