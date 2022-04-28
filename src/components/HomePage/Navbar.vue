@@ -26,8 +26,8 @@
     </div>
     <div class=" nav-bar ">
         <div class="logo">
-            <img src="../../assets/images/logo3.png" alt="">
-            <img src="../../assets/images/Driving School.svg" alt="">
+         <!-- <img src="../../assets/images/logo3.png" alt=""> -->
+            <img src="../../assets/images/Drv2.svg" alt="">
 
         </div>
         <div class="menu">
@@ -74,19 +74,16 @@ $hover:#F8CE03;
     align-items: baseline;
 }
 
+
 .sous-nav {
-    @include flex;
+  @include flex;
     background-color: $color-sousnavbar;
     padding: 10px;
     color: #fff;
     font-weight: bold;
     font-size: 14px;
-
-}
-
-.sous-nav {
     padding: 6px 30px;
-
+    height: 45px;
     div {
         @include flex;
         cursor: pointer;
@@ -131,7 +128,7 @@ $hover:#F8CE03;
     padding: 10px 100px;
 
     img {
-        width: 300px;
+        width: 150px;
         height: 120px;
         background-size: cover;
         background-position: center;
@@ -174,6 +171,7 @@ $hover:#F8CE03;
     button {
         width: 120px;
         height: 40px;
+        border: none;
         background-color: $color-sousnavbar;
         color: #fff;
         font-weight: bold;
@@ -183,6 +181,7 @@ $hover:#F8CE03;
     button:hover {
         background-color: $hover;
         color: black;
+        border:none;
     }
 }
 </style>

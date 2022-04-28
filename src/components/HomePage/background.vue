@@ -20,34 +20,34 @@
                 </div>
             </div>
             <div class="hours">
-                <div>
-
+                 <div>
+                    <i class="	far fa-clock"></i>
                 </div>
                 <div>
                     <h1>
-                        28
+                        1292
                     </h1>
                     <h2>
-                        Teachers
+                        Trining hours
                     </h2>
                 </div>
             </div>
             <div class="years">
-                <div>
-
+                 <div>
+                    <i class="fas fa-heart"></i>
                 </div>
                 <div>
                     <h1>
-                        28
+                        5
                     </h1>
                     <h2>
-                        Teachers
+                        working years
                     </h2>
                 </div>
             </div>
             <div class="licence">
-                <div>
-
+                  <div>
+                    <i class="fas fa-chalkboard-teacher"></i>
                 </div>
                 <div>
                     <h1>
@@ -104,7 +104,6 @@ $hover:#F8CE03;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
-    // width:100vw;
 
 }
 
@@ -139,16 +138,35 @@ $hover:#F8CE03;
     background-image: url();
     background-color: $color;
     @include flex;
-    padding: 30px;
+    padding:0 60px;
 
     .teacher,
     .hours,
     .years,
     .licence {
         @include flexicon;
-        border: solid 5px red;
         width: 350px;
         height: 130px;
+        padding: 0 30px;
+        margin: 0 30px;
+        transform: skew(57.94turn, 180deg);
+       
+      
+    }
+    .teacher,.years {
+        background-image:  url(../../assets/images/3.png);
+         background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+       .hours,.licence {
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 20%), url(../../assets/images/19.jpg);
+         background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+    i{
+    color: $hover;
     }
 
     h1 {
@@ -157,7 +175,7 @@ $hover:#F8CE03;
     }
 
     h2 {
-        font-size: 20px;
+        font-size: 22px;
         font-weight: bold;
     }
 
