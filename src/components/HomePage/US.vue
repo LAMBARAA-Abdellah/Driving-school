@@ -88,7 +88,7 @@
                 </div>
                 <div class="card-content">
                     <h4>{{ data.title }}</h4>
-                    <p>{{data.content}}</p>
+                    <p>{{ data.content }}</p>
                 </div>
             </div>
 
@@ -99,17 +99,47 @@
     </div>
     <div class="coment">
         <h1>Our studenys Says...</h1>
-        <div>
-        <div>
+        <div class="comantaire">
+            <div class="etoiles">
+                <img src="@/assets/images/Star2.png" alt="">
+                <img src="@/assets/images/Star2.png" alt="">
+                <img src="@/assets/images/Star2.png" alt="">
+                <img src="@/assets/images/Star1.png" alt="">
+                <img src="@/assets/images/Star1.png" alt="">
+            </div>
+            <div>
+                {{ arr[current].coment }}
 
-</div>
-        
-        
+            </div>
+            <div>
+                <h5>- {{ arr[current].name }}</h5>
+            </div>
+
         </div>
-    
-    
-    
-    
+
+        <div class="face">
+            <img src="@/assets/images/Group8.png" alt="">
+        </div>
+
+    </div>
+
+    <div class="event">
+        <h1>Latest News & Events</h1>
+        <div class="all">
+            <div class="card-event" v-for="(ev, index) in event " :key="index">
+                <div class="event-img">
+                    <img :src="ev.img" alt="">
+                </div>
+                <div class="event-content">
+                    <h4>{{ ev.title }} </h4>
+                    <p>{{ ev.content }}</p>
+                </div>
+                <img src="@/assets/images/more.png" alt="">
+            </div>
+
+
+
+        </div>
     </div>
 
 
@@ -119,33 +149,51 @@
 
 
 
-    
-    <div>
-        <div>{{ arr[current] }}</div>
+
+    <!-- <div>
+        <div>{{ arr[current].name }}</div>
         <button @click="next">click me</button>
 
-    </div>
+    </div> -->
 </template>
 <script>
 
-const items = ["tester", "abdo"]
+// const items = [
+//     { coment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!", name: "Lambaraa Abdellah" },
+//     { coment: " aliquid culpa officia aut! Impedit sit sunt quaerat, odit tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos piente officiis modi at sunt excepturi expedita sint? Sed quibusdamcusandae alias error harum maxime adipisci amet laborum. Perspiciatis inima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit uibusdam sed amet  ab, eius ", name: "Said ouidane" },
+//     { coment: " Quaerat provident commodi consectetur veniam similique ad arum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo ugiat, dolorum eligendi quam cupiditate excepturi mollitia maiort. Voluptatem quaerat non architecto ab laudantiumdi minima sunt esse temporibus sint culpa, recusandae aliquam numquam otam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam uasi aliquam eligendi, placeat qui corporis!", name: "aaaaaa vbbbbb" },
+// ]
 
 export default {
     name: 'US',
     data() {
         return {
-            arr: items,
+            // arr: items,
             current: 0,
             datap: [
                 { img: require(`@/assets/images/Group2.png`), title: "BEST SAFETY MEASURES", content: "Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road." },
                 { img: require(`@/assets/images/Group4.png`), title: "BEST SAFETY MEASURES", content: "Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road." },
-                { img:require(`@/assets/images/Group5.png`), title: "BEST SAFETY MEASURES", content: "Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road." },
+                { img: require(`@/assets/images/Group5.png`), title: "BEST SAFETY MEASURES", content: "Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road." },
                 { img: require(`@/assets/images/Group6.png`), title: "BEST SAFETY MEASURES", content: "Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road." },
                 { img: require(`@/assets/images/Group1.png`), title: "BEST SAFETY MEASURES", content: "Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road." },
                 { img: require(`@/assets/images/Group7.png`), title: "BEST SAFETY MEASURES", content: "Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road." },
 
+            ],
+            arr: [
+                { coment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!", name: "Lambaraa Abdellah" },
+                { coment: "fdgdgd ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!", name: "Said ouidane" },
+                { coment: "ezezez ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!", name: "aaaaaa vbbbbb" },
 
+            ],
+            event: [
+                { img: require(`@/assets/images/5.jpeg`), title: "DANGERS OF SLEEPING WHILST SLEEP DEPRIVED", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!  " },
+                { img: require(`@/assets/images/23.jpeg`), title: "DANGERS OF SLEEPING WHILST SLEEP DEPRIVED", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!  " },
+                { img: require(`@/assets/images/16.jpeg`), title: "DANGERS OF SLEEPING WHILST SLEEP DEPRIVED", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!  " },
             ]
+
+
+
+
         }
     },
     methods: {
@@ -159,7 +207,7 @@ export default {
     mounted() {
         setInterval(() => {
             this.next()
-        }, 6000)
+        }, 2000)
     },
 }
 </script>
@@ -175,6 +223,11 @@ $hover:#F8CE03;
     justify-content: space-between;
     align-items: center;
     // align-items: baseline;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 2rem;
 }
 
 .us {
@@ -229,5 +282,81 @@ $hover:#F8CE03;
     }
 }
 
+.coment {
+    position: relative;
+    padding: 30px;
+    margin: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    background-image: url(@/assets/images/26.jpg);
+    color: white;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(@/assets/images/26.jpg);
+    background-position: center;
+    background-size: cover;
+
+    h1 {
+        margin-bottom: 50px;
+    }
+
+    .comantaire {
+        padding: 70px 100px 20px 100px;
+        border: solid 5px #F8CE03;
+        width: 80%;
+        height: 70%;
+
+        .etoiles {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        h5 {
+            padding: 10px;
+            color: $hover;
+        }
+
+    }
+
+    .face {
+        position: absolute;
+        margin-top: 44px;
+    }
+}
+
+.event {
+    margin: 20px 0;
+
+    .all {
+        @include flex();
+        justify-content: space-evenly;
+
+        .card-event {
+            width: 400px;
+            background-color: rgba(0, 0, 0, 0.04);
+            box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4);
+            text-align: left;
+        
+
+            .event-img img {
+                width: 100%;
+            }
+            .event-content{
+                padding: 20px 10px;
+                h4 {
+                    color: black;
+                    font-family: 'open sans';
+                    font-weight: 600;
+                    font-size: 120%;
+                }
+               
+            }
+        }
+    }
+
+
+}
 </style>
 
