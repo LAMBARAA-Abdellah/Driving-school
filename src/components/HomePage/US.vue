@@ -130,11 +130,19 @@
                 <div class="event-img">
                     <img :src="ev.img" alt="">
                 </div>
+                 <div class="date-card">
+                    <h1>{{ ev.day }}</h1>
+                    <h4>{{ ev.month }}</h4>
+                 </div>
+
                 <div class="event-content">
                     <h4>{{ ev.title }} </h4>
                     <p>{{ ev.content }}</p>
                 </div>
-                <img src="@/assets/images/more.png" alt="">
+                
+                <img class="more" src="@/assets/images/more.png" alt="">
+               
+                
             </div>
 
 
@@ -186,9 +194,9 @@ export default {
 
             ],
             event: [
-                { img: require(`@/assets/images/5.jpeg`), title: "DANGERS OF SLEEPING WHILST SLEEP DEPRIVED", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!  " },
-                { img: require(`@/assets/images/23.jpeg`), title: "DANGERS OF SLEEPING WHILST SLEEP DEPRIVED", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!  " },
-                { img: require(`@/assets/images/16.jpeg`), title: "DANGERS OF SLEEPING WHILST SLEEP DEPRIVED", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!  " },
+                { img: require(`@/assets/images/5.jpeg`),day:"18" ,month:"JULY", title: "DANGERS OF SLEEPING WHILST SLEEP DEPRIVED", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam...  " },
+                { img: require(`@/assets/images/23.jpeg`),day:"15" ,month:"OCTOBER", title: "DANGERS OF SLEEPING WHILST SLEEP DEPRIVED", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam...  " },
+                { img: require(`@/assets/images/16.jpeg`),day:"22" ,month:"OCTOBER", title: "DANGERS OF SLEEPING WHILST SLEEP DEPRIVED", content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam..." },
             ]
 
 
@@ -338,11 +346,28 @@ h1 {
             background-color: rgba(0, 0, 0, 0.04);
             box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.4);
             text-align: left;
+            position: relative;
         
 
             .event-img img {
                 width: 100%;
             }
+            .date-card{
+                background: #383838;
+                color: white;
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 0;
+                text-align: center;
+                h4{
+                    font-size: 18px;
+                }
+                h1{
+                    font-size: 40px;
+                }
+            }
+            
             .event-content{
                 padding: 20px 10px;
                 h4 {
@@ -352,6 +377,10 @@ h1 {
                     font-size: 120%;
                 }
                
+            }
+            .more{
+                    margin: -20px 0px 20px 20px;
+                    width: 40px;
             }
         }
     }

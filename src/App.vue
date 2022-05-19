@@ -1,6 +1,7 @@
 <template>
  <Navbar />
   <router-view />
+   <Footer/>
 </template>
 
 
@@ -12,13 +13,14 @@
 <script>
 
 import Navbar from '@/components/HomePage/Navbar.vue'
-import background from '@/components/HomePage/background.vue'
+import Footer from '@/components/HomePage/footer.vue'
 
 export default {
   name: 'HomePage',
   components: {
     Navbar,
-    background
+    Footer
+    
   }
 }
 </script>

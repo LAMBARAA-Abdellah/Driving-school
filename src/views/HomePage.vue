@@ -3,6 +3,9 @@
   <Ready/>
   <Programes/>
   <US/>
+ 
+  
+
 
 </template>
 <script>
@@ -12,7 +15,7 @@ import background from '@/components/HomePage/background.vue'
 import Ready from '@/components/HomePage/Ready.vue'
 import Programes from '@/components/HomePage/Programes.vue'
 import US from '@/components/HomePage/US.vue'
-
+import Footer from '@/components/HomePage/footer.vue'
 export default {
   name: 'HomePage',
   components: {
@@ -20,7 +23,9 @@ export default {
     background,
     Ready,
     Programes,
-    US
+    US,
+    Footer,
+
   }
 }
 </script>

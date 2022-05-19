@@ -1,5 +1,20 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+ <template>
+  <About />
+
+
+
+
 </template>
+<script>
+import About from '@/components/AboutPage/About.vue'
+export default {
+  name: 'ContactPage',
+  components: {
+    About,
+
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+</style>
