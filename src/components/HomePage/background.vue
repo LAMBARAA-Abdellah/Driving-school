@@ -183,5 +183,6 @@ $hover:#F8CE03;
         font-size: 50px;
     }
 }
+
 </style>
 

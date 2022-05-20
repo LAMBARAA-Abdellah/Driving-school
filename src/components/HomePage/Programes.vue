@@ -200,5 +200,10 @@ $hover:#F8CE03;
     font-weight: 700;
     margin: 25px;
 }
+h1{
+    font-size: 30px;
+    font-weight: bold;
+    color: #383838;
+}
 </style>
 
