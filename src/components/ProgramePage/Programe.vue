@@ -1,15 +1,16 @@
 <template>
-        <hr style=" border-top: 6px solid rgba(0,0,0,.1) !important">
-        
- <div class="wrapper-stepper">
+    <hr style=" border-top: 6px solid rgba(0,0,0,.1) !important">
+
+    <div class="wrapper-stepper">
         <div class="stepper">
             <div class="stepper-progress">
-                <div class="stepper-progress-bar" :style="'width:' + stepperProgress "></div>
+                <div class="stepper-progress-bar" :style="'width:' + stepperProgress"></div>
             </div>
 
-            <div class="stepper-item" :class="{ 'current': step == item, 'success': step > item }" v-for="item in 4" :key="item">
+            <div class="stepper-item" :class="{ 'current': step == item, 'success': step > item }" v-for="item in 4"
+                :key="item">
                 <div class="stepper-item-counter">
-                    <img class="icon-success" src="https://www.seekpng.com/png/full/1-10353_check-mark-green-png-green-check-mark-svg.png" alt="">
+                    <img class="icon-success" src="@/assets/images/chek.png.png" alt="">
                     <span class="number">
                         {{ item }}
                     </span>
@@ -22,8 +23,46 @@
 
         <div class="stepper-content" v-for="item in 4" :key="item">
             <div class="stepper-pane" v-if="step == item">
-                Estas en el paso <span class="tx-green-1">{{ item }}</span> aqui mostrarás el contenido :D
+                <!-- {{ test }}
+                Estas en el paso <span class="tx-green-1">{{ item }}</span> aqui mostrarás el contenido :D -->
+                <h1>Adult In-Car Lessons</h1>
+                <p>All Inclusive programs provide the student with 30 hours of class, and all class materials. We offer
+                    weekday classes, Saturday/Sunday classes, Saturday only, and Sunday only classes</p>
+                <div class="cardP">
+                    <img src="@/assets/images/12.jpeg" alt="">
+                    <div class="content">
+                        <h1>Programs Available</h1>
+                        
+                        <div class="A1">
+                <i class="fas fa-check-circle"></i>
+                <p>We know all of the different test routes</p>
+
             </div>
+            <div class="A1">
+                <i class="fas fa-check-circle"></i>
+                <p>We know all of the different test routes</p>
+
+            </div>
+            <div class="A1">
+                <i class="fas fa-check-circle"></i>
+                <p>We know all of the different test routes</p>
+
+            </div>
+            <div class="A1">
+                <i class="fas fa-check-circle"></i>
+                <p>We know all of the different test routes</p>
+
+            </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
         </div>
 
         <div class="controls">
@@ -45,18 +84,28 @@
 
 export default {
     name: 'Programe',
+    inject: ["test"],
     props: {
-        msg: String
+        msg: String,
     },
-    data: () => ({
-    step: 1
-  }),
-  computed: {
-    stepperProgress() {
-      return ( 100 / 3 ) * ( this.step - 1 ) + '%'
-    }
-  },
-  
+    data() {
+        return {
+            step: 1,
+            data: [
+                { title: "Adult In-Car Lessons", img: "@/assets/images/pr1.jpg" },
+                { title: "Adult In-Car Lessons", img: "@/assets/images/pr2.jpg" },
+                { title: "TWinter Driving", img: "@/assets/images/pr3.jpg" },
+                { title: "Defensive Driving", img: "@/assets/images/pr4.jpg" },
+            ]
+        }
+    },
+
+    computed: {
+        stepperProgress() {
+            return (100 / 3) * (this.step - 1) + '%'
+        }
+    },
+
 }
 </script>
 <style scoped lang="scss" >
@@ -64,9 +113,16 @@ $color-sousnavbar: #383838;
 $hover:#F8CE03;
 
 
-$default    :   #C5C5C5;
-$green-1    :   #F8CE03;
-$transiton  :   all 500ms ease;
+$default : #C5C5C5;
+$green-1 : #F8CE03;
+$transiton : all 500ms ease;
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #383838;
+}
+
 /*
 body{
     background-image: linear-gradient(60deg, #F8CE03 0%, #fbed96 100%);
@@ -79,19 +135,19 @@ body{
     font-family: sans-serif;
 }
 */
-.tx-green-1{
-    color:  $green-1;
+.tx-green-1 {
+    color: $green-1;
     font-weight: 600;
 }
 
-.wrapper-stepper{
+.wrapper-stepper {
     background-color: #fff;
     padding: 60px;
     border-radius: 32px;
     box-shadow: rgba($color: #000000, $alpha: 0.09);
 }
 
-.stepper{
+.stepper {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -100,7 +156,7 @@ body{
     z-index: 0;
     margin-bottom: 24px;
 
-    &-progress{
+    &-progress {
         position: absolute;
         background-color: $default;
         height: 2px;
@@ -109,7 +165,7 @@ body{
         right: 0;
         margin: 0 auto;
 
-        &-bar{
+        &-bar {
             position: absolute;
             left: 0;
             height: 100%;
@@ -120,14 +176,14 @@ body{
     }
 }
 
-.stepper-item{
+.stepper-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: $default;
     transition: $transiton;
 
-    &-counter{
+    &-counter {
         height: 68px;
         width: 68px;
         display: grid;
@@ -137,7 +193,7 @@ body{
         border: 2px solid $default;
         position: relative;
 
-        .icon-success{
+        .icon-success {
             position: absolute;
             opacity: 0;
             transform: scale(0);
@@ -145,68 +201,84 @@ body{
             transition: $transiton;
         }
 
-        .number{
+        .number {
             font-size: 22px;
             transition: $transiton;
         }
     }
 
-    &-title{
+    &-title {
         position: absolute;
         font-size: 14px;
         bottom: -24px;
     }
 }
 
-.stepper-item.success{
-    .stepper-item-counter{
+.stepper-item.success {
+    .stepper-item-counter {
         border-color: $green-1;
-        background-color: #fce780 ;
+        background-color: #fce780;
         color: #fff;
         font-weight: 600;
 
-        .icon-success{
+        .icon-success {
             opacity: 1;
             transform: scale(1);
         }
 
-        .number{
+        .number {
             opacity: 0;
             transform: scale(0);
         }
     }
 
-    .stepper-item-title{
+    .stepper-item-title {
         color: $green-1;
     }
 }
 
-.stepper-item.current{
-    .stepper-item-counter{
+.stepper-item.current {
+    .stepper-item-counter {
         border-color: $green-1;
         background-color: $green-1;
         color: #fff;
         font-weight: 600;
     }
 
-    .stepper-item-title{
+    .stepper-item-title {
         color: #818181;
     }
 }
 
-.stepper-pane{
+.stepper-pane {
     color: #333;
     text-align: center;
-    padding: 120px 60px;
+    padding: 20px 60px;
     box-shadow: 0 8px 12px rgba($color: #000000, $alpha: 0.09);
     margin: 40px 0;
+    .cardP{
+        display: flex;
+
+    
+    .content{
+         .A1 {
+        display: flex;
+        
+
+        i {
+            padding: 0 20px;
+        }
+    }
+    }
+    }
+    
 }
 
-.controls{
+.controls {
     display: flex;
 }
 
-.btn{
+.btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -224,17 +296,16 @@ body{
     background-color: #f0f0f0;
     border-color: #f0f0f0;
 
-    &:disabled{
+    &:disabled {
         opacity: 0.5;
         pointer-events: none;
     }
 
-    &--green-1{
+    &--green-1 {
         background-color: $green-1;
         border-color: $green-1;
         color: #fff;
         margin-left: auto;
     }
 }
-
 </style>
