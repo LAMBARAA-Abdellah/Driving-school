@@ -32,28 +32,114 @@
                     <img src="@/assets/images/12.jpeg" alt="">
                     <div class="content">
                         <h1>Programs Available</h1>
-                        
-                        <div class="A1">
-                <i class="fas fa-check-circle"></i>
-                <p>We know all of the different test routes</p>
+                        <div class="ad">
+                            <div class="A1">
+                                <i class="fas fa-check-circle"></i>
+                                <p>Complete Course Options (Classroom + Behind the Wheel Lessons)</p>
 
+                            </div>
+                            <div class="A1">
+                                <i class="fas fa-check-circle"></i>
+                                <p>Partial Course Options (Behind the Wheel Lessons Only)</p>
+
+                            </div>
+                            <div class="A1">
+                                <i class="fas fa-check-circle"></i>
+                                <p>Partial Course Options (Classroom Instruction Only)</p>
+
+                            </div>
+                            <div class="A1">
+                                <i class="fas fa-check-circle"></i>
+                                <p>Additional Practice Hours (Behind the Wheel Lessons)</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="text">
+                    <h1>Program Overview</h1>
+                    <p>We provide free pick up and drop off at home or school for all behind-the-wheel lessons. And, we
+                        offer a payment plan at no additional charge. Also, the student will choose from one of the
+                        following driving programs: The Basic Course includes 6 hours of in-car driving & 6 hours of
+                        in-car observation; The Advantage Plus Program includes 8 hours of all private lessons (no need
+                        to do any observation); The Classic Experience includes 12 hours of all private lessons. All
+                        programs earn state certification and meet all high school graduation requirements. We also
+                        offer 25 and 50 hours behind-the-wheel programs.
+
+                        Our instructor’s travel time is never deducted from the lesson. We guarantee to cover all phases
+                        of driving including expressway and all forms of parking.
+
+                        There are never any extra charges for registration, make-up classes, or payment plan. When you
+                        have completed the class, and, as soon as you complete the behind-the-wheel lessons and
+                        observation if necessary, we will immediately certify you with the Secretary of State; and will
+                        also mail you your Adams certificate, which is used toward high school graduation requirements
+                        and your insurance discount.
+
+                        The students are required to do 30 hours of class. They may miss up to 4 sessions, all of which
+                        must be made up. Students can make up missed classes by attending the same class missed the
+                        following month. All arrangements for make-up can be made by contacting our office:
+                        800-123-4567.
+
+                        We also have programs for those teens that need to take only the behind-the-wheel or class.
+
+                        Program bundles driving and classroom available
+                        Online account access 24/7
+                    </p>
+                    <div class="quality">
+                        <div class="txt">
+                            <div class="ad">
+                                <div class="A1">
+                                    <i class="fas fa-check-circle"></i>
+                                    <p>Complete Course Options (Classroom + Behind the Wheel Lessons)</p>
+
+                                </div>
+                                <div class="A1">
+                                    <i class="fas fa-check-circle"></i>
+                                    <p>Partial Course Options (Behind the Wheel Lessons Only)</p>
+
+                                </div>
+                                <div class="A1">
+                                    <i class="fas fa-check-circle"></i>
+                                    <p>Partial Course Options (Classroom Instruction Only)</p>
+
+                                </div>
+                                <div class="A1">
+                                    <i class="fas fa-check-circle"></i>
+                                    <p>Additional Practice Hours (Behind the Wheel Lessons)</p>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="ct"> </div>
+                             <div class="tel">
+                    <div>
+                        <img src="@/assets/images/tel.png" alt=""> 
+                       <p><b>PHONE 24/7 </b></p>                   
+                    </div>
+                    <div class="body">
+                        <p> +212 652086766, Fax: 718-724-3312</p>
+                    </div>
+                
+                </div>
+                <div class="time">
+
+                    <div>
+                        <img src="@/assets/images/time.png" alt=""> 
+                        <p> <b>OPERATING HOURS</b> </p>
+                                           
+                    </div>
+                    <div class="body">
+                        <p>
+                            Mon-Fri: 9:00 am – 5:00 pm <br> Sat-Sun: 11:00 am – 16:00 pm
+                        </p>
+                    </div>
             </div>
-            <div class="A1">
-                <i class="fas fa-check-circle"></i>
-                <p>We know all of the different test routes</p>
-
-            </div>
-            <div class="A1">
-                <i class="fas fa-check-circle"></i>
-                <p>We know all of the different test routes</p>
-
-            </div>
-            <div class="A1">
-                <i class="fas fa-check-circle"></i>
-                <p>We know all of the different test routes</p>
-
-            </div>
-
                     </div>
                 </div>
 
@@ -122,6 +208,14 @@ h1 {
     font-weight: bold;
     color: #383838;
 }
+                .A1 {
+                    display: flex;
+
+
+                    i {
+                        padding: 0 20px;
+                    }
+                }
 
 /*
 body{
@@ -256,22 +350,35 @@ body{
     padding: 20px 60px;
     box-shadow: 0 8px 12px rgba($color: #000000, $alpha: 0.09);
     margin: 40px 0;
-    .cardP{
+
+    .cardP {
         display: flex;
 
-    
-    .content{
-         .A1 {
-        display: flex;
-        
+        img {
+            width: 50%;
+            height: 300px;
+            object-fit: cover;
+        }
 
-        i {
-            padding: 0 20px;
+        .content {
+            .ad {
+                padding: 40px 0 0 10px;
+
+
+            }
+
         }
     }
+
+    .text {
+        margin: 40px;
+        text-align: start;
+
+        h1 {
+            text-align: center;
+        }
     }
-    }
-    
+
 }
 
 .controls {

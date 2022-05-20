@@ -1,6 +1,6 @@
  <template>
 
-    <button @click="tester">click me</button>
+    <!-- <button @click="tester">click me</button> -->
     <Programe />
 
 
