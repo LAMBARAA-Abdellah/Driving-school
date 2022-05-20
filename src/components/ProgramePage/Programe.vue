@@ -29,7 +29,8 @@
                 <p>All Inclusive programs provide the student with 30 hours of class, and all class materials. We offer
                     weekday classes, Saturday/Sunday classes, Saturday only, and Sunday only classes</p>
                 <div class="cardP">
-                    <img src="@/assets/images/12.jpeg" alt="">
+                    <img :src="data[item - 1].img" alt="">
+                    <!-- <pre>{{ JSON.stringify(data[item - 1]) }}</pre> -->
                     <div class="content">
                         <h1>Programs Available</h1>
                         <div class="ad">
@@ -102,6 +103,16 @@
                                 </div>
                                 <div class="A1">
                                     <i class="fas fa-check-circle"></i>
+                                    <p>Complete Course Options (Classroom + Behind the Wheel Lessons)</p>
+
+                                </div>
+                                <div class="A1">
+                                    <i class="fas fa-check-circle"></i>
+                                    <p>Partial Course Options (Behind the Wheel Lessons Only)</p>
+
+                                </div>
+                                <div class="A1">
+                                    <i class="fas fa-check-circle"></i>
                                     <p>Partial Course Options (Classroom Instruction Only)</p>
 
                                 </div>
@@ -116,30 +127,35 @@
 
                         </div>
 
-                        <div class="ct"> </div>
-                             <div class="tel">
-                    <div>
-                        <img src="@/assets/images/tel.png" alt=""> 
-                       <p><b>PHONE 24/7 </b></p>                   
-                    </div>
-                    <div class="body">
-                        <p> +212 652086766, Fax: 718-724-3312</p>
-                    </div>
-                
-                </div>
-                <div class="time">
+                        <div class="ct">
+                            <div class="tel">
+                                <div>
+                                    <img src="@/assets/images/tel1.png" alt="">
+                                </div>
+                                <div class="body">
+                                    <div>
+                                        <p><b>PHONE 24/7 </b></p>
+                                    </div>
+                                    <p> +212 652086766 <br> Fax: 718-724-3312</p>
+                                </div>
 
-                    <div>
-                        <img src="@/assets/images/time.png" alt=""> 
-                        <p> <b>OPERATING HOURS</b> </p>
-                                           
-                    </div>
-                    <div class="body">
-                        <p>
-                            Mon-Fri: 9:00 am – 5:00 pm <br> Sat-Sun: 11:00 am – 16:00 pm
-                        </p>
-                    </div>
-            </div>
+                            </div>
+                            <div class="time">
+
+                                <div>
+                                    <img src="@/assets/images/horaire.png" alt="">
+
+
+                                </div>
+                                <div class="body">
+                                    <p> <b>OPERATING HOURS</b> </p>
+                                    <p>
+                                        Mon-Fri: 9:00 am – 5:00 pm <br> Sat-Sun: 11:00 am – 16:00 pm
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -152,10 +168,10 @@
         </div>
 
         <div class="controls">
-            <button class="btn" @click="step--" :disabled="step == 1">
+            <button class="btn" @click="previous" :disabled="step == 1">
                 Anterior
             </button>
-            <button class="btn btn--green-1" @click="step++" :disabled="step == 4">
+            <button class="btn btn--green-1" @click="next" :disabled="step == 4">
                 Siguiente
             </button>
         </div>
@@ -178,16 +194,32 @@ export default {
         return {
             step: 1,
             data: [
-                { title: "Adult In-Car Lessons", img: "@/assets/images/pr1.jpg" },
-                { title: "Adult In-Car Lessons", img: "@/assets/images/pr2.jpg" },
-                { title: "TWinter Driving", img: "@/assets/images/pr3.jpg" },
-                { title: "Defensive Driving", img: "@/assets/images/pr4.jpg" },
+                { title: "Adult In-Car Lessons", img: require(`@/assets/images/pr1.jpg`) },
+                { title: "Defensive Driving", img: require(`@/assets/images/pr2.jpg`) },
+                { title: "Winter Driving", img: require(`@/assets/images/PR3.jpg`) },
+                { title: "Defensive Driving", img: require(`@/assets/images/PR4.jpg`) },
             ]
         }
     },
-
+    methods: {
+        next() {
+            if (this.step <= 4) {
+                this.step++;
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        },
+         previous() {
+            if (this.step >= 1) {
+                this.step--;
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+    },
     computed: {
         stepperProgress() {
+            if (this.step >= 4) {
+                return "100%"
+            }
             return (100 / 3) * (this.step - 1) + '%'
         }
     },
@@ -208,14 +240,15 @@ h1 {
     font-weight: bold;
     color: #383838;
 }
-                .A1 {
-                    display: flex;
+
+.A1 {
+    display: flex;
 
 
-                    i {
-                        padding: 0 20px;
-                    }
-                }
+    i {
+        padding: 0 20px;
+    }
+}
 
 /*
 body{
@@ -229,6 +262,17 @@ body{
     font-family: sans-serif;
 }
 */
+.tel,
+.time {
+    display: flex;
+    margin: 20px;
+
+    .body {
+        padding: 0 50px;
+
+    }
+}
+
 .tx-green-1 {
     color: $green-1;
     font-weight: 600;
@@ -377,6 +421,12 @@ body{
         h1 {
             text-align: center;
         }
+    }
+
+    .quality {
+        display: flex;
+        justify-content: space-between;
+
     }
 
 }

@@ -1,7 +1,7 @@
 <template>
- <Navbar />
+  <Navbar v-if="$router.currentRoute.value.fullPath !== '/dashboard/'" />
   <router-view />
-   <Footer/>
+  <Footer />
 </template>
 
 
@@ -20,7 +20,15 @@ export default {
   components: {
     Navbar,
     Footer
-    
+
+  },
+  mounted() {
+  },
+  computed() {
+    return {
+
+    }
+
   }
 }
 </script>
