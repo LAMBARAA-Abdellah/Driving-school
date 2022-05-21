@@ -1,11 +1,12 @@
 <template>
   <Navbar v-if="$router.currentRoute.value.fullPath !== '/dashboard/'" />
+  
   <router-view />
-  <Footer />
+  
+  <Footer/>
+
+
 </template>
-
-
-
 
 
 
