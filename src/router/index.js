@@ -30,7 +30,36 @@ const routes = [
     path: '/testimonials',
     name: 'testimonials',
     component: () => import('../views/TestimonialsView.vue')
-  }
+  },
+  {
+    path: '/dashboard/',
+    name: 'dashboard',
+    component: () => import('../views/DashboardView.vue'),
+
+    children:[
+      {
+        path:'/Monitor',
+        component: () => import('@/components/ContactPage/Contact.vue'),
+      },
+      {
+        path:'/historique',
+        component: () => import('../views/DashboardView.vue'),
+      },
+      {
+        path:'/orders',
+        component: () => import('../views/DashboardView.vue'),
+      }
+      ,
+      {
+        path:'/product',
+        component: () => import('../views/DashboardView.vue'),
+      },
+    ]
+  },
+
+
+
+
 
   
 ]

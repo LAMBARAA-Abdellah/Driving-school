@@ -1,21 +1,26 @@
  <template>
 
     <!-- <button @click="tester">click me</button> -->
+    <Navbar/>
     <Programe />
-
+    <Footer/>
 
 
 </template>
 <script>
 import Programe from '@/components/ProgramePage/Programe.vue'
 import { computed } from "vue";
+import Navbar from '@/components/HomePage/Navbar.vue';
+import Footer from '@/components/HomePage/footer.vue';
 
 export default {
     name: 'ContactPage',
     components: {
-        Programe,
+    Programe,
+    Navbar,
+    Footer,
 
-    },
+},
     methods: {
         tester() {
             console.log("testerrr");

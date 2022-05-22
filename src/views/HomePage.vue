@@ -1,9 +1,10 @@
  <template>
+ <Navbar/>
   <background />
   <Ready/>
   <Programes/>
   <US/>
- 
+ <Footer/>
   
 
 
@@ -24,8 +25,8 @@ export default {
     Ready,
     Programes,
     US,
-    Footer,
+    Footer
 
-  }
+}
 }
 </script>

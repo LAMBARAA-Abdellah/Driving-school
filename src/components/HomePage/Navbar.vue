@@ -32,14 +32,16 @@
         </div>
         <div class="menu">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Faqs</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Programe</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+                <router-link to="/"><li><a>Home</a></li></router-link>
+                <router-link to="/about"><li><a>About</a></li></router-link>
+                <router-link to="/programe"><li><a>Programes</a></li></router-link>
+                <router-link to="/Services"><li><a>Services</a></li></router-link>
+                 <router-link to="/Testimonials"><li><a>Testimonials</a></li></router-link>
+                <router-link to="/Contact"><li><a>Contact</a></li></router-link>
             </ul>
+
+
+            
         </div>
         <button>
             Order now
@@ -74,7 +76,9 @@ $hover:#F8CE03;
     align-items: baseline;
 }
 
-
+*{
+    text-decoration: none !important;
+}
 .sous-nav {
   @include flex;
     background-color: $color-sousnavbar;
@@ -123,9 +127,8 @@ $hover:#F8CE03;
 }
 
 .nav-bar {
-    height: 140px;
     @include flex;
-    padding: 10px 100px;
+    padding: 0 100px;
 
     img {
         width: 150px;
@@ -154,7 +157,7 @@ $hover:#F8CE03;
                 text-decoration: none;
                 color: black;
                 font-size: 18px;
-                padding: 10px;
+             
                 cursor: pointer;
                 font-weight: bold;
                 font-size: 20px;

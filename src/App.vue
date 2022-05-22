@@ -1,9 +1,9 @@
 <template>
-  <Navbar v-if="$router.currentRoute.value.fullPath !== '/dashboard/'" />
+  <!-- <Navbar v-if="$router.currentRoute.value.fullPath !== '/dashboard' && $router.currentRoute.value.fullPath !== '/dashboard/'" /> -->
   
   <router-view />
   
-  <Footer/>
+<!-- <Footer v-if="$router.currentRoute.value.fullPath !== '/dashboard' && $router.currentRoute.value.fullPath != '/dashboard/'"/> -->
 
 
 </template>

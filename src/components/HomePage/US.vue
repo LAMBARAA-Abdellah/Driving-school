@@ -101,11 +101,7 @@
         <h1>Our studenys Says...</h1>
         <div class="comantaire">
             <div class="etoiles">
-                <img src="@/assets/images/Star2.png" alt="">
-                <img src="@/assets/images/Star2.png" alt="">
-                <img src="@/assets/images/Star2.png" alt="">
-                <img src="@/assets/images/Star1.png" alt="">
-                <img src="@/assets/images/Star1.png" alt="">
+                <img :src="arr[current].img" alt="">
             </div>
             <div>
                 {{ arr[current].coment }}
@@ -188,9 +184,9 @@ export default {
 
             ],
             arr: [
-                { coment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!", name: "Lambaraa Abdellah" },
-                { coment: "fdgdgd ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!", name: "Said ouidane" },
-                { coment: "ezezez ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!", name: "aaaaaa vbbbbb" },
+                { img:require(`@/assets/images/star5.png`), coment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!", name: "Lambaraa Abdellah" },
+                { img:require(`@/assets/images/star4.png`),coment: "fdgdgd ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!", name: "Said ouidane" },
+                { img:require(`@/assets/images/star5.png`), coment: "ezezez ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint aliquam, in iusto aperiam culpa quidem sit quibusdam iure debitis non minus pariatur. Iusto unde harum nisi! Rem veniam facilis aliquam!", name: "aaaaaa vbbbbb" },
 
             ],
             event: [
@@ -330,7 +326,7 @@ h1 {
 
     .face {
         position: absolute;
-        margin-top: 44px;
+        margin-top: 35px;
     }
 }
 

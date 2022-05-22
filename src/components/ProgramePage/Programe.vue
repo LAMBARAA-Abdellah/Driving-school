@@ -25,7 +25,7 @@
             <div class="stepper-pane" v-if="step == item">
                 <!-- {{ test }}
                 Estas en el paso <span class="tx-green-1">{{ item }}</span> aqui mostrarás el contenido :D -->
-                <h1>Adult In-Car Lessons</h1>
+                <h1>{{data[item-1].title}}</h1>
                 <p>All Inclusive programs provide the student with 30 hours of class, and all class materials. We offer
                     weekday classes, Saturday/Sunday classes, Saturday only, and Sunday only classes</p>
                 <div class="cardP">
@@ -195,7 +195,7 @@ export default {
             step: 1,
             data: [
                 { title: "Adult In-Car Lessons", img: require(`@/assets/images/pr1.jpg`) },
-                { title: "Defensive Driving", img: require(`@/assets/images/pr2.jpg`) },
+                { title: "Stick Shift Lessons", img: require(`@/assets/images/pr5.jpg`) },
                 { title: "Winter Driving", img: require(`@/assets/images/PR3.jpg`) },
                 { title: "Defensive Driving", img: require(`@/assets/images/PR4.jpg`) },
             ]
