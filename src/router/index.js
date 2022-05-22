@@ -39,7 +39,7 @@ const routes = [
     children:[
       {
         path:'/Monitor',
-        component: () => import('@/components/ContactPage/Contact.vue'),
+        component: () => import('@/components/DashboardPage/Monitor.vue'),
       },
       {
         path:'/historique',
