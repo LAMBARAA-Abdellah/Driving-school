@@ -1,4 +1,4 @@
-# hello-worl
+# hello-world
 
 ## Project setup
 ```
