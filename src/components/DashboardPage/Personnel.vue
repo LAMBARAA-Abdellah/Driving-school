@@ -3,7 +3,7 @@
 
 
     <Hello msg="Personnel" />
-   
+
 
     <div class="content-card">
         <div class="card" v-for="(data, index) in datap " :key="index">
@@ -11,10 +11,10 @@
                 <img :src="data.img" alt="John" style="width:100%">
             </div>
 
-            <h1>{{data.name}}</h1>
-            <p class="title">Cin:{{data.cin}}</p>
-            <p class="title">Tel:{{data.tel}}</p>
-            <p>{{data.profession}}</p>
+            <h1>{{ data.name }}</h1>
+            <p class="title">Cin:{{ data.cin }}</p>
+            <p class="title">Tel:{{ data.tel }}</p>
+            <p>{{ data.profession }}</p>
 
 
             <p><button>detaill</button></p>
@@ -34,18 +34,18 @@ export default {
     components: {
         Hello
     },
-    data(){
-        return{
+    data() {
+        return {
             datap: [
-        { img: require(`@/assets/images/sec1.png`),cin:"hh21846",profession:"secritaire", name: "Faiza Rabhi", tel : "0652745372" },
-        { img: require(`@/assets/images/img1.jpg`),cin:"hh27344",profession:"director", name: "Lambaraa Abdellah", tel: "0632193749" },
-        { img: require(`@/assets/images/sec.png`),cin:"hh86293",profession:"Comptable", name: "Alami Nazha", tel: "0719231934" },
-    ],
+                { img: require(`@/assets/images/sec1.png`), cin: "hh21846", profession: "secritaire", name: "Faiza Rabhi", tel: "0652745372" },
+                { img: require(`@/assets/images/img1.jpg`), cin: "hh27344", profession: "director", name: "Lambaraa Abdellah", tel: "0632193749" },
+                { img: require(`@/assets/images/sec.png`), cin: "hh86293", profession: "Comptable", name: "Alami Nazha", tel: "0719231934" },
+            ],
 
         }
     },
 
-    
+
     props: {
         msg: String
     }
@@ -55,9 +55,10 @@ export default {
 $color-sousnavbar: #383838;
 $hover:#F8CE03;
 
-*{
+* {
     font-size: 120%;
 }
+
 @mixin flex {
     display: flex;
     justify-content: space-between;
@@ -78,9 +79,9 @@ $hover:#F8CE03;
         display: block;
         width: 100%;
         height: 100%;
-         position: center;
+        position: center;
         object-fit: cover;
-  
+
 
     }
 }

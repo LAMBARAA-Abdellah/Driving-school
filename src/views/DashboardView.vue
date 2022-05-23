@@ -50,7 +50,6 @@
         </div>
     </div>
 
-    <Icon icon="icon-park-outline:steering-wheel" />
 
 
     <router-view />
