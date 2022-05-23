@@ -42,8 +42,8 @@ const routes = [
         component: () => import('@/components/DashboardPage/Monitor.vue'),
       },
       {
-        path:'/historique',
-        component: () => import('../views/DashboardView.vue'),
+        path:'/cars',
+        component: () => import('@/components/DashboardPage/Cars.vue'),
       },
       {
         path:'/orders',

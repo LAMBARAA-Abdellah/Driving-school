@@ -26,16 +26,14 @@
                     <!-- pour afficher tout les button de nav-bar -->
                     <span v-for="(menuItem, index) in menuItems" :key="index">
                         <li @click="deriction(menuItem.link)" class="cursor-pointer">
-                            <a>  &ensp;
-                                <i class="bx" :class="menuItem.icon || 'bx-square-rounded'" />
+                            <a :active-class="isclick ? 'active' : ''">
+                                <i><Icon icon="icon-park-outline:steering-wheel" /></i>
                                 <span class="links_name">{{ menuItem.name }} </span>
                                 <!-- <i class="fas fa-angle-down"></i> -->
                             </a>
-                            
-                            <!-- <span class="tooltip">{{
-                menuItem.tooltip || menuItem.name
-              }}</span> -->
+
                         </li>
+                        
                     </span>
                 </ul>
             </div>
@@ -52,7 +50,10 @@
         </div>
     </div>
 
-<router-view />
+    <Icon icon="icon-park-outline:steering-wheel" />
+
+
+    <router-view />
 
 
 
@@ -61,9 +62,12 @@
 </template>
 
 <script>
-   
+import { Icon } from '@iconify/vue';
 export default {
     name: "SidebarMenuAkahon",
+    components: {
+        Icon,
+    },
     inject: ["setRole"],
     props: {
         //! Menu settings
@@ -121,7 +125,7 @@ export default {
                     link: "/AllORG",
                     name: "All Organisateur",
                     tooltip: "All Organisateur",
-                    icon: "bx-user",
+                    icon: "icon-park-outline:steering-wheel",
                 },
                 {
                     link: '/Archieve',
@@ -200,12 +204,19 @@ export default {
     },
     data() {
         return {
+            menuItems:[
+                {name:"Dashboard",link:"/Dashboard",icon:"bx-home",tooltip:"Home"},
+                {name:"Monitors",link:"/monitor",icon:"icon-park-outline:steering-wheel",tooltip:"Demandes"},
+
+            ],
             isOpened: false,
+            isclick: true
         };
     },
     mounted() {
         this.isOpened = this.isMenuOpen;
     },
+
     computed: {
         cssVars() {
             return {
@@ -231,6 +242,13 @@ export default {
         },
     },
     methods: {
+        click() {
+            this.isclick = !this.isclick
+        },
+
+
+
+
         deriction(event) {
             this.$router.push(event);
         },
@@ -244,7 +262,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 @import url("https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css");
 
@@ -253,6 +271,34 @@ export default {
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+}
+
+$color-sousnavbar: #383838;
+$hover:#F8CE03;
+
+.hello {
+    display: flex;
+    background: white;
+    position: fixed;
+    z-index: 999;
+    padding: 0 100px 0 0;
+    width: 100%;
+    top: 0;
+    justify-content: space-around;
+    align-items: center;
+
+    h1 {
+        font-family: ui-sans-serif !important;
+
+    }
+
+    .sd {
+        color: #F8CE03;
+        font-family: ui-sans-serif !important;
+
+
+    }
+
 }
 
 body {
@@ -435,6 +481,11 @@ body {
 .sidebar li a:hover {
     background: var(--menu-items-hover-color);
 }
+
+.sidebar li a.active:focus {
+    background: var(--menu-items-hover-color);
+}
+
 
 .sidebar li a .links_name {
     color: var(--menu-items-text-color);
