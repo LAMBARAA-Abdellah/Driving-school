@@ -1,8 +1,6 @@
 <template>
     <div class="hello">
-        <h1>👋 Hello <span class="sd">D</span>riving <span class="sd">S</span>chool!</h1>
-
-
+        <h1>👋 <span>{{msg}}</span> <span class="sd">D</span>riving <span class="sd">S</span>chool!</h1>
         <button class="add">
             Ajouter
         </button>
@@ -10,8 +8,14 @@
 
 </template>
 <script>
+
+
 export default {
     name: 'Hello',
+    props: {
+        msg: String,
+    },
+
     data() {
         return {
 
@@ -26,6 +30,7 @@ export default {
 <style lang="scss" scoped>
 $color-sousnavbar: #383838;
 $hover:#F8CE03;
+
 .add {
     width: 120px;
     height: 40px;

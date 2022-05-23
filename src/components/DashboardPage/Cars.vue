@@ -2,7 +2,7 @@
 
 
 
-    <Hello />
+    <Hello msg="cars" />
     <hr style=" border-top: 6px solid rgba(0,0,0,.1) !important">
 
     <div class="content-card">
@@ -64,7 +64,9 @@ export default {
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
 $hover:#F8CE03;
-
+*{
+    font-size: 120%;
+}
 @mixin flex {
     display: flex;
     justify-content: space-between;
@@ -85,7 +87,8 @@ $hover:#F8CE03;
         display: block;
         width: 100%;
         height: 100%;
-        object-position: bottom;
+         position: center;
+        object-fit: cover;
   
 
     }

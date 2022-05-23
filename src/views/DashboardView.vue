@@ -27,7 +27,7 @@
                     <span v-for="(menuItem, index) in menuItems" :key="index">
                         <li @click="deriction(menuItem.link)" class="cursor-pointer">
                             <a :active-class="isclick ? 'active' : ''">
-                                <i><Icon icon="icon-park-outline:steering-wheel" /></i>
+                                <i><Icon :icon="menuItem.icon" /></i>
                                 <span class="links_name">{{ menuItem.name }} </span>
                                 <!-- <i class="fas fa-angle-down"></i> -->
                             </a>
@@ -205,8 +205,15 @@ export default {
     data() {
         return {
             menuItems:[
-                {name:"Dashboard",link:"/Dashboard",icon:"bx-home",tooltip:"Home"},
-                {name:"Monitors",link:"/monitor",icon:"icon-park-outline:steering-wheel",tooltip:"Demandes"},
+                {name:"Dashboard",link:"/Dashboard",icon:"ant-design:home-outlined",tooltip:"Home"},
+                {name:"Students",link:"/students",icon:"ph:student-fill",tooltip:"Students"},
+                {name:"Monitors",link:"/monitors",icon:"icon-park-outline:steering-wheel",tooltip:"Monitors"},               
+                {name:"Cars",link:"/cars",icon:"ant-design:car-filled",tooltip:"Car"},
+                {name:"Personnel",link:"/Personnels",icon:"ant-design:team-outlined",tooltip:"personnel"},
+                {name:"Archieve",link:"/archieves",icon:"akar-icons:block",tooltip:"Archieve"},
+                {name:"Setting",link:"/settings",icon:"ant-design:setting-outlined",tooltip:"Setting"},
+
+
 
             ],
             isOpened: false,

@@ -82,7 +82,7 @@
         <p>We have the most expert and experienced driving coaches in the industry</p>
         <div class="containner">
             <div class="team">
-                <img src="@/assets/images/Webp.net-resizeimage.jpg" alt="">
+                <img src="@/assets/images/img1.jpg" alt="">
                 <h2>John Doe</h2>
                 <h5>CEO</h5>
                 <p>

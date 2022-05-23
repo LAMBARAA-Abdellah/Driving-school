@@ -38,7 +38,7 @@ const routes = [
 
     children:[
       {
-        path:'/Monitor',
+        path:'/Monitors',
         component: () => import('@/components/DashboardPage/Monitor.vue'),
       },
       {
@@ -46,14 +46,20 @@ const routes = [
         component: () => import('@/components/DashboardPage/Cars.vue'),
       },
       {
-        path:'/orders',
-        component: () => import('../views/DashboardView.vue'),
+        path:'/Students',
+        component: () => import('@/components/DashboardPage/Student.vue'),
       }
       ,
       {
-        path:'/product',
-        component: () => import('../views/DashboardView.vue'),
+        path:'/Archieves',
+        component: () => import('@/components/DashboardPage/Archieve.vue'),
       },
+      
+      {
+        path:'/Personnels',
+        component: () => import('@/components/DashboardPage/Personnel.vue'),
+      },
+      
     ]
   },
 
