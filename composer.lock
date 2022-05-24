@@ -1,0 +1,79 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "4d5c27ed12eced94382a623e33751572",
+    "packages": [
+        {
+            "name": "flatroy/nova-progressbar-field",
+            "version": "0.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flatroy/nova-progressbar-field.git",
+                "reference": "d7d25342d71e77268a8158406a4d55cffd4703b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flatroy/nova-progressbar-field/zipball/d7d25342d71e77268a8158406a4d55cffd4703b4",
+                "reference": "d7d25342d71e77268a8158406a4d55cffd4703b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Flatroy\\FieldProgressbar\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Flatroy\\FieldProgressbar\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "George Daneke",
+                    "email": "hi@daneke.ge",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Ro Kleine Sonne",
+                    "email": "ro@signifly.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel Nova progress bar field.",
+            "keywords": [
+                "fields",
+                "laravel",
+                "nova",
+                "progress",
+                "progressbar"
+            ],
+            "support": {
+                "issues": "https://github.com/Flatroy/nova-progressbar-field/issues",
+                "source": "https://github.com/Flatroy/nova-progressbar-field/tree/0.0.5"
+            },
+            "time": "2022-05-01T20:45:20+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
+}

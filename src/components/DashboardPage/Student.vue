@@ -14,13 +14,7 @@
             <h1>{{data.name}}</h1>
             <p class="title">Cin:{{data.cin}}</p>
             <p class="title">Tel:{{data.tel}}</p>
-            <div class="total"><h6 class="title">Payé:</h6><h1 class="prix">{{data.totale}}dh</h1></div>
-             <div>
-    <h5>Default width</h5>
-    <b-progress :value="value" class="mb-3"></b-progress>
-
-  
-  </div>
+            <!-- <div class="total"><h6 class="title">Payé:</h6><h1 class="prix">{{data.totale}}dh</h1></div> -->
 
 
             <p><button>detaill</button></p>
@@ -75,6 +69,7 @@ $hover:#F8CE03;
 .content-card {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 70px;
 }
 
 .profil-img {

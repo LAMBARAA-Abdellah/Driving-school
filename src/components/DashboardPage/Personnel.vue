@@ -69,6 +69,7 @@ $hover:#F8CE03;
 .content-card {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 70px;
 }
 
 .profil-img {

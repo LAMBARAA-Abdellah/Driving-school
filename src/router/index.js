@@ -38,6 +38,11 @@ const routes = [
 
     children:[
       {
+        path:'/Dashboard/',
+        component: () => import('@/components/DashboardPage/Dashboard.vue'),
+      },
+
+      {
         path:'/Monitors',
         component: () => import('@/components/DashboardPage/Monitor.vue'),
       },
@@ -48,6 +53,7 @@ const routes = [
       {
         path:'/Students',
         component: () => import('@/components/DashboardPage/Student.vue'),
+        
       }
       ,
       {
@@ -59,8 +65,17 @@ const routes = [
         path:'/Personnels',
         component: () => import('@/components/DashboardPage/Personnel.vue'),
       },
+      { 
+        path:'/AddStudent',
+        component: () => import('@/components/DashboardPage/AddStudent.vue'),
+      },
+      
       
     ]
+  },
+  { 
+    path:'/Login',
+    component: () => import('@/components/auth/Login.vue'),
   },
 
 
