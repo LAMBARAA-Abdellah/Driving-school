@@ -1,10 +1,7 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-    <Add msg="Personnel"/>
     <form action="">
     <div class="content">
-    
-        
             <div class="profil-img">
                 <img src="@/assets/images/profil2.png" alt="">
 
@@ -68,14 +65,6 @@
 
 
                 </div>
-                <div class="form-group">
-                    <label for="">Total a payé</label>
-                    <input type="text" name="" id="" class="form-control">
-                </div>
-                 <div class="form-group">
-                    <label for="">Tranche payé</label>
-                    <input type="text" name="" id="" class="form-control">
-                </div>
                 </div>
                
         <div />
@@ -93,15 +82,13 @@
 
 <script>
 import Hello from './Hello.vue';
-import Add from './add.vue';
 
 
 export default {
-    name: 'AddStudent',
+    name: 'AddMonitor',
     name: 'Monitor',
     components: {
-        Hello,
-        Add
+        Hello
 
 
     },
@@ -150,7 +137,6 @@ form{
     .profil-img {
         width: 200px;
         height: 200px;
-        margin-top: 100px;
 
         img {
             display: block;
