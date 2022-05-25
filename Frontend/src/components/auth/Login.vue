@@ -24,7 +24,7 @@
   </div>
 
   <!-- Footer -->
-  <p>Nouveau sur Driven School ? <a href="#!" class="text-blue-700 font-medium">S’inscrire</a>  </p>
+  <!-- <p>Nouveau sur Driven School ? <a href="#!" class="text-blue-700 font-medium">S’inscrire</a>  </p> -->
 </div>
 
 
