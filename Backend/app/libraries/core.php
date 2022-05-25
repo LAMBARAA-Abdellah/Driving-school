@@ -25,8 +25,6 @@ class core
 
         $this->controller = new $this->controller;
 
-    post/add
-
 
         if (isset($url[1])) {
 
@@ -41,8 +39,7 @@ class core
 
         call_user_func_array([$this->controller, $this->method], $this->param);
     }
-    $s = new post
-    $s->add()
+
 
     public function getUrl()
     {

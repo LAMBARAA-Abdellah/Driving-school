@@ -6,6 +6,6 @@ class Pages
     }
     public function index()
     {
-        echo "Wolcom to my MVC Framework"
+        echo "Wolcom to my MVC Framework";
     }
 }

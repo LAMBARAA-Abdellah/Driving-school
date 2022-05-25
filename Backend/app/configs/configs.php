@@ -3,7 +3,7 @@
     
     define("APPROOT", dirname(dirname(__FILE__)));
     define("URLROOT", 'http://localhost/Statique/Backend/');
-    define("APPNAME", 'mvcFramework');
+    define("APPNAME", 'statique');
 
 
 
