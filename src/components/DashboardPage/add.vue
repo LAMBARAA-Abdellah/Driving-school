@@ -49,5 +49,6 @@ h1{
     font-size: 30px;
     font-weight: bold;
     color: #383838;
+    margin-left: -30%;
 }
 </style>

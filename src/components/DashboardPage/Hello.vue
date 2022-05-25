@@ -1,9 +1,12 @@
 <template>
     <div class="hello">
         <h1>👋 <span>{{msg}}</span> <span class="sd">D</span>riving <span class="sd">S</span>chool!</h1>
-        <button class="add">
+       
+         <router-link :to="{ path: '/{{link}}' }">
+          <button class="add">
             Ajouter
         </button>
+         </router-link>
     </div>
 
 </template>
@@ -14,6 +17,7 @@ export default {
     name: 'Hello',
     props: {
         msg: String,
+        link: String
     },
 
     data() {

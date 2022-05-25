@@ -2,7 +2,7 @@
 
 
 
-    <Hello msg="Students" />
+    <Hello msg="Students" link="/AddStudent" />
    
 
     <div class="content-card">
@@ -37,6 +37,9 @@ export default {
   
     data(){
         return{
+            lien:{
+                link:"/AddStudent"
+            },
             value: 20.4,
             datas: [
         { img: require(`@/assets/images/sec1.png`),cin:"hh21846",totale:"1000", name: "Nemli Youness", tel : "0652745372" },

@@ -69,6 +69,18 @@ const routes = [
         path:'/AddStudent',
         component: () => import('@/components/DashboardPage/AddStudent.vue'),
       },
+      { 
+        path:'/AddMonitor',
+        component: () => import('@/components/DashboardPage/AddMonitor.vue'),
+      },
+      { 
+        path:'/AddCar',
+        component: () => import('@/components/DashboardPage/AddCar.vue'),
+      },
+      { 
+        path:'/AddPersonnel',
+        component: () => import('@/components/DashboardPage/AddPersonnel.vue'),
+      },
       
       
     ]
