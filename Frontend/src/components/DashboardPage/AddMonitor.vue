@@ -4,7 +4,8 @@
     <form action="">
     <div class="content">
             <div class="profil-img">
-                <img src="@/assets/images/profil2.png" alt="">
+                <img src="" alt="">
+
                 <input type="file" name="" id="">
 
             </div>
@@ -46,7 +47,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Select </label>
+                    <label for="">Select permis</label>
                     <select name="" id="" class="form-control">
                         <option value="">A</option>
                         <option value="">B</option>
@@ -122,6 +123,7 @@ select{
 }
 form{
     background-color: #F9F8F8;
+    padding-top: 100px;
 }
 .aaa{
     margin: 20px;
@@ -137,9 +139,12 @@ form{
     .profil-img {
         width: 200px;
         height: 200px;
-
-        img {
+  img {
+            background-image: url("@/assets/images/profil2.png");
             display: block;
+            background-position: center;
+            background-size: cover;
+        height: 200px;
             width: 100%;
         }
 

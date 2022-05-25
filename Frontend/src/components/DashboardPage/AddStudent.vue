@@ -1,12 +1,12 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-    <Add msg="Personnel"/>
+    <Add msg="Student"/>
     <form action="">
     <div class="content">
     
         
             <div class="profil-img">
-                <img src="@/assets/images/profil2.png" alt="">
+                <img src="" alt="">
 
                 <input type="file" name="" id="">
 
@@ -135,6 +135,7 @@ select{
 }
 form{
     background-color: #F9F8F8;
+    
 }
 .aaa{
     margin: 20px;
@@ -152,8 +153,12 @@ form{
         height: 200px;
         margin-top: 100px;
 
-        img {
+         img {
+            background-image: url("@/assets/images/profil2.png");
             display: block;
+            background-position: center;
+            background-size: cover;
+        height: 200px;
             width: 100%;
         }
 

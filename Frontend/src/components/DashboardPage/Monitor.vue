@@ -2,11 +2,11 @@
 
 
 
-    <Hello msg="Students" link="/AddStudent" />
+    <Hello msg="Monitor" link="/AddMonitor" />
    
 
     <div class="content-card">
-        <div class="card" v-for="(data, index) in datas " :key="index">
+        <div class="card" v-for="(data, index) in datam " :key="index">
             <div class="profil-img">
                 <img :src="data.img" alt="John" style="width:100%">
             </div>
@@ -14,7 +14,7 @@
             <h1>{{data.name}}</h1>
             <p class="title">Cin:{{data.cin}}</p>
             <p class="title">Tel:{{data.tel}}</p>
-            <!-- <div class="total"><h6 class="title">Payé:</h6><h1 class="prix">{{data.totale}}dh</h1></div> -->
+            <p>{{data.permis}}</p>
 
 
             <p><button>detaill</button></p>
@@ -34,17 +34,15 @@ export default {
     components: {
         Hello
     },
-  
     data(){
         return{
-            lien:{
-                link:"/AddStudent"
-            },
-            value: 20.4,
-            datas: [
-        { img: require(`@/assets/images/sec1.png`),cin:"hh21846",totale:"1000", name: "Nemli Youness", tel : "0652745372" },
-        { img: require(`@/assets/images/img1.jpg`), cin:"hh21846",totale:"800", name: " Rabhi", tel : "0652745372" },
-        { img: require(`@/assets/images/sec.png`), cin:"hh21846",totale:"2000", name: "Faiza Rabhi", tel : "0652745372" },
+            datam: [
+        { img: require(`@/assets/images/monitor1.png`),cin:"hh21846",permis:"permis A", name: "Mhaimar Youssef", tel : "0652745372" },
+        { img: require(`@/assets/images/monitor2.png`),cin:"hh27344",permis:"permis B", name: "Doufar Jawad", tel: "0632193749" },
+        { img: require(`@/assets/images/monitor3.png`),cin:"hh86293",permis:"permis B", name: "ghrabla  Kamal", tel: "0719231934" },
+        { img: require(`@/assets/images/monitor4.png`),cin:"hh27344",permis:"permis C", name: "Daalabi Reda", tel: "0673926345" },
+        { img: require(`@/assets/images/monitor5.png`),cin:"hh86293",permis:"permis D", name: "Namli Youness", tel: "0799438723" },
+        { img: require(`@/assets/images/monitor6.png`),cin:"hh27344",permis:"permis E", name: "Bassidi Ayoub ", tel: "06551826353" },
     ],
 
         }
@@ -59,6 +57,7 @@ export default {
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
 $hover:#F8CE03;
+
 *{
     font-size: 120%;
 }
@@ -133,13 +132,5 @@ a:hover {
 
 p {
     margin: 0;
-}
-.total{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .prix{
-        padding:0 10px;
-    }
 }
 </style>

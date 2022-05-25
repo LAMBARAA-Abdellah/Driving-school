@@ -2,7 +2,7 @@
     <div class="hello">
         <h1>👋 <span>{{msg}}</span> <span class="sd">D</span>riving <span class="sd">S</span>chool!</h1>
        
-         <router-link :to="{ path: '/{{link}}' }">
+         <router-link :to="link">
           <button class="add">
             Ajouter
         </button>

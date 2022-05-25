@@ -1,12 +1,12 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-    <Add msg="Car"/>
+    <Add msg="Personnel"/>
     <form action="">
     <div class="content">
     
         
-            <div class="profil-img">
-                <img src="@/assets/images/profil2.png" alt="">
+           <div class="profil-img">
+                <img src="" alt="">
 
                 <input type="file" name="" id="">
 
@@ -48,34 +48,12 @@
                         <option value="">Femme</option>
                     </select>
                 </div>
+                
                 <div class="form-group">
-                    <label for="">Select </label>
-                    <select name="" id="" class="form-control">
-                        <option value="">A</option>
-                        <option value="">B</option>
-                        <option value="">C</option>
-                        <option value="">D</option>
-                        <option value="">E</option>
-                        <option value="">F</option>
-                    </select>
-
-                    <div />
-                    <div />
-                    <div />
-                    <div />
-
-
-
-
-                </div>
-                <div class="form-group">
-                    <label for="">Total a payé</label>
+                    <label for="">profession</label>
                     <input type="text" name="" id="" class="form-control">
                 </div>
-                 <div class="form-group">
-                    <label for="">Tranche payé</label>
-                    <input type="text" name="" id="" class="form-control">
-                </div>
+                 
                 </div>
                
         <div />
@@ -135,6 +113,7 @@ select{
 }
 form{
     background-color: #F9F8F8;
+    
 }
 .aaa{
     margin: 20px;
@@ -153,7 +132,11 @@ form{
         margin-top: 100px;
 
         img {
+            background-image: url("@/assets/images/profil2.png");
             display: block;
+            background-position: center;
+            background-size: cover;
+        height: 200px;
             width: 100%;
         }
 
