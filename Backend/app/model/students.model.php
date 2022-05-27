@@ -25,7 +25,7 @@ class students
         $this->db->bind(':sexe', $data['sexe']);
         $this->db->bind(':permis', $data['permis']);
         $this->db->bind(':total', $data['total']);
-        $this->db->bind(':avance', $data['avance']||0);
+        $this->db->bind(':avance', $data['avance'] || 0);
         $this->db->bind(':photo', $data['photo']);
         $this->db->bind(':id_utilisateur', $data['id_utilisateur']);
         if ($this->db->execute()) {
@@ -34,6 +34,13 @@ class students
             return false;
         }
     }
+    function getStudent($id)
+    {
+        $this->db->query('SELECT * FROM candidat WHERE id_Candidat = :id');
+        $this->db->bind(':id', $id);
+        return $this->db->fetch();
+    }
+
 
     public function getStudents()
     {
@@ -46,7 +53,7 @@ class students
 
     function deleteStudent($id)
     {
-        $this->db->query('DELETE FROM candidat WHERE id_candidat = :id_candidat');
+        $this->db->query('DELETE FROM candidat WHERE id_Candidat = :id_candidat');
         $this->db->bind(':id_candidat', $id);
         if ($this->db->execute()) {
             return true;

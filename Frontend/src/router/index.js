@@ -70,8 +70,12 @@ const routes = [
         component: () => import('@/components/DashboardPage/AddStudent.vue'),
       },
       { 
+        path:'/UpdateStudent/:id',
+        component: () => import('@/components/DashboardPage/updateStudent.vue'),
+      },
+      { 
         path:'/detailStudent/:id',
-        component: () => import('@/components/DashboardPage/AddStudent.vue'),
+        component: () => import('@/components/DashboardPage/detailStudent.vue'),
       },
       { 
         path:'/AddMonitor',

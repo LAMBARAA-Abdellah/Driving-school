@@ -65,6 +65,7 @@ class database
     }
 
 
+
     public function fetchAll()
     {
         $this->stmt->execute();
@@ -75,7 +76,7 @@ class database
     public function fetch()
     {
         $this->stmt->execute();
-        $result = $this->stmt->fetch(PDO::FETCH_OBJ);
+        $result = $this->stmt->fetch(PDO::FETCH_OBJ);     
         return $result;
     }
 

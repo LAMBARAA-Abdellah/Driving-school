@@ -8,13 +8,15 @@
     <div class="content-card">
         <div class="card" v-for="(data, index) in Student " :key="index">
             <div class="profil-img">
-                <img :src="'assets/images/' + data.photo " alt="" style="width:100%">
+                <img :src="'assets/images/' + data.photo" alt="">
             </div>
             <h1>{{ data.nom_candidat }} {{ data.prenom_candidat }}</h1>
             <p class="title">Cin:{{ data.cin }}</p>
             <p class="title">Tel:{{ data.tel }}</p>
             <!-- <div class="total"><h6 class="title">Payé:</h6><h1 class="prix">{{data.totale}}dh</h1></div> -->
-            <p><button>detaill</button></p>
+            <router-link :to="'/detailstudent/' + data.id_Candidat">
+                <p><button>detaill</button></p>
+            </router-link>
         </div>
     </div>
 </template>
@@ -29,7 +31,7 @@ export default {
     components: {
         Hello
     },
-  
+
 
     data() {
         return {
@@ -40,18 +42,19 @@ export default {
             //     { img: require(`@/assets/images/sec.png`), cin:"hh21846",totale:"2000", name: "Faiza Rabhi", tel : "0652745372" },
             // ],
             Student: {
-                nom_candidat:"",
-                prenom_candidat:"",
-                cin:"",
-                tel:"",
-                email:"",
-                photo:"",
-                
+                id_candidat: "",
+                nom_candidat: "",
+                prenom_candidat: "",
+                cin: "",
+                tel: "",
+                email: "",
+                photo: "",
+
             },
 
         }
     },
-      mounted() {
+    mounted() {
         // this.id = localStorage.getItem("id");
         // console.log(localStorage.getItem("id"));
         fetch("http://localhost/Statique/Backend/student/allStudents").then(res => res.json()).then(Student => {
