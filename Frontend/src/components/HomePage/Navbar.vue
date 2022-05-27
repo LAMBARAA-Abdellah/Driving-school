@@ -24,24 +24,62 @@
             <i class="fab fa-google"></i>
         </div>
     </div>
+    <div class="navbar">
+    <div class="logo">
+            <!-- <img src="../../assets/images/logo3.png" alt=""> -->
+            <img src="../../assets/images/Drv2.svg" alt="">
+
+        </div>
+        <div class="container nav-container">
+            <input class="checkbox" type="checkbox" />
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <div class="menu-items">
+                <li>
+                    <router-link class="active" to="/admin">Appointment</router-link>
+                </li>
+                <li>
+                    <router-link to="/client">Clients</router-link>
+                </li>
+                <li>
+                    <router-link to="/">Log Out</router-link>
+                </li>
+            </div>
+        </div>
+    </div>
     <div class=" nav-bar ">
         <div class="logo">
-         <!-- <img src="../../assets/images/logo3.png" alt=""> -->
+            <!-- <img src="../../assets/images/logo3.png" alt=""> -->
             <img src="../../assets/images/Drv2.svg" alt="">
 
         </div>
         <div class="menu">
             <ul>
-                <router-link to="/"><li><a>Home</a></li></router-link>
-                <router-link to="/about"><li><a>About</a></li></router-link>
-                <router-link to="/programe"><li><a>Programes</a></li></router-link>
-                <router-link to="/Services"><li><a>Services</a></li></router-link>
-                 <router-link to="/Testimonials"><li><a>Testimonials</a></li></router-link>
-                <router-link to="/Contact"><li><a>Contact</a></li></router-link>
+                <router-link to="/">
+                    <li><a>Home</a></li>
+                </router-link>
+                <router-link to="/about">
+                    <li><a>About</a></li>
+                </router-link>
+                <router-link to="/programe">
+                    <li><a>Programes</a></li>
+                </router-link>
+                <router-link to="/Services">
+                    <li><a>Services</a></li>
+                </router-link>
+                <router-link to="/Testimonials">
+                    <li><a>Testimonials</a></li>
+                </router-link>
+                <router-link to="/Contact">
+                    <li><a>Contact</a></li>
+                </router-link>
             </ul>
 
 
-            
+
         </div>
         <button>
             Order now
@@ -76,11 +114,19 @@ $hover:#F8CE03;
     align-items: baseline;
 }
 
-*{
+* {
     text-decoration: none !important;
 }
+
+.navbar{
+    display: none;
+}
+
+
+
+
 .sous-nav {
-  @include flex;
+    @include flex;
     background-color: $color-sousnavbar;
     padding: 10px;
     color: #fff;
@@ -88,6 +134,7 @@ $hover:#F8CE03;
     font-size: 14px;
     padding: 6px 30px;
     height: 45px;
+
     div {
         @include flex;
         cursor: pointer;
@@ -157,7 +204,7 @@ $hover:#F8CE03;
                 text-decoration: none;
                 color: black;
                 font-size: 18px;
-             
+
                 cursor: pointer;
                 font-weight: bold;
                 font-size: 20px;
@@ -184,7 +231,150 @@ $hover:#F8CE03;
     button:hover {
         background-color: $hover;
         color: black;
-        border:none;
+        border: none;
+    }
+
+}
+@media screen and (max-width: 768px) {
+
+    .sous-nav{
+        display: none;
+    }
+    .nav-bar{
+        display: none;
+    }
+    .logo{
+        position: absolute;
+        right: 3%;
+        top:15px;
     }
 }
+
+@media screen and (max-width: 576px) {
+    .navbar .menu-items {
+    display: flex;
+}
+
+.navbar .nav-container li {
+    list-style: none;
+}
+
+.navbar .nav-container a {
+    text-decoration: none;
+    /* color: #0e2431; */
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 0.7rem;
+    color: #f9a800;
+    font-weight: bolder;
+    font-size: 1.5rem;
+}
+
+.navbar .nav-container a:hover {
+    font-weight: bolder;
+}
+
+.nav-container {
+    display: block;
+    position: relative;
+    height: 60px;
+}
+
+.nav-container .checkbox {
+    position: absolute;
+    display: block;
+    height: 32px;
+    width: 32px;
+    top: 20px;
+    left: 20px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.nav-container .hamburger-lines {
+    display: block;
+    height: 26px;
+    width: 32px;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.nav-container .hamburger-lines .line {
+    display: block;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+    background: #f9a800;
+}
+
+.nav-container .hamburger-lines .line1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line2 {
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-container .hamburger-lines .line3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.navbar .menu-items {
+    padding-top: 120px;
+    background-color: #444e59;
+    height: 100vh;
+    width: 100vw;
+    transform: translate(-150%);
+    display: flex;
+    flex-direction: column;
+    margin-left: -40px;
+    padding-left: 50px;
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+    z-index: 1;
+    position: absolute;
+}
+
+.navbar .menu-items li {
+    margin-bottom: 3.2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.nav-container input[type="checkbox"]:checked ~ .menu-items {
+    transform: translateX(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg);
+}
+
+.nav-container input[type="checkbox"]:checked ~ .logo {
+    display: none;
+}
+.navbar {
+    display: block;
+}
+
+
+   
+    
+}
+
 </style>

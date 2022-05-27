@@ -184,5 +184,11 @@ $hover:#F8CE03;
     }
 }
 
+@media screen and (max-width: 576px) {
+ .statistique{
+    display: none;
+    }
+
+}
 </style>
 

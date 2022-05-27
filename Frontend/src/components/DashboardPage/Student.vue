@@ -3,24 +3,19 @@
 
 
     <Hello msg="Students" link="/AddStudent" />
-   
+
 
     <div class="content-card">
-        <div class="card" v-for="(data, index) in datas " :key="index">
+        <div class="card" v-for="(data, index) in Student " :key="index">
             <div class="profil-img">
-                <img :src="data.img" alt="John" style="width:100%">
+                <img :src="'assets/images/' + data.photo " alt="" style="width:100%">
             </div>
-
-            <h1>{{data.name}}</h1>
-            <p class="title">Cin:{{data.cin}}</p>
-            <p class="title">Tel:{{data.tel}}</p>
+            <h1>{{ data.nom_candidat }} {{ data.prenom_candidat }}</h1>
+            <p class="title">Cin:{{ data.cin }}</p>
+            <p class="title">Tel:{{ data.tel }}</p>
             <!-- <div class="total"><h6 class="title">Payé:</h6><h1 class="prix">{{data.totale}}dh</h1></div> -->
-
-
             <p><button>detaill</button></p>
         </div>
-
-
     </div>
 </template>
 
@@ -35,19 +30,36 @@ export default {
         Hello
     },
   
-    data(){
-        return{
+
+    data() {
+        return {
             value: 20.4,
-            datas: [
-        { img: require(`@/assets/images/sec1.png`),cin:"hh21846",totale:"1000", name: "Nemli Youness", tel : "0652745372" },
-        { img: require(`@/assets/images/img1.jpg`), cin:"hh21846",totale:"800", name: " Rabhi", tel : "0652745372" },
-        { img: require(`@/assets/images/sec.png`), cin:"hh21846",totale:"2000", name: "Faiza Rabhi", tel : "0652745372" },
-    ],
+            //         datas: [
+            //     { img: require(`@/assets/images/sec1.png`),cin:"hh21846",totale:"1000", name: "Nemli Youness", tel : "0652745372" },
+            //     { img: require(`@/assets/images/img1.jpg`), cin:"hh21846",totale:"800", name: " Rabhi", tel : "0652745372" },
+            //     { img: require(`@/assets/images/sec.png`), cin:"hh21846",totale:"2000", name: "Faiza Rabhi", tel : "0652745372" },
+            // ],
+            Student: {
+                nom_candidat:"",
+                prenom_candidat:"",
+                cin:"",
+                tel:"",
+                email:"",
+                photo:"",
+                
+            },
 
         }
     },
+      mounted() {
+        // this.id = localStorage.getItem("id");
+        // console.log(localStorage.getItem("id"));
+        fetch("http://localhost/Statique/Backend/student/allStudents").then(res => res.json()).then(Student => {
+            this.Student = Student;
+        })
+    },
 
-    
+
     props: {
         msg: String
     }
@@ -56,9 +68,11 @@ export default {
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
 $hover:#F8CE03;
-*{
+
+* {
     font-size: 120%;
 }
+
 @mixin flex {
     display: flex;
     justify-content: space-between;
@@ -80,9 +94,9 @@ $hover:#F8CE03;
         display: block;
         width: 100%;
         height: 100%;
-         position: center;
+        position: center;
         object-fit: cover;
-  
+
 
     }
 }
@@ -131,12 +145,14 @@ a:hover {
 p {
     margin: 0;
 }
-.total{
+
+.total {
     display: flex;
     align-items: center;
     justify-content: center;
-    .prix{
-        padding:0 10px;
+
+    .prix {
+        padding: 0 10px;
     }
 }
 </style>

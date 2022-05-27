@@ -64,6 +64,7 @@ class database
         return $this->stmt->execute();
     }
 
+
     public function fetchAll()
     {
         $this->stmt->execute();
