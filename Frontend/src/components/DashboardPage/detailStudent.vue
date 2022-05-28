@@ -31,17 +31,28 @@
                 <dd>{{Student.adresse}}</dd>
                 <dt>Telephone</dt>
                 <dd>{{Student.tel}}</dd>
-                <dt>Loves</dt>
-                <dd>Skydiving, Tennis, Romantic dinners</dd>
-                <dt>Hates</dt>
+                <dt>email</dt>
+                <dd>{{Student.email}}</dd>
+                <dt>sexe</dt>
                 <dd>Taxes, bosses instead of leaders</dd>
+                <dt>sexe</dt>
+                <dd>{{Student.sexe}}</dd>
+                <dt>permis</dt>
+                <dd>{{Student.permis}}</dd>
+                <dt>total</dt>
+                <dd>{{Student.Total}} dh</dd>
+                <dt>avance</dt>
+                <dd>{{Student.avance}} dh</dd>
                 <dt>Social</dt>
                 <dd>
                     <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                 </dd>
             </dl>
         </main>
+        
+            
 
     </div> <!-- end profile -->
 
@@ -151,7 +162,7 @@ export default {
                 datNaissance: "",
                 sexe: "",
                 permis: "",
-                total: "",
+                Total: "",
                 avance: "",
                 id_utilisateur: "1"
             },
