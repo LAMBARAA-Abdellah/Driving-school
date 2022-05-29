@@ -7,11 +7,11 @@
     <div class="profile">
         <div class="header">
             <figure>
-                <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/55758/random-user-31.jpg" alt="" />
+                <img :src="'@/../public/assets/images/' + Student.photo" alt="" />
+                {{ Student.photo }}
             </figure>
             <header>
-                <h1>{{Student.nom_candidat}} {{Student.prenom_candidat}}
-
+                <h1>{{ Student.nom_candidat }} {{ Student.prenom_candidat }}
                 </h1>
             </header>
         </div>
@@ -24,25 +24,25 @@
         <main>
             <dl>
                 <dt>Full name</dt>
-                <dd>{{Student.nom_candidat}} {{Student.prenom_candidat}}</dd>
+                <dd>{{ Student.nom_candidat }} {{ Student.prenom_candidat }}</dd>
                 <dt>Date of birth</dt>
-                <dd>{{Student.datNaissance}}</dd>
+                <dd>{{ Student.datNaissance }}</dd>
                 <dt>Adresse</dt>
-                <dd>{{Student.adresse}}</dd>
+                <dd>{{ Student.adresse }}</dd>
                 <dt>Telephone</dt>
-                <dd>{{Student.tel}}</dd>
+                <dd>{{ Student.tel }}</dd>
                 <dt>email</dt>
-                <dd>{{Student.email}}</dd>
+                <dd>{{ Student.email }}</dd>
                 <dt>sexe</dt>
                 <dd>Taxes, bosses instead of leaders</dd>
                 <dt>sexe</dt>
-                <dd>{{Student.sexe}}</dd>
+                <dd>{{ Student.sexe }}</dd>
                 <dt>permis</dt>
-                <dd>{{Student.permis}}</dd>
+                <dd>{{ Student.permis }}</dd>
                 <dt>total</dt>
-                <dd>{{Student.Total}} dh</dd>
+                <dd>{{ Student.Total }} dh</dd>
                 <dt>avance</dt>
-                <dd>{{Student.avance}} dh</dd>
+                <dd>{{ Student.avance }}dh</dd>
                 <dt>Social</dt>
                 <dd>
                     <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
@@ -51,8 +51,20 @@
                 </dd>
             </dl>
         </main>
-        
-            
+        <div class="bttn">
+            <div>
+                <submit class="btn btn-warning">AddTranche</submit>
+            </div>
+
+            <div>
+                <router-link :to="'/UpdateStudent/' + Student.id_Candidat">
+                    <submit class="btn btn-primary">Modifier</submit>
+                </router-link>
+
+                <submit @click="deleteStudent(Student.id_Candidat)" class="btn btn-danger">Suprimer</submit>
+            </div>
+        </div>
+
 
     </div> <!-- end profile -->
 
@@ -141,6 +153,7 @@
 
 
 import Hello from './Hello.vue';
+import swal from "sweetalert";
 
 
 
@@ -189,7 +202,44 @@ export default {
                 this.Student = Student;
             })
         },
+        // deleteStudent(id) {
+        //     swal.fire({
+        //         title: 'Are you sure?',
+        //         text: "Do you really want to delete this user!",
+        //         icon: 'warning',
+        //         showCancelButton: true,
+        //         confirmButtonColor: '#3085d6',
+        //         cancelButtonColor: '#d33',
+        //         confirmButtonText: 'Yes, delete it!'
+        //         }).then((result) => {
+        //         if (result.isConfirmed) {
+        //             swal.fire(
+        //             'Deleted!',
+        //             'User has been deleted.',
+        //             'success',
+        //             fetch(`http://localhost/Statique/Backend/student/deleteStudent?id=${id}`,
+        //         {
+        //             method: "GET"
+        //         }
+        //     )   .then(() => {
+        //                 this.afficher();
 
+        //             })
+        //             )
+        //         }
+        //         })
+
+        // },
+
+        deleteStudent(id) {
+            fetch(`http://localhost/Statique/Backend/student/deleteStudent?id=${id}`,
+                {
+                    method: "GET"
+                }
+            ).then(() => {
+                this.$router.push('/Students');
+            })
+        },
 
     },
     mounted() {
@@ -255,6 +305,17 @@ body {
     align-items: center;
     align-content: center;
     position: relative;
+
+    .bttn {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin: 20px 0 0 0;
+
+        .btn {
+            margin: 0 5px;
+        }
+    }
 
     .header {
         width: 80%;
@@ -353,6 +414,10 @@ body {
 
         main {
             font-size: 16px;
+        }
+
+        .bttn {
+            display: flex;
         }
     }
 }

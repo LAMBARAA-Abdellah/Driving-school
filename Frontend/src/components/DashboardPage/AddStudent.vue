@@ -68,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Total a payé</label>
-                        <input type="number" name="" id="" class="form-control" v-model="Studentform.total">
+                        <input type="number" name="" id="" class="form-control" v-model="Studentform.Total">
                     </div>
                     <div class="form-group">
                         <label for="">Tranche payé</label>
@@ -118,7 +118,7 @@ export default {
                 datNaissance: "",
                 sexe: "",
                 permis: "",
-                total: "",
+                Total: "",
                 avance: "",
                 id_utilisateur: "1"
             },
@@ -164,7 +164,7 @@ export default {
                     datNaissance: this.Studentform.datNaissance,
                     sexe: this.Studentform.sexe,
                     permis: this.Studentform.permis,
-                    total: this.Studentform.total,
+                    Total: this.Studentform.Total,
                     avance: this.Studentform.avance,
                     id_utilisateur: this.Studentform.id_utilisateur
                 })

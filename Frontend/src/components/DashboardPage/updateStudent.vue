@@ -4,51 +4,52 @@
     <form @submit.prevent>
         <div class="content">
             <div class="profil-img">
-                <img id="blah" src="" alt="">
+                <img id="blah" :src="'assets/images/' + Student.photo" alt="">
 
                 <input id="img" type="file" name="" @change="displayImg">
 
             </div>
             <div class="form">
+                 <input type="text" name="" id="" class="form-control" hidden v-model="Student.id_Candidat">
                 <div class="form-group">
                     <label for="">Nom</label>
-                    <input type="text" name="" id="" class="form-control" v-model="Studentform.nom_candidat">
+                    <input type="text" name="" id="" class="form-control" v-model="Student.nom_candidat">
                 </div>
                 <div class="form-group">
                     <label for="">Prenom</label>
-                    <input type="text" name="" id="" class="form-control" v-model="Studentform.prenom_candidat">
+                    <input type="text" name="" id="" class="form-control" v-model="Student.prenom_candidat">
                 </div>
                 <div class="form-group">
                     <label for="">Email</label>
-                    <input type="email" name="" id="" class="form-control" v-model="Studentform.email">
+                    <input type="email" name="" id="" class="form-control" v-model="Student.email">
                 </div>
                 <div class="form-group">
                     <label for="">CIN</label>
-                    <input type="text" name="" id="" class="form-control" v-model="Studentform.cin">
+                    <input type="text" name="" id="" class="form-control" v-model="Student.cin">
                 </div>
                 <div class="form-group">
                     <label for="">Telephone</label>
-                    <input type="tel" name="" id="" class="form-control" v-model="Studentform.tel">
+                    <input type="tel" name="" id="" class="form-control" v-model="Student.tel">
                 </div>
                 <div class="form-group">
                     <label for="">Adresse</label>
-                    <input type="adress" name="" id="" class="form-control" v-model="Studentform.adresse">
+                    <input type="adress" name="" id="" class="form-control" v-model="Student.adresse">
                 </div>
                 <div class="div-bot">
                     <div class="form-group">
                         <label for="">Date de naissance</label>
-                        <input type="date" name="" id="" class="form-control" v-model="Studentform.datNaissance">
+                        <input type="date" name="" id="" class="form-control" v-model="Student.datNaissance">
                     </div>
                     <div class="form-group">
                         <label for="">Genre</label>
-                        <select name="" id="" class="form-control" v-model="Studentform.sexe">
+                        <select name="" id="" class="form-control" v-model="Student.sexe">
                             <option value="Homme">Homme</option>
                             <option value="Femme">Femme</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="">Select </label>
-                        <select name="" id="" class="form-control" v-model="Studentform.permis">
+                        <select name="" id="" class="form-control" v-model="Student.permis">
                             <option value="A">A</option>
                             <option value="B">B</option>
                             <option value="C">C</option>
@@ -68,12 +69,12 @@
                     </div>
                     <div class="form-group">
                         <label for="">Total a payé</label>
-                        <input type="number" name="" id="" class="form-control" v-model="Studentform.total">
+                        <input type="number" name="" id="" class="form-control" v-model="Student.Total">
                     </div>
                     <div class="form-group">
                         <label for="">Tranche payé</label>
                         <input type="number" default="0" name="" id="" class="form-control"
-                            v-model="Studentform.avance">
+                            v-model="Student.avance">
                     </div>
                 </div>
 
@@ -83,7 +84,7 @@
 
         </div>
         <div class="w-100">
-            <input @click="AddStudent()" class=" btn aaa btn-secondary ms-auto" type="button" value="Ajouter">
+            <input @click="updateStudent()" class=" btn aaa btn-secondary ms-auto" type="button" value="Modifier">
         </div>
 
     </form>
@@ -97,8 +98,8 @@ import swal from "sweetalert";
 
 
 export default {
-    name: 'AddStudent',
-    name: 'Monitor',
+    name: 'updateStudent',
+    name: 'Student',
     components: {
         Hello,
         Add
@@ -107,7 +108,7 @@ export default {
     },
     data() {
         return {
-            Studentform: {
+            Student: {              
                 nom_candidat: "",
                 prenom_candidat: "",
                 cin: "",
@@ -118,14 +119,14 @@ export default {
                 datNaissance: "",
                 sexe: "",
                 permis: "",
-                total: "",
+                Total: "",
                 avance: "",
-                id_utilisateur: "1"
+                id_utilisateur: 1,
+                id_Candidat:""
             },
-
-
         }
     },
+    
     methods: {
         showAlert() {
             swal({
@@ -150,37 +151,31 @@ export default {
                 blah.src = URL.createObjectURL(file)
             }
         },
-        AddStudent() {
-            fetch("http://localhost/Statique/Backend/student/addstudent", {
-                method: "POST",
-                body: JSON.stringify({
-                    nom_candidat: this.Studentform.nom_candidat,
-                    prenom_candidat: this.Studentform.prenom_candidat,
-                    cin: this.Studentform.cin,
-                    tel: this.Studentform.tel,
-                    email: this.Studentform.email,
-                    photo: this.Studentform.photo,
-                    adresse: this.Studentform.adresse,
-                    datNaissance: this.Studentform.datNaissance,
-                    sexe: this.Studentform.sexe,
-                    permis: this.Studentform.permis,
-                    total: this.Studentform.total,
-                    avance: this.Studentform.avance,
-                    id_utilisateur: this.Studentform.id_utilisateur
-                })
-            }).then((reponse => {
-                return reponse.json();
-            })).then((data) => {
-                if (data) {
-                    console.log("hhhhhhh");
-                    this.showAlert();
-                }
+        
+          detail() {
+            fetch(`http://localhost/Statique/Backend/student/getStudent?id=${this.$route.params.id}`)
+            .then(res => res.json()).then(Student => {
+                this.Student = Student;
+            })
+        },
+        updateStudent() {
+            fetch("http://localhost/Statique/Backend/student/updateStudent", {
+                   method: "POST",
+                body: JSON.stringify(this.Student),
+              }).then((result) => {
+                this.$router.push("/Students");
+            })
 
-            });
-        }
+        },
     },
 
+    mounted() {
+         fetch(`http://localhost/Statique/Backend/student/getStudent?id=${this.$route.params.id}`)
+            .then(res => res.json()).then(Student => {
+                this.Student = Student;
+            })
 
+    },
 
     props: {
         msg: String

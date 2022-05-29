@@ -59,6 +59,18 @@ class student extends controller
             //echo json_encode($reponse);
         }
     }
+    public function updateStudent()
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $json = file_get_contents('php://input');
+            $data = json_decode($json,true);
+           // $data = array_values((array)$data);
+            echo json_encode($data);
+           $this->studentModel->updateStudent($data);
+            echo "update width succes";
+        }
+    }
+
     public function getStudent()
     {
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -93,19 +105,7 @@ class student extends controller
         }
     }
 
-    public function updateStudent()
-    {
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            // $id=$_POST['id'];
-            $json = file_get_contents('php://input');
-            $data = json_decode($json);
-            var_dump($data);
-            $id = $data->id;
-            $data = array_values((array)$data);
-            //echo json_encode($data);
-            $reponse = $this->studentModel->updateStudent($data, $id);
-        }
-    }
+
 
 
     public function deleteStudent()
@@ -113,6 +113,7 @@ class student extends controller
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
             $id = $_GET['id'];
             $this->studentModel->deleteStudent($id);
+            var_dump( $this->studentModel->deleteStudent($id));
         }
     }
 
