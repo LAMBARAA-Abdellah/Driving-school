@@ -3,6 +3,7 @@
     <Add msg="Student" />
     <form @submit.prevent>
         <div class="content">
+            
             <div class="profil-img">
                 <img id="blah" :src="'assets/images/' + Student.photo" alt="">
 
@@ -10,7 +11,7 @@
 
             </div>
             <div class="form">
-                 <input type="text" name="" id="" class="form-control" hidden v-model="Student.id_Candidat">
+                <input type="text" name="" id="" class="form-control" hidden v-model="Student.id_Candidat">
                 <div class="form-group">
                     <label for="">Nom</label>
                     <input type="text" name="" id="" class="form-control" v-model="Student.nom_candidat">
@@ -63,9 +64,6 @@
                         <div />
                         <div />
 
-
-
-
                     </div>
                     <div class="form-group">
                         <label for="">Total a payé</label>
@@ -73,8 +71,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Tranche payé</label>
-                        <input type="number" default="0" name="" id="" class="form-control"
-                            v-model="Student.avance">
+                        <input type="number" default="0" name="" id="" class="form-control" v-model="Student.avance">
                     </div>
                 </div>
 
@@ -108,7 +105,7 @@ export default {
     },
     data() {
         return {
-            Student: {              
+            Student: {
                 nom_candidat: "",
                 prenom_candidat: "",
                 cin: "",
@@ -122,11 +119,11 @@ export default {
                 Total: "",
                 avance: "",
                 id_utilisateur: 1,
-                id_Candidat:""
+                id_Candidat: ""
             },
         }
     },
-    
+
     methods: {
         showAlert() {
             swal({
@@ -136,8 +133,8 @@ export default {
             }).then((result) => {
                 if (result) {
                     this.showPopup = false
-                   // window.location = "/Students"
-                   this.$router.push('/Students')
+                    // window.location = "/Students"
+                    this.$router.push('/Students')
                 }
             })
         },
@@ -151,18 +148,18 @@ export default {
                 blah.src = URL.createObjectURL(file)
             }
         },
-        
-          detail() {
+
+        detail() {
             fetch(`http://localhost/Statique/Backend/student/getStudent?id=${this.$route.params.id}`)
-            .then(res => res.json()).then(Student => {
-                this.Student = Student;
-            })
+                .then(res => res.json()).then(Student => {
+                    this.Student = Student;
+                })
         },
         updateStudent() {
             fetch("http://localhost/Statique/Backend/student/updateStudent", {
-                   method: "POST",
+                method: "POST",
                 body: JSON.stringify(this.Student),
-              }).then((result) => {
+            }).then((result) => {
                 this.$router.push("/Students");
             })
 
@@ -170,7 +167,7 @@ export default {
     },
 
     mounted() {
-         fetch(`http://localhost/Statique/Backend/student/getStudent?id=${this.$route.params.id}`)
+        fetch(`http://localhost/Statique/Backend/student/getStudent?id=${this.$route.params.id}`)
             .then(res => res.json()).then(Student => {
                 this.Student = Student;
             })

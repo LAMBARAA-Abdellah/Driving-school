@@ -5,6 +5,7 @@
     </div>
 
     <div class="profile">
+    <p class="close" @click="retour()">&times;</p>
         <div class="header">
             <figure>
                 <img :src="'@/../public/assets/images/' + Student.photo" alt="" />
@@ -184,6 +185,9 @@ export default {
 
     },
     methods: {
+        retour(){
+            this.$router.push('/Students')
+        },
         showAlert() {
             swal({
                 icon: 'success',
@@ -432,7 +436,14 @@ label {
     display: block;
     cursor: pointer;
 }
-
+.close{
+    display: flex;
+    width: 100%;
+    float: right;
+    justify-content: flex-end;
+    font-size: 2em;
+    cursor: pointer;
+}
 @media screen and (max-width: 520px) {
     .sous-info {
         flex-direction: column;
