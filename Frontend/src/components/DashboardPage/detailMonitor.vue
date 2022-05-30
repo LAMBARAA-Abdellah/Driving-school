@@ -8,7 +8,7 @@
     <p class="close" @click="retour()">&times;</p>
         <div class="header">
             <figure>
-                <img :src="'@/../public/assets/images/' + Monitor.photo" alt="" />
+                <img :src="'/assets/images/' + Monitor.photo" alt="" />
                 {{ Monitor.photo }}
             </figure>
             <header>
@@ -115,6 +115,7 @@ export default {
         detail() {
             fetch(`http://localhost/Statique/Backend/Monitor/getMonitor?id=${this.$route.params.id}`).then(res => res.json()).then(Monitor => {
                 this.Monitor = Monitor;
+                
             })
         },
 

@@ -21,14 +21,14 @@ class monitor extends controller
             //echo json_encode($reponse);
         }
     }
-    public function updateStudent()
+    public function updateMonitor()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $json = file_get_contents('php://input');
             $data = json_decode($json,true);
            // $data = array_values((array)$data);
             echo json_encode($data);
-           $this->studentModel->updateStudent($data);
+           $this->studentModel->updateMonitor($data);
             echo "update width succes";
         }
     }

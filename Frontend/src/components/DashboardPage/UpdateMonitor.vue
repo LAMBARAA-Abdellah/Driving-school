@@ -5,7 +5,7 @@
         <div class="content">
             
             <div class="profil-img">
-                <img id="blah" :src="'assets/images/' + Monitor.photo" alt="">
+                <img id="blah" :src="'/assets/images/' + Monitor.photo" alt="">
                 <input id="img" type="file"  @change="displayImg">
 
             </div>
@@ -43,8 +43,8 @@
                     <div class="form-group">
                         <label for="">Genre</label>
                         <select name="" id="" class="form-control" v-model="Monitor.sexe">
-                            <option value="Homme">Homme</option>
-                            <option value="Femme">Femme</option>
+                            <option value="homme">Homme</option>
+                            <option value="femme">Femme</option>
                         </select>
                     </div>
                     
@@ -127,6 +127,7 @@ export default {
         detail() {
             fetch(`http://localhost/Statique/Backend/Monitor/getMonitor?id=${this.$route.params.id}`).then(res => res.json()).then(Monitor => {
                 this.Monitor = Monitor;
+                
             })
         },
         updateMonitor() {
@@ -142,6 +143,7 @@ export default {
 
     mounted() {
         this.detail();
+        
     
 
     },
