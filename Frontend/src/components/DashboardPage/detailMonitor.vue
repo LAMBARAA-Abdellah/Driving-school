@@ -1,6 +1,6 @@
 <template>
     <div class="candidat">
-        <h4>Information:HHHH</h4>
+        <h4>Information:</h4>
         <h4> HHH{{ Monitor.nom_monitor }} {{ Monitor.nom_monitor }}</h4>
     </div>
 
@@ -16,12 +16,6 @@
                 </h1>
             </header>
         </div>
-
-
-        <!-- <div class="toggle">
-            <input type="checkbox" class="view_details" id="view_details">
-            <label for="view_details" title="tap here to view full profile">☰</label>
-        </div> -->
         <main>
             <dl>
                 <dt>Full name</dt>
@@ -35,16 +29,11 @@
                 <dt>email</dt>
                 <dd>{{ Monitor.email }}</dd>
                 <dt>sexe</dt>
-                <dd>Taxes, bosses instead of leaders</dd>
+                <dd>{{ Monitor.sexe }}</dd>
                 <dt>sexe</dt>
                 <dd>{{ Monitor.sexe }}</dd>
-                <dt>permis</dt>
-                <dd>{{ Monitor.permis }}</dd>
-                <dt>total</dt>
-                <dd>{{ Monitor.Total }} dh</dd>
-                <dt>avance</dt>
-                <dd>{{ Monitor.avance }}dh</dd>
-                <dt>Social</dt>
+                
+                
                 <dd>
                     <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
