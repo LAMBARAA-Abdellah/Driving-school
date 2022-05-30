@@ -82,6 +82,10 @@ const routes = [
         component: () => import('@/components/DashboardPage/AddMonitor.vue'),
       },
       { 
+        path:'/detailmonitor/:id',
+        component: () => import('@/components/DashboardPage/detailStudent.vue'),
+      },
+      { 
         path:'/AddCar',
         component: () => import('@/components/DashboardPage/AddCar.vue'),
       },

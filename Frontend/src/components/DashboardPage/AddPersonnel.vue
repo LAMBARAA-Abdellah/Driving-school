@@ -5,10 +5,10 @@
     <div class="content">
     
         
-           <div class="profil-img">
-                <img src="" alt="">
+          <div class="profil-img">
+                <img id="blah" src="" alt="">
 
-                <input type="file" name="" id="">
+                <input id="img" type="file" name="" @change="displayImg">
 
             </div>
             <div class="form">
