@@ -60,10 +60,10 @@ class monitors
     }
 
     //update candidat
-    function updateStudent($data)
+    function updateMonitor($data)
     {
-        $this->db->query('UPDATE candidat SET nom_monitor = :nom_monitor, prenom_monitor = :prenom_monitor, email = :email, tel = :tel, cin = :cin, adresse = :adresse, datNaissance = :datNaissance, sexe = :sexe,photo=:photo WHERE id_Monitor = :id_Monitor');
-        $this->db->bind(':nom_candidat', $data['nom_monitor']);
+        $this->db->query('UPDATE monitor SET nom_monitor = :nom_monitor, prenom_monitor = :prenom_monitor, email = :email, tel = :tel, cin = :cin, adresse = :adresse, datNaissance = :datNaissance, sexe = :sexe,photo=:photo WHERE id_Monitor = :id_Monitor');
+        $this->db->bind(':nom_monitor', $data['nom_monitor']);
         $this->db->bind(':prenom_monitor', $data['prenom_monitor']);
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':tel', $data['tel']);
@@ -72,9 +72,7 @@ class monitors
         $this->db->bind(':datNaissance', $data['datNaissance']);
         $this->db->bind(':sexe', $data['sexe']);
         $this->db->bind(':photo', $data['photo']);
-        //$this->db->bind(':id_utilisateur', $data[11]);
         $this->db->bind(':id_Monitor', $data['id_Monitor']);
-
         if ($this->db->execute()) {
             return true;
         } else {

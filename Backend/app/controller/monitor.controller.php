@@ -28,7 +28,7 @@ class monitor extends controller
             $data = json_decode($json,true);
            // $data = array_values((array)$data);
             echo json_encode($data);
-           $this->studentModel->updateMonitor($data);
+           $this->monitorModel->updateMonitor($data);
             echo "update width succes";
         }
     }

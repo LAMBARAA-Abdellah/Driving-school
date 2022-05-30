@@ -9,7 +9,6 @@
         <div class="header">
             <figure>
                 <img :src="'@/../public/assets/images/' + Student.photo" alt="" />
-                {{ Student.photo }}
             </figure>
             <header>
                 <h1>{{ Student.nom_candidat }} {{ Student.prenom_candidat }}

@@ -10,7 +10,7 @@
             <div class="profil-img">
                 <img :src="'assets/images/' + data.photo" alt="John" style="width:100%">
             </div>
-            <h1>{{data.prenom_monitor}}{{data.nom_monitor}}</h1>
+            <h1>{{data.prenom_monitor}} {{data.nom_monitor}}</h1>
             <p class="title">Cin:{{data.cin}}</p>
             <p class="title">Tel:{{data.tel}}</p>
             <router-link :to="'/detailmonitor/' + data.id_Monitor">

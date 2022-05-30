@@ -9,7 +9,6 @@
         <div class="header">
             <figure>
                 <img :src="'/assets/images/' + Monitor.photo" alt="" />
-                {{ Monitor.photo }}
             </figure>
             <header>
                 <h1>{{ Monitor.nom_monitor }} {{ Monitor.prenom_monitor }}
