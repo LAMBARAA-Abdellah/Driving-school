@@ -48,10 +48,10 @@ class monitors
     }
 
 
-    function deleteStudent($id)
+    function deleteMonitor($id)
     {
-        $this->db->query('DELETE FROM candidat WHERE id_Candidat = :id_candidat');
-        $this->db->bind(':id_candidat', $id);
+        $this->db->query('DELETE FROM monitor WHERE id_Monitor = :id_Monitor');
+        $this->db->bind(':id_Monitor', $id);
         if ($this->db->execute()) {
             return true;
         } else {

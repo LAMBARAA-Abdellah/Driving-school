@@ -50,50 +50,13 @@ class monitor extends controller
 
 
 
-    public function updateRDV()
-    {
-        // var_dump($_GET['id']);
-        echo ("this is update function");
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            // echo ('im in if');
-            $UpdateRDV = $this->model('RDVModel');
-            $json = file_get_contents('php://input');
-            $data = json_decode($json, true);
-            $Updatet = $UpdateRDV->updateRDV($data);
-            echo json_encode($Updatet);
-            // if ($created) {
-            //   echo json_encode($created);
-            // }
-        }
-    }
 
-
-
-
-    public function deleteStudent()
+    public function deleteMonitor()
     {
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
             $id = $_GET['id'];
-            $this->studentModel->deleteStudent($id);
-            var_dump( $this->studentModel->deleteStudent($id));
+            $this->monitorModel->deleteMonitor($id);
         }
-    }
-
-
-    public function deleteRdv()
-    {
-        if ($_SERVER["REQUEST_METHOD"] === "GET") {
-            $user = $this->model('UserModel');
-            $user->delete_r($_GET['id']);
-        }
-    }
-
-
-    public function getOne()
-    {
-        $select = $this->model('UserModel');
-        $selected = $select->selectAll();
-        echo json_encode($selected);
     }
 
 }

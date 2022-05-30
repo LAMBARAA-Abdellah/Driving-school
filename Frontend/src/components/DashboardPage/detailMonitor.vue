@@ -1,7 +1,7 @@
 <template>
     <div class="candidat">
         <h4>Information:</h4>
-        <h4> HHH{{ Monitor.nom_monitor }} {{ Monitor.nom_monitor }}</h4>
+        <h4> {{ Monitor.nom_monitor }} {{ Monitor.nom_monitor }}</h4>
     </div>
 
     <div class="profile">
@@ -19,17 +19,18 @@
         <main>
             <dl>
                 <dt>Full name</dt>
-                <dd>{{ Monitor.nom_candidat }} {{ Monitor.prenom_candidat }}</dd>
+                <dd>{{ Monitor.nom_monitor }} {{ Monitor.nom_monitor }}</dd>
                 <dt>Date of birth</dt>
                 <dd>{{ Monitor.datNaissance }}</dd>
                 <dt>Adresse</dt>
                 <dd>{{ Monitor.adresse }}</dd>
+                <dt>Cin</dt>
+                <dd>{{ Monitor.cin }}</dd>
                 <dt>Telephone</dt>
                 <dd>{{ Monitor.tel }}</dd>
                 <dt>email</dt>
                 <dd>{{ Monitor.email }}</dd>
-                <dt>sexe</dt>
-                <dd>{{ Monitor.sexe }}</dd>
+                
                 <dt>sexe</dt>
                 <dd>{{ Monitor.sexe }}</dd>
                 
@@ -47,11 +48,11 @@
             </div>
 
             <div>
-                <router-link :to="'/UpdateMonitor/' + Monitor.id_Candidat">
+                <router-link :to="'/UpdateMonitor/' + Monitor.id_Monitor">
                     <submit class="btn btn-primary">Modifier</submit>
                 </router-link>
 
-                <submit @click="deleteMonitor(Monitor.id_Candidat)" class="btn btn-danger">Suprimer</submit>
+                <submit @click="deleteMonitor(Monitor.id_Monitor)" class="btn btn-danger">Suprimer</submit>
             </div>
         </div>
 
