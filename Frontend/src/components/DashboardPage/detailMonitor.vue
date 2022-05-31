@@ -215,8 +215,8 @@ body {
         margin: 0;
 
         img {
-            max-width: $profile-avatar-size;
-            max-height: $profile-avatar-size;
+            max-width: 200px;
+            max-height: 200px;
             border-radius: 50%;
             padding: 10px;
             box-shadow: 0px 0px 20px rgba($base-text-color, .15);

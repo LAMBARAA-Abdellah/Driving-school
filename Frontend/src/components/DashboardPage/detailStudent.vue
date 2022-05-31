@@ -8,7 +8,7 @@
     <p class="close" @click="retour()">&times;</p>
         <div class="header">
             <figure>
-                <img :src="'@/../public/assets/images/' + Student.photo" alt="" />
+                <img :src="'/assets/images/' + Student.photo" alt="" />
             </figure>
             <header>
                 <h1>{{ Student.nom_candidat }} {{ Student.prenom_candidat }}
@@ -34,15 +34,13 @@
                 <dt>email</dt>
                 <dd>{{ Student.email }}</dd>
                 <dt>sexe</dt>
-                <dd>Taxes, bosses instead of leaders</dd>
-                <dt>sexe</dt>
                 <dd>{{ Student.sexe }}</dd>
                 <dt>permis</dt>
                 <dd>{{ Student.permis }}</dd>
                 <dt>total</dt>
                 <dd>{{ Student.Total }} dh</dd>
                 <dt>avance</dt>
-                <dd>{{ Student.avance }}dh</dd>
+                <dd>{{ Student.avance}}dh</dd>
                 <dt>Social</dt>
                 <dd>
                     <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
@@ -331,8 +329,8 @@ body {
         margin: 0;
 
         img {
-            max-width: $profile-avatar-size;
-            max-height: $profile-avatar-size;
+           width: 200px;
+           height: 200px;
             border-radius: 50%;
             padding: 10px;
             box-shadow: 0px 0px 20px rgba($base-text-color, .15);

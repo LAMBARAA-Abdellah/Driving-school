@@ -152,10 +152,12 @@ $hover:#F8CE03;
     height: 220px;
     transform: skew(-20deg);
     margin: 0 0 10px 0;
+    border: none;
 
     img {
         width: 360px;
         height: 220px;
+        border-radius: 20px;
 
     }
 }
@@ -204,6 +206,27 @@ h1{
     font-size: 30px;
     font-weight: bold;
     color: #383838;
+}
+@media screen and (max-width: 576px) {
+    .content{
+    margin-left: -11%;
+    
+    .card{
+        width: 250px;
+        height: 200px;
+          transform: skew(-12deg);
+        img{
+             width: 300px;
+        height: 200px;
+        }
+        .border1{
+            margin-left: 50%;
+            transform: skew(12deg);
+        } 
+    }
+
+ }  
+    
 }
 </style>
 

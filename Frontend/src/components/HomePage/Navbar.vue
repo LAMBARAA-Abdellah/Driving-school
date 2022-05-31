@@ -38,15 +38,26 @@
                 <span class="line line3"></span>
             </div>
             <div class="menu-items">
-                <li>
-                    <router-link class="active" to="/admin">Appointment</router-link>
-                </li>
-                <li>
-                    <router-link to="/client">Clients</router-link>
-                </li>
-                <li>
-                    <router-link to="/">Log Out</router-link>
-                </li>
+                <ul>
+                <router-link to="/">
+                    <li><a>Home</a></li>
+                </router-link>
+                <router-link to="/about">
+                    <li><a>About</a></li>
+                </router-link>
+                <router-link to="/programe">
+                    <li><a>Programes</a></li>
+                </router-link>
+                <router-link to="/Services">
+                    <li><a>Services</a></li>
+                </router-link>
+                <router-link to="/Testimonials">
+                    <li><a>Testimonials</a></li>
+                </router-link>
+                <router-link to="/Contact">
+                    <li><a>Contact</a></li>
+                </router-link>
+            </ul>
             </div>
         </div>
     </div>
@@ -265,7 +276,7 @@ $hover:#F8CE03;
     font-weight: 500;
     font-size: 1.2rem;
     padding: 0.7rem;
-    color: #f9a800;
+    color: $hover;
     font-weight: bolder;
     font-size: 1.5rem;
 }
@@ -310,7 +321,7 @@ $hover:#F8CE03;
     height: 4px;
     width: 100%;
     border-radius: 10px;
-    background: #f9a800;
+    background: $hover;
 }
 
 .nav-container .hamburger-lines .line1 {
@@ -328,10 +339,10 @@ $hover:#F8CE03;
 }
 
 .navbar .menu-items {
-    padding-top: 120px;
-    background-color: #444e59;
-    height: 100vh;
-    width: 100vw;
+        padding-top: 20px;
+    background-color: #ffffff;
+    /* height: 83vh; */
+    width: 103vw;
     transform: translate(-150%);
     display: flex;
     flex-direction: column;
@@ -341,10 +352,11 @@ $hover:#F8CE03;
     text-align: center;
     z-index: 1;
     position: absolute;
+   
+    height: auto;
 }
 
 .navbar .menu-items li {
-    margin-bottom: 3.2rem;
     font-size: 2.5rem;
     font-weight: bold;
 }

@@ -219,7 +219,8 @@ export default {
 
             ],
             isOpened: false,
-            isclick: true
+            isclick: true,
+            keyword : ''
         };
     },
     mounted() {
@@ -227,6 +228,9 @@ export default {
     },
 
     computed: {
+        // filtreddata(){
+        //     tthis.Monitor.filter(data => data.name.toLowerCase().includes(this.keyword));
+        // },
         cssVars() {
             return {
                 "--bg-color": this.bgColor,
@@ -254,9 +258,6 @@ export default {
         click() {
             this.isclick = !this.isclick
         },
-
-
-
 
         deriction(event) {
             this.$router.push(event);

@@ -5,7 +5,7 @@
         <div class="content">
             
             <div class="profil-img">
-                <img id="blah" :src="'assets/images/' + Student.photo" alt="">
+                <img id="blah" :src="'/assets/images/' + Student.photo" alt="">
 
                 <input id="img" type="file" name="" @change="displayImg">
 
@@ -44,8 +44,8 @@
                     <div class="form-group">
                         <label for="">Genre</label>
                         <select name="" id="" class="form-control" v-model="Student.sexe">
-                            <option value="Homme">Homme</option>
-                            <option value="Femme">Femme</option>
+                            <option value="homme">Homme</option>
+                            <option value="femme">Femme</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -71,7 +71,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Tranche payé</label>
-                        <input type="number" default="0" name="" id="" class="form-control" v-model="Student.avance">
+                        <input type="text" default="0" name="" id="" class="form-control" v-model="Student.avance">
                     </div>
                 </div>
 

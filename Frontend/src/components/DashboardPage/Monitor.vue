@@ -60,6 +60,7 @@ export default {
             this.Monitor = Monitor;
         })
     },
+    
 
     
     props: {

@@ -188,7 +188,12 @@ $hover:#F8CE03;
  .statistique{
     display: none;
     }
-
+    .bienvenu {
+        h1{ 
+            font-size: 40px;
+        }
+    }
+   
 }
 </style>
 

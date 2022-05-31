@@ -1,83 +1,10 @@
 <template>
-    <!-- <div class="us">
-        <div class="para container">
-            <h1>Why Choose Us?</h1>
-            <p>We understand that learning to drive isn’t cheap, many driving schools will take advantage of this and
-                charge you a larger sum than necessary; not us.</p>
-
-        </div>
-        <div class="content container">
-            <div class="cardp">
-                <div class="card-img">
-                    <img src="../../assets/images/Group2.png" alt="">
-                </div>
-                <div class="card-content">
-                    <h4>BEST SAFETY MEASURES</h4>
-                    <p>Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road.</p>
-                </div>
-            </div>
-
-            <div class="cardp">
-                <div class="card-img">
-                    <img src="../../assets/images/Group4.png" alt="">
-                </div>
-                <div class="card-content">
-                    <h4>BEST SAFETY MEASURES</h4>
-                    <p>Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road.</p>
-                </div>
-            </div>
-
-            <div class="cardp">
-                <div class="card-img">
-                    <img src="../../assets/images/Group5.png" alt="">
-                </div>
-                <div class="card-content">
-                    <h4>BEST SAFETY MEASURES</h4>
-                    <p>Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road.</p>
-                </div>
-            </div>
-
-            <div class="cardp">
-                <div class="card-img">
-                    <img src="../../assets/images/Group6.png" alt="">
-                </div>
-                <div class="card-content">
-                    <h4>BEST SAFETY MEASURES</h4>
-                    <p>Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road.</p>
-                </div>
-            </div>
-
-            <div class="cardp">
-                <div class="card-img">
-                    <img src="../../assets/images/Group1.png" alt="">
-                </div>
-                <div class="card-content">
-                    <h4>BEST SAFETY MEASURES</h4>
-                    <p>Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road.</p>
-                </div>
-            </div>
-
-            <div class="cardp">
-                <div class="card-img">
-                    <img src="../../assets/images/Group7.png" alt="">
-                </div>
-                <div class="card-content">
-                    <h4>BEST SAFETY MEASURES</h4>
-                    <p>Our Instructors are Highly Trained in the latest Safety Techniques & Rules of the Road.</p>
-                </div>
-            </div>
-
-
-
-        </div>
-
-    </div> -->
 
     <div class="us">
         <div class="para container">
             <h1>Why Choose Us?</h1>
-            <p>We understand that learning to drive isn’t cheap, many driving schools will take advantage of this and
-                charge you a larger sum than necessary; not us.</p>
+            <!-- <p>We understand that learning to drive isn’t cheap, many driving schools will take advantage of this and
+                charge you a larger sum than necessary; not us.</p> -->
 
         </div>
         <div class="content container">
@@ -103,11 +30,11 @@
             <div class="etoiles">
                 <img :src="arr[current].img" alt="">
             </div>
-            <div>
+            <div class="comp">
                 {{ arr[current].coment }}
 
             </div>
-            <div>
+            <div class="comn">
                 <h5>- {{ arr[current].name }}</h5>
             </div>
 
@@ -346,7 +273,9 @@ h1 {
         
 
             .event-img img {
-                width: 100%;
+                width: 400px;
+                height: 400px;
+                object-fit: cover;
             }
             .date-card{
                 background: #383838;
@@ -383,6 +312,50 @@ h1 {
 
 
 }
+
+@media screen and (max-width: 576px) {
+    h1{
+        font-size: 26px;
+    }
+    h2{
+        font-size: 18px;
+    }
+    .us{ 
+        .content {
+            justify-content: center;
+            padding: 36px;
+        
+    }
+    }
+    .coment{ 
+        padding: 30px 0;
+        height: auto;
+
+        .comantaire{ 
+            width: 90%;
+            height: auto;
+            padding: 70px 10px 20px 10px;
+            .comp{ 
+
+            }
+            .comn{ 
+
+            }
+        }
+        .face{ 
+                margin-top: 28px;
+        }
+    }
+    .card-event{ 
+        margin: 10px 0;
+    }
+    
+
+   
+    
+}
+
+ 
 
 </style>
 

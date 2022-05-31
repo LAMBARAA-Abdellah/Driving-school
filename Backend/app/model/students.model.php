@@ -76,7 +76,7 @@ class students
         $this->db->bind(':sexe', $data['sexe']);
         $this->db->bind(':permis', $data['permis']);
         $this->db->bind(':Total', $data['Total']);
-        $this->db->bind(':avance', $data['avance'] || 0);
+        $this->db->bind(':avance', $data['avance'] );
         $this->db->bind(':photo', $data['photo']);
         //$this->db->bind(':id_utilisateur', $data[11]);
         $this->db->bind(':id_Candidat', $data['id_Candidat'] );

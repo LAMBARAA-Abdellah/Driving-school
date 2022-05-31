@@ -155,7 +155,7 @@ $hover:#F8CE03;
         font-size: 20px;
         color: white;
         text-align: center;
-        font-weight: 200;
+
     }
 
     h1 {
@@ -170,5 +170,35 @@ h1{
     font-weight: bold;
     color: #383838;
 }
+
+@media screen and (max-width: 576px) {
+    .Ready{
+        flex-direction:column-reverse;
+
+        .para{
+            padding: 10px;
+        }
+        img{
+            width: 100vw;
+        }
+    }
+    .all {
+        flex-direction: column;
+        padding: 20px 0;
+        width: 100%;
+        
+        .us2{
+            img{
+                width: 180px;
+                height: 160px;
+
+            }
+        }
+}
+
+   
+    
+}
+
 </style>
 

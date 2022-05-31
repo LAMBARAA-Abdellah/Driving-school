@@ -152,7 +152,6 @@ $hover:#F8CE03;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    align-items: baseline;
 }
 
 h1 {
@@ -167,13 +166,13 @@ h1 {
 
 .about {
     @include flex();
-    align-items: flex-start;
+
     text-align: left;
 
     img {
         padding: 50px;
         width: 50vw;
-        height: 100%;
+        height: 500px;
     }
 
     .para {
@@ -182,7 +181,7 @@ h1 {
 
     .A1 {
         display: flex;
-
+        
         align-items: flex-start;
 
         i {
@@ -203,7 +202,7 @@ h1 {
 .advantages {
     margin: 20px 0;
     padding: 80px;
-    height: 500px;
+    height: auto;
     color: white;
     background: linear-gradient(to top, rgba(44, 44, 44, 0.5) 50%, rgba(44, 44, 44, 0.5) 50%), url(../../assets/images/tttt.jpg);
     background-size: cover;
@@ -226,6 +225,7 @@ h1 {
     .container {
         @include flex();
         margin-top: 40px;
+        flex-wrap: wrap;
     }
 }
 
@@ -257,4 +257,41 @@ h1 {
         }
     }
 }
+@media screen and (max-width: 576px) {
+    .about{ 
+        flex-direction: column;
+     img {
+        width: 100vw;
+        height: 100%;
+        padding: 0;
+    }
+    .para{ 
+        padding: 20px;
+        align-items: left;
+    }
+    }
+    .route {
+        
+        p{
+        margin: auto;
+        }
+        img{ 
+            width: 100vw;
+            height: 250px;
+        }
+}
+    .advantages{ 
+
+    
+    .adg{
+        font-size: 30px;    
+    }
+    }
+    .teams{ 
+        .containner{
+flex-direction: column;
+        }
+       
+    }
+  }
 </style>

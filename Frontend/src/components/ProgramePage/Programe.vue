@@ -250,18 +250,6 @@ h1 {
     }
 }
 
-/*
-body{
-    background-image: linear-gradient(60deg, #F8CE03 0%, #fbed96 100%);
-    color: #ffffff;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
-}
-*/
 .tel,
 .time {
     display: flex;
@@ -464,5 +452,56 @@ body{
         color: #fff;
         margin-left: auto;
     }
+}
+@media screen and (max-width: 576px) {
+    .wrapper-stepper {
+        padding: 10px;
+    }
+
+    .stepper {
+        &-progress {
+            &-bar {
+                width: 100%;
+            }
+        }
+    }
+
+    .stepper-item {
+        &-counter {
+            height: 48px;
+            width: 48px;
+        }
+
+        &-title {
+            position: absolute;
+            font-size: 12px;
+            bottom: -24px;
+        }
+    }
+
+    .stepper-pane {
+        padding: 0;
+        .cardP {
+            display: flex;
+            flex-direction: column;
+            img {
+                width: 100%;
+                height: 200px;
+
+            }
+            .ad{
+                font-size: 90%;
+            }
+        }
+    }
+     .text {
+        margin:0 20px;
+        text-align: start;
+
+        h1 {
+            text-align: center;
+        }
+    }
+  
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
-    <div class="footer">
-        <div class="footer-logo">
+    <footer>
+    <div class="footer"> 
+         <div class="footer-logo">
             <div class="logo">
                 <img src="@/assets/images/logo3.png" alt="">
             </div>
@@ -8,7 +9,6 @@
                 We provide a reputable and profes- sional service that aims to give you the confidence to pass your test
                 and drive safely on the roads.
             </p>
-            <h5>© 2017 Safe Drive Driving School.</h5>
 
         </div>
         <div class="info">
@@ -42,10 +42,12 @@
                 <img src="@/assets/images/carta.png" alt="">
             </div>
         </div>
-
-
-
     </div>
+       
+    <h5>© 2017 Safe Drive Driving School.</h5>
+
+
+  </footer>
 
 </template>
 
@@ -84,13 +86,19 @@ h2 {
 h4 {
     font-size: 20px;
 }
-
+h5{ 
+    margin:auto ;
+    color: white;
+}
+footer{
+      background-image: url("@/assets/images/tt-foter-bg.jpg");
+     
 .footer {
     padding: 0 30px 30px 30px;
     font-size: 100%;
-    background-image: url("@/assets/images/tt-foter-bg.jpg");
+  
     @include flex;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(189, 187, 187, 0.8);
     text-align: left;
     .footer-logo {
         width: 30%;
@@ -150,31 +158,38 @@ h4 {
         }
     }
 
-    /**
-.social {
-
-        i {
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            color: black;
-            align-items: center;
-            border: 10px;
-            font-size: 23px;
-            padding: 3px;
-            border-radius: 25px;
-            background-color: #fff;
-        }
-
-        i:hover {
-            color: white;
-            background-color: $hover;
-        }
-    }
-
-    i:hover {
-        color: $hover;
-    }
-**/
+ 
 }
+}
+
+@media screen and (max-width: 576px) {
+    footer{ 
+
+   
+    .footer{ 
+        flex-direction: column;
+        align-items: center;
+        .footer-logo{ 
+            width: 100%;
+            align-items: center;
+        }
+
+    }
+    .vl{ 
+        display: none;
+    }
+    .info,.cust{ 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .media{ 
+        align-items: flex-start;
+        margin-right: 20px;
+    }
+    h5{ 
+        padding: 30px 10px;
+    }
+ }
+  }
 </style>
