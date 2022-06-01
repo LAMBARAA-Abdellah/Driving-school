@@ -16,6 +16,7 @@
 import Navbar from '@/components/HomePage/Navbar.vue'
 import Footer from '@/components/HomePage/footer.vue'
 
+
 export default {
   name: 'HomePage',
   components: {

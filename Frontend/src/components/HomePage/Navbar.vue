@@ -93,11 +93,45 @@
 
 
         </div>
-        <button>
+        <button @click="client()">
             Order now
         </button>
 
     </div>
+
+
+    
+<div class="popUp1" id="addC">
+         <!-- <img @click="hideC()" class="x" src="" alt="x" > -->
+         
+         
+          <span class="token" @click="hideC()" aria-hidden="true">&times;</span>
+                    <h4 class="send">Send your message</h4>
+         <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <!-- <label for="recipient-name" class="col-form-label">Full name</label> -->
+            <input type="text" class="form-control" id="recipient-name" placeholder="Full name...">
+          </div>
+            <div class="form-group">
+            <!-- <label for="recipient-name" class="col-form-label">Phone</label> -->
+            <input type="text" class="form-control" id="recipient-name" placeholder="Phone...">
+          </div>
+            <div class="form-group">
+            <!-- <label for="recipient-name" class="col-form-label">Email</label> -->
+            <input type="text" class="form-control" id="recipient-name" placeholder="Email adresse...">
+          </div>
+          <div class="form-group">
+            <!-- <label for="message-text" class="col-form-label">Message:</label> -->
+            <textarea class="form-control" id="message-text" placeholder="Your essage..."></textarea>
+          </div>
+          <input class="btn " type="submit" value="Envoyer">
+        </form>
+        
+      </div>
+
+    </div>
+
 </template>
 
 <script>
@@ -108,6 +142,15 @@ export default {
     name: 'navbar',
     props: {
         msg: String
+    },
+     methods: {
+       client(){
+            document.getElementById("addC").classList.toggle("show");
+        },
+       hideC() {
+        document.getElementById("addC").classList.remove("show");
+
+        }
     }
 }
 </script>
@@ -247,6 +290,55 @@ $hover:#F8CE03;
     }
 
 }
+
+
+
+  .show {
+    display: block !important;
+  }
+.popUp1 {
+    background-color: #fff;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 70%;
+    margin-left: 32%;
+    border-radius: 5px;
+    position: absolute;
+    top: 7%;
+    width: 40%;
+    margin-top: 9%;
+    padding: 1%;
+    display: none;
+    z-index: 999;
+  }
+
+  .popUp1 h3 {
+    text-align: center;
+    color: white;
+
+  }
+.popUp1 form {
+    margin-left: 10%;
+  }
+
+  .popUp1 form p {
+    color: white;
+  
+  }
+  .btn{ 
+    background-color: #F8CE03;
+  }
+  .token{
+        width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2em;
+    padding: 0 20px;
+    cursor: pointer;
+  }
+    .send{ 
+        font-weight: bold;
+    }
+
 @media screen and (max-width: 768px) {
 
     .sous-nav{
@@ -263,6 +355,10 @@ $hover:#F8CE03;
 }
 
 @media screen and (max-width: 576px) {
+    .popUp1{
+       width: 90%;
+        margin-left: 5%;
+    }
     .navbar .menu-items {
     display: flex;
 }
@@ -388,5 +484,6 @@ $hover:#F8CE03;
    
     
 }
+
 
 </style>

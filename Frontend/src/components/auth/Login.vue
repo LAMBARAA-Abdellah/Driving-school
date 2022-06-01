@@ -1,4 +1,4 @@
-<template>
+<template>  
     <div>
  <div class="h-screen bg-white flex flex-col space-y-10 justify-center items-center">
   <!-- linkedin logo -->
@@ -9,8 +9,6 @@
   <!-- Layout  -->
   <div class="bg-white w-96 shadow-xl rounded p-5 card-login">
    <img class="" src="@/assets/images/Driving1.png" alt="">
-    <!-- <h1 class="text-3xl font-medium">S’identifier</h1> -->
-    <!-- <p class="text-sm">Tenez-vous au courant des évolutions de votre monde professionnel</p> -->
     <form class="space-y-5 mt-5">
       <input type="text" class="w-full h-12 border border-gray-800 rounded px-3" placeholder="E-amai ou Téléohone" />
     <input type="password" class="w-full h-12 border border-gray-800 rounded px-3" placeholder="Mot de passe" />
@@ -23,8 +21,6 @@
     </form>
   </div>
 
-  <!-- Footer -->
-  <!-- <p>Nouveau sur Driven School ? <a href="#!" class="text-blue-700 font-medium">S’inscrire</a>  </p> -->
 </div>
 
 
@@ -39,11 +35,14 @@ import '@/index.css'
     data(){
       return {
         signup: false,
+        showModal: false,
       }
-    }
+    },
+   
+    
   }
 </script>
-<style>
+<style scoped lang="scss">
 .card-login {
   display: flex;
     flex-direction: column;
@@ -52,5 +51,10 @@ import '@/index.css'
   button{
     background-color: #F8CE03 !important;
   }
- 
+
+
+
+  
+
+
   </style>

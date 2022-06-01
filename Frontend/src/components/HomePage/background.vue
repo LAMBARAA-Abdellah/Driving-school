@@ -60,7 +60,7 @@
             </div>
         </div>
       
-          
+      
 
 
         
@@ -81,6 +81,7 @@
             </div>
            
         </div>
+        
 </template>
 <script>
 
@@ -248,7 +249,7 @@ $hover:#F8CE03;
 .statistique-mobile{ 
     display: none;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 776px) {
     .backround{ 
         height: 50vh !important;
         }

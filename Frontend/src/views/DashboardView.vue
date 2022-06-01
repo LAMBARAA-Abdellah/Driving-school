@@ -246,14 +246,22 @@ export default {
             };
         },
     },
-    watch: {
-        isOpened() {
-            window.document.body.style.paddingLeft =
-                this.isOpened && this.isPaddingLeft
-                    ? this.menuOpenedPaddingLeftBody
-                    : this.menuClosedPaddingLeftBody;
-        },
+    // watch: {
+    //     isOpened() {
+    //         window.document.body.style.paddingLeft =
+    //             this.isOpened && this.isPaddingLeft
+    //                 ? this.menuOpenedPaddingLeftBody
+    //                 : this.menuClosedPaddingLeftBody;
+    //     },
+    // },
+     watch: {
+    isOpened() {
+      window.document.body.style.paddingLeft =
+        this.isOpened && this.isPaddingLeft && window.innerWidth > 1010
+          ? this.menuOpenedPaddingLeftBody
+          : this.menuClosedPaddingLeftBody;
     },
+  },
     methods: {
         click() {
             this.isclick = !this.isclick

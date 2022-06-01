@@ -105,7 +105,10 @@ const routes = [
     path:'/Login',
     component: () => import('@/components/auth/Login.vue'),
   },
-
+  { 
+    path:'/chart',
+    component: () => import('@/components/auth/chart.vue'),
+  },
 
 
 

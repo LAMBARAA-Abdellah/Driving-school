@@ -103,9 +103,15 @@ footer{
     .footer-logo {
         width: 30%;
 
-        .logo img {
+        .logo {
+            display: flex;
+    justify-content: center;
+        
+        
+        img {
             width: 200px;
-            margin: 20px 60px;
+            margin: 20px ;
+        }
         }
         .para-footer {
            margin-top: 20px;
@@ -165,7 +171,7 @@ footer{
 }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 776px) {
     footer{ 
 
    
