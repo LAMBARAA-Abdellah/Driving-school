@@ -2393,7 +2393,7 @@
     "browserslist" "^4.20.2"
     "semver" "7.0.0"
 
-"core-js@^3.8.3":
+"core-js@^3.6.5", "core-js@^3.8.3":
   "integrity" "sha512-Z5I2vzDnEIqO2YhELVMFcL1An2CIsFe9Q7byZhs8c/QxummxZlAHw33TUHbIte987LkisOgL0LwQ1P9D6VISnA=="
   "resolved" "https://registry.npmjs.org/core-js/-/core-js-3.22.2.tgz"
   "version" "3.22.2"
@@ -5494,6 +5494,14 @@
     "hash-sum" "^2.0.0"
     "loader-utils" "^2.0.0"
 
+"vue-modal-service@^1.4.3":
+  "integrity" "sha512-YcTWHRRjjJHl54d9kt5JxQek9EEjgYr1dlg+zeBRp4ojbGVByIsWp53eKTUkTXc6GkFUf2IS19rnAxWm9tZPJQ=="
+  "resolved" "https://registry.npmjs.org/vue-modal-service/-/vue-modal-service-1.4.3.tgz"
+  "version" "1.4.3"
+  dependencies:
+    "core-js" "^3.6.5"
+    "vue" "^2.6.11"
+
 "vue-router@^4.0.3":
   "integrity" "sha512-wAO6zF9zxA3u+7AkMPqw9LjoUCjSxfFvINQj3E/DceTt6uEz1XZLraDhdg2EYmvVwTBSGlLYsUw8bDmx0754Mw=="
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-4.0.14.tgz"
@@ -5531,6 +5539,11 @@
     "@vue/runtime-dom" "3.2.33"
     "@vue/server-renderer" "3.2.33"
     "@vue/shared" "3.2.33"
+
+"vue@^2.6.11":
+  "integrity" "sha512-x2284lgYvjOMj3Za7kqzRcUSxBboHqtgRE2zlos1qWaOye5yUmHn42LB1250NJBLRwEcdrB0JRwyPTEPhfQjiQ=="
+  "resolved" "https://registry.npmjs.org/vue/-/vue-2.6.14.tgz"
+  "version" "2.6.14"
 
 "vuex@^4.0.0":
   "integrity" "sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q=="
