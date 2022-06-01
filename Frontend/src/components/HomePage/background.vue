@@ -1,8 +1,8 @@
 <template>
     <div class="backround">
         <div class="bienvenu">
-            <h2>Bienvenu sur le site de la maison de la culture</h2>
-            <h1> <span>Friendly</span> & <span>Patient</span> Instructors</h1>
+            <h2>{{ event[current].h1 }}</h2>
+            <h1> <span>{{ event[current].spam1 }}</span> & <span>{{ event[current].spam2 }}</span> {{ event[current].h2 }}</h1>
 
         </div>
         <div class="statistique">
@@ -59,8 +59,28 @@
                 </div>
             </div>
         </div>
+      
+          
 
+
+        
     </div>
+       <div class="statistique-mobile">
+            <div class="teacher">
+                <div>
+                    <i :class="arr[current].class"></i>
+                </div>
+                <div>
+                    <h1>
+                        {{ arr[current].h1 }}
+                    </h1>
+                    <h2>
+                        {{ arr[current].h2 }}
+                    </h2>
+                </div>
+            </div>
+           
+        </div>
 </template>
 <script>
 
@@ -68,9 +88,51 @@
 
 export default {
     name: 'background',
+    
+     data() {
+        return {
+            // arr: items,
+            current: 0,
+          
+            arr: [
+                 {  class: "fas fa-heart", h1: "5",h2:"working years" },
+                {  class: "fas fa-chalkboard-teacher", h1: "28",h2:"Teachers" },
+                {  class: "far fa-clock", h1: "1292",h2:"Trining hours" },
+                {  class: "fas fa-heart", h1: "5",h2:"working years" },
+                {  class: "fas fa-chalkboard-teacher", h1: "28",h2:"Teachers" },    
+
+            ],
+              event: [
+                { h1:"Welcome to the website of the house of culture" ,spam1:"Friendly",spam2:"Patient" ,h2:"Instructors"},
+                { h1:"School of Driving has earneda reputation for responsible" ,spam1:"Traffic",spam2:"Ticket" ,h2:"Dismissed"},
+                { h1:" Auto insurances rates are safe from increases" ,spam1:"Students ",spam2:"Approved" ,h2:"Driving"},
+
+            ]
+           
+
+
+
+        }
+    },
     props: {
         msg: String
-    }
+    },
+     methods: {
+        next() {
+            this.current = (this.current + 1) % this.arr.length
+        },
+         suivant() {
+            this.current = (this.current + 1) % this.arr.length
+        },
+    },
+     mounted() {
+        setInterval(() => {
+            this.next()
+        }, 3000),
+        setInterval(() => {
+            this.suivant()
+        }, 3000)
+    },
 }
 </script>
 
@@ -113,7 +175,7 @@ $hover:#F8CE03;
     // margin-left:100px;
     h2 {
         color: white;
-        letter-spacing: 3px;
+        letter-spacing: 2px;
         font-weight: 700;
         padding: 30px;
     }
@@ -183,16 +245,59 @@ $hover:#F8CE03;
         font-size: 50px;
     }
 }
-
+.statistique-mobile{ 
+    display: none;
+}
 @media screen and (max-width: 576px) {
+    .backround{ 
+        height: 50vh !important;
+        }
  .statistique{
     display: none;
     }
-    .bienvenu {
+    
+         .bienvenu {
+        padding-top: 100px;
         h1{ 
             font-size: 40px;
         }
+    
     }
+    .statistique-mobile{ 
+        display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    background-color: #383838;
+
+    .teacher{ 
+        display: flex;
+        align-items: center;
+        width: 50vw;
+        justify-content: space-around;
+        
+    
+        i{
+    color: $hover;
+    }
+
+    h1 {
+        font-size: 50px;
+        
+    }
+
+    h2 {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    i {
+        font-size: 50px;
+    }
+    }
+   }
+   
    
 }
 </style>

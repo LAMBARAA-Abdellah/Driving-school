@@ -107,5 +107,17 @@ h5{
        top: -4.5%;
     }
 }
-
+@media screen and (max-width: 576px) {
+    h1{ 
+        font-size: 1.5rem;
+    }
+  .coment{ 
+      padding: 0;
+      .comantaire{
+          padding: 70px 10px 20px 10px;
+    margin: 8% 5%;
+}
+ 
+  }
+}
 </style>

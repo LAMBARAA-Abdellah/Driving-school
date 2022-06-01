@@ -120,17 +120,21 @@ export default {
 <style lang="scss" scoped>
 $color: #383838;
 $hover:#F8CE03;
-
+h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    margin: 10px;
+}
 @mixin flex($direction:row) {
     display: flex;
     flex-direction: $direction;
     justify-content: space-between;
     align-items: center;
-    // align-items: baseline;
+    
 }
 
 .content {
-    ///padding: 40px;
+    //padding: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -202,11 +206,7 @@ $hover:#F8CE03;
     font-weight: 700;
     margin: 25px;
 }
-h1{
-    font-size: 30px;
-    font-weight: bold;
-    color: #383838;
-}
+
 @media screen and (max-width: 576px) {
     .content{
     margin-left: -11%;

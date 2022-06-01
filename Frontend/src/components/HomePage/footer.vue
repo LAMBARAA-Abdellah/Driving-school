@@ -3,9 +3,9 @@
     <div class="footer"> 
          <div class="footer-logo">
             <div class="logo">
-                <img src="@/assets/images/logo3.png" alt="">
+                <img src="@/../public/assets/images/Driving2.png" alt="">
             </div>
-            <p>
+            <p class="para-footer">
                 We provide a reputable and profes- sional service that aims to give you the confidence to pass your test
                 and drive safely on the roads.
             </p>
@@ -39,7 +39,7 @@
                 <div><i class="fab fa-google"></i></div>
             </div>
             <div>
-                <img src="@/assets/images/carta.png" alt="">
+                <img src="@/../public/assets/images/carta.png" alt="">
             </div>
         </div>
     </div>
@@ -106,6 +106,9 @@ footer{
         .logo img {
             width: 200px;
             margin: 20px 60px;
+        }
+        .para-footer {
+           margin-top: 20px;
         }
 
         h5 {

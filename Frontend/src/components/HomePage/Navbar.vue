@@ -31,6 +31,7 @@
 
         </div>
         <div class="container nav-container">
+        
             <input class="checkbox" type="checkbox" />
             <div class="hamburger-lines">
                 <span class="line line1"></span>
@@ -276,13 +277,12 @@ $hover:#F8CE03;
     font-weight: 500;
     font-size: 1.2rem;
     padding: 0.7rem;
-    color: $hover;
+    color: black;
     font-weight: bolder;
     font-size: 1.5rem;
 }
-
 .navbar .nav-container a:hover {
-    font-weight: bolder;
+    color: $hover;   
 }
 
 .nav-container {

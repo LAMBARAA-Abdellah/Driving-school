@@ -128,7 +128,7 @@ h1{
             };
             .btn{
                 margin-left: 20px;
-                width: 25%;
+                width: auto;
                 height: 40px;
                 border: 1px solid #383838;
                 border-radius: 5px;
@@ -165,6 +165,15 @@ h1{
 
     }
 
+}
+@media screen  and( max-width: 576px){
+    .content{
+            flex-direction: column;
+            margin: 0 20px;
+            .form,.text{ 
+                width: auto;
+            }
+        }
 }
 
 </style>

@@ -454,6 +454,15 @@ h1 {
     }
 }
 @media screen and (max-width: 576px) {
+    .tel,
+.time {
+       justify-content: space-around;
+
+    .body {
+        padding: 0 20px;
+
+    }
+}
     .wrapper-stepper {
         padding: 10px;
     }
@@ -489,19 +498,26 @@ h1 {
                 height: 200px;
 
             }
-            .ad{
+            .content{ 
+                margin-top: 10px;
+                .ad{
                 font-size: 90%;
+                padding: 0px;
             }
+            }
+            
         }
-    }
-     .text {
-        margin:0 20px;
-        text-align: start;
+         .text {
+        margin:0 5px;
+        text-align: center;
 
         h1 {
             text-align: center;
         }
     }
-  
+    .quality{ 
+        flex-direction: column;
+    }
+    }
 }
 </style>
