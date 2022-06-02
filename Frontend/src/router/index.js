@@ -107,7 +107,7 @@ const routes = [
   },
   { 
     path:'/chart',
-    component: () => import('@/components/auth/chart.vue'),
+    component: () => import('@/components/DashboardPage/chart.vue'),
   },
 
 
