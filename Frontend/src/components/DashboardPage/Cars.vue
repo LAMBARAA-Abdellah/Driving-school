@@ -16,7 +16,9 @@
             <p>Harvard University</p>
 
 
-            <p><button>detaill</button></p>
+             <router-link :to="'/detailCar/' + data.id_voiture">
+                <p><button>detaill</button></p>
+            </router-link>
         </div>
 
 
@@ -35,25 +37,36 @@ export default {
     },
     data(){
         return{
-            datap: [
-        { img: require(`@/assets/images/m1.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
-        { img: require(`@/assets/images/m2.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
-        { img: require(`@/assets/images/m3.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
-        { img: require(`@/assets/images/v1.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
-        { img: require(`@/assets/images/v2.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
-        { img: require(`@/assets/images/v3.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
-        { img: require(`@/assets/images/v4.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
-        { img: require(`@/assets/images/c1.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
-        { img: require(`@/assets/images/c2.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
-        { img: require(`@/assets/images/car.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
+
+            Voitureform: {
+                id_voiture: "",
+                marque: "",
+                matricule: "",
+                photo: "",
+                id_utilisateur: "1"
+
+            },
+
+    //         datap: [
+    //     { img: require(`@/assets/images/m1.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
+    //     { img: require(`@/assets/images/m2.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
+    //     { img: require(`@/assets/images/m3.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
+    //     { img: require(`@/assets/images/v1.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
+    //     { img: require(`@/assets/images/v2.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
+    //     { img: require(`@/assets/images/v3.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
+    //     { img: require(`@/assets/images/v4.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
+    //     { img: require(`@/assets/images/c1.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
+    //     { img: require(`@/assets/images/c2.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
+    //     { img: require(`@/assets/images/car.png`), title: "Audi 8", description: "Our Instructors are Highly Trained ." },
        
 
 
 
-    ],
+    // ],
 
         }
     },
+    
 
     
     props: {

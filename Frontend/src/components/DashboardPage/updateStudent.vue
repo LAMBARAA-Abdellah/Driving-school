@@ -143,7 +143,7 @@ export default {
             const imgInp = ev.target;
             const [file] = imgInp.files;
             if (file) {
-                this.Studentform.photo = file.name;
+                this.Student.photo = file.name;
                 var blah = document.getElementById("blah")
                 blah.src = URL.createObjectURL(file)
             }
