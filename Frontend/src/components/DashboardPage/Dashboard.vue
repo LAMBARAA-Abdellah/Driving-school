@@ -182,7 +182,12 @@ export default {
   display: flex;
   width: 100%;
   height: 400px;
-  justify-content: space-between;
-  align-items: center;
+  .ver,.circle{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

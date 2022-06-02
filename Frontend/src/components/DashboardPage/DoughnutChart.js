@@ -45,11 +45,11 @@ export default defineComponent({
   },
   setup(props) {
     const chartData = {
-      labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
+      labels: ['Cars', 'Monitors', 'Personnel', 'Candidat', 'Archives'],
       datasets: [
         {
-          backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-          data: [40, 20, 80, 10]
+          backgroundColor: [ '#17A2B8', '#E04D01', '#FF7700', '#FFF263', '#F8CE03'],
+          data: [16, 12, 5, 40, 120]
         }
       ]
     }
