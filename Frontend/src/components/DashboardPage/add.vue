@@ -46,9 +46,12 @@ $hover:#F8CE03;
     border: none;
 }
 h1{
-    font-size: 30px;
+        font-size: 30px;
     font-weight: bold;
     color: #383838;
-    margin-left: -30%;
+    /* margin-left: -30%; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 </style>

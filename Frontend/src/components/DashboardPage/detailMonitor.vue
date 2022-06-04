@@ -33,7 +33,7 @@
                 <dt>sexe</dt>
                 <dd>{{ Monitor.sexe }}</dd>
                 
-                
+                <dt>social media</dt>
                 <dd>
                     <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
@@ -215,11 +215,11 @@ body {
         margin: 0;
 
         img {
-            max-width: 200px;
-            max-height: 200px;
-            border-radius: 50%;
-            padding: 10px;
-            box-shadow: 0px 0px 20px rgba($base-text-color, .15);
+               width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0px 0px 20px rgb(21 21 21 / 15%);
         }
     }
 

@@ -212,7 +212,7 @@ export default {
                 { name: "Monitors", link: "/monitors", icon: "icon-park-outline:steering-wheel", tooltip: "Monitors" },
                 { name: "Cars", link: "/cars", icon: "ant-design:car-filled", tooltip: "Car" },
                 { name: "Personnel", link: "/Personnels", icon: "ant-design:team-outlined", tooltip: "personnel" },
-                { name: "Archieve", link: "/archieves", icon: "akar-icons:block", tooltip: "Archieve" },
+                { name: "Archieve", link: "/Archieves", icon: "akar-icons:block", tooltip: "Archieve" },
                 { name: "Setting", link: "/settings", icon: "ant-design:setting-outlined", tooltip: "Setting" },
 
 
@@ -294,30 +294,7 @@ export default {
 $color-sousnavbar: #383838;
 $hover:#F8CE03;
 
-.hello {
-    display: flex;
-    background: white;
-    position: fixed;
-    z-index: 999;
-    padding: 0 100px 0 0;
-    width: 100%;
-    top: 0;
-    justify-content: space-around;
-    align-items: center;
 
-    h1 {
-        font-family: ui-sans-serif !important;
-
-    }
-
-    .sd {
-        color: #F8CE03;
-        font-family: ui-sans-serif !important;
-
-
-    }
-
-}
 
 body {
     transition: all 0.5s ease;
