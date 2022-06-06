@@ -1,7 +1,7 @@
 <template>
     <div class="hello">
         <div>
-            <h1>Ajouter un {{msg}}</h1>
+            <h1>{{action}} un {{msg}}</h1>
         </div>
     </div>
 
@@ -13,6 +13,8 @@ export default {
     name: 'add',
     props: {
         msg: String,
+        action: String
+
     },
 
     data() {

@@ -41,20 +41,20 @@
                         5
                     </h1>
                     <h2>
-                        working years
+                        Working years
                     </h2>
                 </div>
             </div>
             <div class="licence">
                   <div>
-                    <i class="fas fa-chalkboard-teacher"></i>
+                    <i class="	fas fa-address-card"></i>
                 </div>
                 <div>
                     <h1>
-                        28
+                        5000+
                     </h1>
                     <h2>
-                        Teachers
+                        Liccense issued
                     </h2>
                 </div>
             </div>
@@ -251,7 +251,7 @@ $hover:#F8CE03;
 }
 @media screen and (max-width: 776px) {
     .backround{ 
-        height: 50vh !important;
+        height: 60vh !important;
         }
  .statistique{
     display: none;

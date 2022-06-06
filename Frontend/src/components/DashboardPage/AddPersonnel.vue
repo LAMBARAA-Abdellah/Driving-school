@@ -83,12 +83,81 @@ export default {
 
 
     },
-    data() {
+  data() {
         return {
+            Studentform: {
+                nom_candidat: "",
+                prenom_candidat: "",
+                cin: "",
+                tel: "",
+                email: "",
+                photo: "",
+                adresse: "",
+                datNaissance: "",
+                sexe: "",
+                permis: "",
+                Total: "",
+                avance: "",
+                id_utilisateur: "1"
+            },
 
 
         }
     },
+    methods: {
+        showAlert() {
+            swal({
+                icon: 'success',
+                title: 'Your Appointment has been created',
+                confirmButtonText: 'Continue',
+            }).then((result) => {
+                if (result) {
+                    this.showPopup = false
+                   // window.location = "/Students"
+                   this.$router.push('/Students')
+                }
+            })
+        },
+
+        displayImg(ev) {
+            const imgInp = ev.target;
+            const [file] = imgInp.files;
+            if (file) {
+                this.Studentform.photo = file.name;
+                var blah = document.getElementById("blah")
+                blah.src = URL.createObjectURL(file)
+            }
+        },
+        AddStudent() {
+            fetch("http://localhost/Statique/Backend/student/addstudent", {
+                method: "POST",
+                body: JSON.stringify({
+                    nom_candidat: this.Studentform.nom_candidat,
+                    prenom_candidat: this.Studentform.prenom_candidat,
+                    cin: this.Studentform.cin,
+                    tel: this.Studentform.tel,
+                    email: this.Studentform.email,
+                    photo: this.Studentform.photo,
+                    adresse: this.Studentform.adresse,
+                    datNaissance: this.Studentform.datNaissance,
+                    sexe: this.Studentform.sexe,
+                    permis: this.Studentform.permis,
+                    Total: this.Studentform.Total,
+                    avance: this.Studentform.avance,
+                    id_utilisateur: this.Studentform.id_utilisateur
+                })
+            }).then((reponse => {
+                return reponse.json();
+            })).then((data) => {
+                if (data) {
+                    console.log("hhhhhhh");
+                    this.showAlert();
+                }
+
+            });
+        }
+    },
+
 
 
     props: {

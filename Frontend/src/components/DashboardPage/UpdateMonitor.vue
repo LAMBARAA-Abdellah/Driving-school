@@ -1,6 +1,6 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-    <Add msg="Student" />
+    <Add action="modifier" msg="Moniteur" />
     <form @submit.prevent>
         <div class="content">
             

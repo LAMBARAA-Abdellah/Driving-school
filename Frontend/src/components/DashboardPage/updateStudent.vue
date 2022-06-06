@@ -1,9 +1,9 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-    <Add msg="Student" />
+    <Add action="modifier" msg="Student" />
     <form @submit.prevent>
         <div class="content">
-            
+
             <div class="profil-img">
                 <img id="blah" :src="'/assets/images/' + Student.photo" alt="">
 
@@ -81,7 +81,8 @@
 
         </div>
         <div class="w-100">
-            <input @click="updateStudent()" class=" btn aaa btn-secondary ms-auto" type="button" value="Modifier">
+            <input @click="updateStudent()" class=" btn aaa btn-primary ms-auto" type="button" value="Modifier">
+            <input @click="retour()" class=" btn aaa btn-danger ms-auto" type="button" value="Cancel">
         </div>
 
     </form>
@@ -181,7 +182,7 @@ export default {
 </script>
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
 
 
 input {

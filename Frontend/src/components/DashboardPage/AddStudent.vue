@@ -47,7 +47,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="">Select </label>
+                        <label for="">Permis</label>
                         <select name="" id="" class="form-control" v-model="Studentform.permis">
                             <option value="A">A</option>
                             <option value="B">B</option>
@@ -68,12 +68,18 @@
                     </div>
                     <div class="form-group">
                         <label for="">Total a payé</label>
-                        <input type="number" name="" id="" class="form-control" v-model="Studentform.Total">
+                        <div class="arg">
+                            <input type="number" name="" id="" class="form-control" v-model="Studentform.Total"> <span>DH</span>
+                        </div>
+                        
                     </div>
                     <div class="form-group">
                         <label for="">Tranche payé</label>
+                        <div class="arg">
                         <input type="number" default="0" name="" id="" class="form-control"
-                            v-model="Studentform.avance">
+                            v-model="Studentform.avance"> <span>DH</span>
+                        </div>
+                        
                     </div>
                 </div>
 
@@ -193,7 +199,11 @@ export default {
 $color-sousnavbar: #383838;
 $hover:#F8CE03;
 
-
+.arg{
+    display: flex;
+  
+    align-items: center;
+}
 input {
     width: 300px;
 
