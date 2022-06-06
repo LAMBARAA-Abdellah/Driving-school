@@ -19,6 +19,31 @@ class voitures
         $results = $this->db->fetchAll();
         return $results;
     }
+    public function addPersonnel($data){
+        $this->db->query('INSERT INTO utilisateur (nom_utilisateur,prenom_utilisateur,email,pass,tel,cin,adresse,datNaissance,sexe;profession,id_utilisateur) VALUES (:nom_utilisateur ,:prenom_utilisateur,:email ,:pass, :tel, :cin, :adresse, :datNaissance, :sexe;:profession, :id_utilisateur)');
+        $this->db->bind(':nom_utilisateur', $data['nom_utilisateur']);
+        $this->db->bind(':prenom_utilisateur', $data['prenom_utilisateur']);
+        $this->db->bind(':email', $data['email']);
+        $this->db->bind(':pass', $data['pass']);
+        $this->db->bind(':tel', $data['tel']);
+        $this->db->bind(':cin', $data['cin']);
+        $this->db->bind(':adresse', $data['adresse']);
+        $this->db->bind(':datNaissance', $data['datNaissance']);
+        $this->db->bind(':sexe', $data['sexe']);
+        $this->db->bind(':profession', $data['profession']);
+        $this->db->bind(':id_utilisateur', $data['id_utilisateur']);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+        
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function addVoiture($data){
         $this->db->query('INSERT INTO voiture (marque,matricule,module,photo,id_utilisateur) VALUES (:marque ,:matricule,:module ,:photo, :id_utilisateur)');
         $this->db->bind(':marque', $data['marque']);

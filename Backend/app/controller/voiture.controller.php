@@ -10,14 +10,12 @@ class voiture extends controller
     //add car function
     public function addVoiture()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Sanitize POST array
             $json = file_get_contents('php://input');
             $data = json_decode($json, true);
             echo json_encode($data);
-            
             $this->voitureModel->addVoiture($data);
-            var_dump("jawad");
 
         }      
     }
@@ -26,11 +24,15 @@ class voiture extends controller
         $voitures = $this->voitureModel->getVoitures();
         echo json_encode($voitures);
     }
-    public function getVoiture($id)
+    public function getVoiture()
     {
+        if ($_SERVER["REQUEST_METHOD"] === "GET") {
+            $id = $_GET['id'];
         $voiture = $this->voitureModel->getVoiture($id);
         echo json_encode($voiture);
     }
+    }
+  
     public function updateVoiture()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,17 +41,6 @@ class voiture extends controller
             $this->voitureModel->updateVoiture($data);
 
         }      
-    }
-    public function updateStudent()
-    {
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $json = file_get_contents('php://input');
-            $data = json_decode($json,true);
-           // $data = array_values((array)$data);
-            echo json_encode($data);
-           $this->studentModel->updateStudent($data);
-            echo "update width succes";
-        }
     }
     public function deleteVoiture()
     {

@@ -27,7 +27,6 @@ class voitures
         $this->db->bind(':photo', $data['photo']);
         $this->db->bind(':id_utilisateur', $data['id_utilisateur']);
         if ($this->db->execute()) {
-            var_dump("jawad");
             return true;
         } else {
             return false;
@@ -35,7 +34,7 @@ class voitures
     }
     public function getVoiture($id)
     {
-        $this->db->query('SELECT * FROM voiture WHERE id = :id');
+        $this->db->query('SELECT * FROM voiture WHERE id_voiture = :id');
         $this->db->bind(':id', $id);
         $row = $this->db->fetch();
         return $row;
