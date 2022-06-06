@@ -1,6 +1,6 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-    <Add msg="Personnel"/>
+    <Add action="ajouter " msg="Personnel"/>
     <form action="">
     <div class="content">
     

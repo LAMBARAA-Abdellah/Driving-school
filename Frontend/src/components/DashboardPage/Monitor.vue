@@ -3,7 +3,7 @@
 
 
     <!-- <Hello msg="Monitor" link="/AddMonitor" /> -->
-     <div class="hello">
+    <div class="hello">
         <!-- <h1>👋 <span>{{msg}}</span> <span class="sd">D</span>riving <span class="sd">S</span>chool!</h1> -->
         <div class="div-search">
             <div class="input-group">
@@ -12,8 +12,8 @@
                         <i class="fa fa-search"></i>
                     </div>
                 </span>
-                <input class="form-control py-2 border-left-0 border" type="search" value="..."
-                    id="example-search-input" />
+                <input class="form-control py-2 border-left-0 border" type="search" value=""
+                    id="example-search-input" v-model="keyword" />
                 <span class="input-group-append">
                     <button class="btn btn-outline-secondary border-left-0 border" type="button">
                         Search
@@ -28,19 +28,21 @@
         </router-link>
     </div>
     <hr style=" border-top: 6px solid rgba(0,0,0,.1) !important">
-   
+
 
     <div class="content-card">
-        <div class="card" v-for="(data, index) in Monitor " :key="index">
+        <div class="card" v-for="data in Monitor ">
+         <div v-if="data?.cin.toLowerCase().includes(keyword.toLowerCase())">
             <div class="profil-img">
                 <img :src="'assets/images/' + data.photo" alt="John" style="width:100%">
             </div>
-            <h4>{{data.prenom_monitor}} {{data.nom_monitor}}</h4>
-            <p class="title">Cin:{{data.cin}}</p>
-            <p class="title">Tel:{{data.tel}}</p>
+            <h4>{{ data.prenom_monitor }} {{ data.nom_monitor }}</h4>
+            <p class="title">Cin:{{ data.cin }}</p>
+            <p class="title">Tel:{{ data.tel }}</p>
             <router-link :to="'/detailmonitor/' + data.id_Monitor">
                 <p><button>detaill</button></p>
             </router-link>
+        </div>
         </div>
 
 
@@ -57,37 +59,26 @@ export default {
     components: {
         Hello
     },
-    data(){
-        return{
-           Monitor:{
-               id_Monitor:"",
-               nom_monitor:"",
-               prenom_monitor:"",
-               tel:"",
-               email:"",
-               cin:"",
-               adresse:"",
-               datNaissance:"",
-               photo:"",
-               sexe:"",
-               id_utilisateur:""
-           },
+    data() {
+        return {
+            Monitor: [],
+            keyword: '',
 
         }
     },
-    methods(){
+    methods() {
 
     },
-     mounted() {
+    mounted() {
         // this.id = localStorage.getItem("id");
         // console.log(localStorage.getItem("id"));
         fetch("http://localhost/Statique/Backend/monitor/allMonitors").then(res => res.json()).then(Monitor => {
             this.Monitor = Monitor;
         })
     },
-    
 
-    
+
+
     props: {
         msg: String
     }
@@ -95,7 +86,8 @@ export default {
 </script>
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
+
 .hello {
     display: flex;
     background: white;
@@ -110,11 +102,11 @@ $hover:#F8CE03;
         font-family: ui-sans-serif !important;
 
         .sd {
-        color: #F8CE03;
-        font-family: ui-sans-serif !important;
+            color: #F8CE03;
+            font-family: ui-sans-serif !important;
 
 
-    }
+        }
     }
 
 
@@ -122,15 +114,16 @@ $hover:#F8CE03;
 }
 
 @media screen and (max-width: 576px) {
-   .hello{ 
-           height: 132px;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 20px;
-    align-items: end;
-   }
-   
+    .hello {
+        height: 132px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 20px;
+        align-items: end;
+    }
+
 }
+
 @mixin flex {
     display: flex;
     justify-content: space-between;
@@ -152,9 +145,9 @@ $hover:#F8CE03;
         display: block;
         width: 100%;
         height: 100%;
-         position: center;
+        position: center;
         object-fit: cover;
-  
+
 
     }
 }
@@ -162,21 +155,23 @@ $hover:#F8CE03;
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
+    height: 450px;
     margin: auto;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+
     button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-}
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
 }
 
 .title {

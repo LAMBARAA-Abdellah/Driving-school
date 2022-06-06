@@ -1,6 +1,6 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-     <Add msg="Monitor"/>
+     <Add action="ajouter " msg="Monitor"/>
     <form @submit.prevent>
     <div class="content">
            <div class="profil-img">

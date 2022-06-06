@@ -35,7 +35,7 @@
                 <img :src="data.img" alt="John" style="width:100%">
             </div>
 
-            <h1>{{data.marque}}</h1>
+            <h3>{{data.marque}}</h3>
            <p class="title">matricule:{{ data.matricule }}</p>
             <p class="title">model:{{ data.model }}</p>
 
@@ -99,6 +99,7 @@ export default {
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
 $hover: #F8CE03;
+
 .hello {
     display: flex;
     background: white;
@@ -164,11 +165,12 @@ $hover: #F8CE03;
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
+    height: 440px;
     margin: auto;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     
 button {
     border: none;
@@ -190,12 +192,7 @@ button {
 }
 
 
-a {
-    text-decoration: none;
-    font-size: 22px;
-    color: black;
-    padding: 10px;
-}
+
 
 button:hover {
     opacity: 0.7;
