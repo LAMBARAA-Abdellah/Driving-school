@@ -1,147 +1,44 @@
 <template>
     <div class="candidat">
         <h4>Information:</h4>
-        <h4>{{ Student.nom_candidat }} {{ Student.prenom_candidat }}</h4>
+        <h4> {{ Voiture.marque }}</h4>
     </div>
 
     <div class="profile">
-    <p class="close" @click="retour()">&times;</p>
+        <p class="close" @click="retour()">&times;</p>
         <div class="header">
             <figure>
-                <img :src="'/assets/images/' + Student.photo" alt="" />
+                <img :src="'/assets/images/' + Voiture.photo" alt="" />
             </figure>
             <header>
-                <h1>{{ Student.nom_candidat }} {{ Student.prenom_candidat }}
+                <h1>{{ Voiture.marque }} {{ Voiture.module }}
                 </h1>
             </header>
         </div>
-
-
-        <!-- <div class="toggle">
-            <input type="checkbox" class="view_details" id="view_details">
-            <label for="view_details" title="tap here to view full profile">☰</label>
-        </div> -->
         <main>
             <dl>
-                <dt>Full name</dt>
-                <dd>{{ Student.nom_candidat }} {{ Student.prenom_candidat }}</dd>
-                <dt>Date of birth</dt>
-                <dd>{{ Student.datNaissance }}</dd>
-                <dt>Adresse</dt>
-                <dd>{{ Student.adresse }}</dd>
-                <dt>Telephone</dt>
-                <dd>{{ Student.tel }}</dd>
-                <dt>email</dt>
-                <dd>{{ Student.email }}</dd>
-                <dt>sexe</dt>
-                <dd>{{ Student.sexe }}</dd>
-                <dt>permis</dt>
-                <dd>{{ Student.permis }}</dd>
-                <dt>total</dt>
-                <dd>{{ Student.Total }} dh</dd>
-                <dt>avance</dt>
-                <dd>{{ Student.avance}}dh</dd>
-                <dt>Social</dt>
-                <dd>
-                    <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
-                </dd>
+                <dt>Marque</dt>
+                <dd>{{ Voiture.marque }}</dd>
+                <dt>matricule</dt>
+                <dd> {{ Voiture.matricule }}</dd>
+                <dt>model</dt>
+                <dd>{{ Voiture.module }}</dd>
+
             </dl>
         </main>
         <div class="bttn">
-            <div>
-                <submit class="btn btn-warning">AddTranche</submit>
-            </div>
 
             <div>
-                <router-link :to="'/UpdateStudent/' + Student.id_Candidat">
+                <router-link :to="'/UpdateVoiture/' + Voiture.id_voiture">
                     <submit class="btn btn-primary">Modifier</submit>
                 </router-link>
 
-                <submit @click="deleteStudent(Student.id_Candidat)" class="btn btn-danger">Suprimer</submit>
+                <submit @click="deleteVoiture(Voiture.id_voiture)" class="btn btn-danger">Suprimer</submit>
             </div>
         </div>
 
 
-    </div> <!-- end profile -->
-
-    <!-- <div class="content">
-        <div class="profil-img">
-            <img :src="'@/../public/assets/images/' + Student.photo" alt="jhj">
-        </div>
-        <h3>Lambaraa Abdellah</h3>
-        <div class="info">
-
-            <div class="sous-info">
-                <div class="data">
-                    <h5>Nom:</h5>
-                    <h4>{{ Student.nom_candidat }}</h4>
-                </div>
-                <div class="data">
-                    <h5>Prenom:</h5>
-                    <h4>{{ Student.prenom_candidat }}</h4>
-                </div>
-
-            </div>
-            <div class="sous-info">
-                <div class="data">
-                    <h5>cin:</h5>
-                    <h4>{{ Student.cin }}</h4>
-                </div>
-                <div class="data">
-                    <h5>telephone:</h5>
-                    <h4>{{ Student.tel }}</h4>
-                </div>
-
-            </div>
-
-            <div class="sous-info">
-                <div class="data">
-                    <h5>Email:</h5>
-                    <h4>{{ Student.email }}</h4>
-                </div>
-                <div class="data">
-                    <h5>Adresse:</h5>
-                    <h4>{{ Student.adresse }}</h4>
-                </div>
-
-            </div>
-
-            <div class="sous-info">
-                <div class="data">
-                    <h5>datNaissance:</h5>
-                    <h4>Lambaraa</h4>
-                </div>
-                <div class="data">
-                    <h5>sexe:</h5>
-                    <h4>Lambaraa</h4>
-                </div>
-
-            </div>
-            <div class="sous-info">
-                <div class="data">
-                    <h5>total:</h5>
-                    <h4>Lambaraa</h4>
-                </div>
-                <div class="data">
-                    <h5>avance:</h5>
-                    <h4>Lambaraa</h4>
-                </div>
-
-            </div>
-
-
-
-
-
-
-        </div>
-
-
-
-    </div> -->
-
+    </div>
 
 
 
@@ -156,34 +53,26 @@ import swal from "sweetalert";
 
 
 export default {
-    name: 'Monitor',
+    name: 'detail-Voiture',
     components: {
         Hello
     },
     data() {
         return {
-            Student: {
-                nom_candidat: "",
-                prenom_candidat: "",
-                cin: "",
-                tel: "",
-                email: "",
-                photo: "",
-                adresse: "",
-                datNaissance: "",
-                sexe: "",
-                permis: "",
-                Total: "",
-                avance: "",
-                id_utilisateur: "1"
+            Voiture: {
+                matricule: '',
+                marque: '',
+                module: '',
+                photo: '',
+                id_voiture: ''
             },
 
-        }
 
+        }
     },
     methods: {
-        retour(){
-            this.$router.push('/Students')
+        retour() {
+            this.$router.push('/Cars')
         },
         showAlert() {
             swal({
@@ -193,45 +82,26 @@ export default {
             }).then((result) => {
                 if (result) {
                     this.showPopup = false
-                    // window.location = "/Students"
-                    this.$router.push('/Students')
+                    // window.location = "/Monitors"
+                    this.$router.push('/cars')
                 }
             })
         },
         detail() {
-            fetch(`http://localhost/Statique/Backend/student/getStudent?id=${this.$route.params.id}`).then(res => res.json()).then(Student => {
-                this.Student = Student;
+            fetch(`http://localhost/Statique/Backend/voiture/getVoiture?id=${this.$route.params.id}`).then(res => res.json()).then(Voiture => {
+                this.Voiture = Voiture;
+
             })
         },
-        // deleteStudent(id) {
-        //     swal.fire({
-        //         title: 'Are you sure?',
-        //         text: "Do you really want to delete this user!",
-        //         icon: 'warning',
-        //         showCancelButton: true,
-        //         confirmButtonColor: '#3085d6',
-        //         cancelButtonColor: '#d33',
-        //         confirmButtonText: 'Yes, delete it!'
-        //         }).then((result) => {
-        //         if (result.isConfirmed) {
-        //             swal.fire(
-        //             'Deleted!',
-        //             'User has been deleted.',
-        //             'success',
-        //             fetch(`http://localhost/Statique/Backend/student/deleteStudent?id=${id}`,
-        //         {
-        //             method: "GET"
-        //         }
-        //     )   .then(() => {
-        //                 this.afficher();
-
-        //             })
-        //             )
-        //         }
-        //         })
-
-        // },
-
+        deleteVoiture(id) {
+            fetch(`http://localhost/Statique/Backend/voiture/deleteVoiture?id=${id}`,
+               {
+               method: "GET"
+                }
+            ).then(() => {
+                this.$router.push('/cars');
+            })
+        },
         deleteStudent(id) {
             fetch(`http://localhost/Statique/Backend/student/deleteStudent?id=${id}`,
                 {
@@ -241,10 +111,8 @@ export default {
                 this.$router.push('/Students');
             })
         },
-
     },
     mounted() {
-        console.log('Component mounted.');
         console.log(this.$route.params);
         this.detail();
 
@@ -254,7 +122,7 @@ export default {
 </script>
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
 $base-text-color: #151515;
 $base-link-color: #1daaff;
 $base-hover-color: darken($base-link-color, 20);
@@ -310,7 +178,7 @@ body {
     .bttn {
         display: flex;
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-end;
         margin: 20px 0 0 0;
 
         .btn {
@@ -329,12 +197,12 @@ body {
         margin: 0;
 
         img {
+            width: 300px;
             object-fit: cover;
-           width: 200px;
-           height: 200px;
-            border-radius: 50%;
+            height: 200px;
+            border-radius: 0%;
             padding: 10px;
-            box-shadow: 0px 0px 20px rgba($base-text-color, .15);
+            box-shadow: 0px 0px 20px rgb(21 21 21 / 15%);
         }
     }
 
@@ -360,7 +228,7 @@ body {
     // end header
 
     main {
-         width: 100%;
+        width: 100%;
         dl {
             display: block;
             width: 100%;
@@ -421,6 +289,7 @@ body {
 
         .bttn {
             display: flex;
+            justify-content: flex-end;
         }
     }
 }
@@ -435,7 +304,8 @@ label {
     display: block;
     cursor: pointer;
 }
-.close{
+
+.close {
     display: flex;
     width: 100%;
     float: right;
@@ -443,6 +313,7 @@ label {
     font-size: 2em;
     cursor: pointer;
 }
+
 @media screen and (max-width: 520px) {
     .sous-info {
         flex-direction: column;

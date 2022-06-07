@@ -31,8 +31,8 @@
 
 
     <div class="content-card">
-        <div class="card" v-for="data in Monitor ">
-         <div v-if="data?.cin.toLowerCase().includes(keyword.toLowerCase())">
+        <div  v-for="data in Monitor ">
+         <div class="card" v-if="data?.cin.toLowerCase().includes(keyword.toLowerCase())">
             <div class="profil-img">
                 <img :src="'assets/images/' + data.photo" alt="John" style="width:100%">
             </div>
@@ -133,6 +133,7 @@ $hover: #F8CE03;
 
 .content-card {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 10px;
 }

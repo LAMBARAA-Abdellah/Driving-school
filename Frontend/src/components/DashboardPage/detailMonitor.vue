@@ -5,7 +5,7 @@
     </div>
 
     <div class="profile">
-    <p class="close" @click="retour()">&times;</p>
+        <p class="close" @click="retour()">&times;</p>
         <div class="header">
             <figure>
                 <img :src="'/assets/images/' + Monitor.photo" alt="" />
@@ -29,10 +29,10 @@
                 <dd>{{ Monitor.tel }}</dd>
                 <dt>email</dt>
                 <dd>{{ Monitor.email }}</dd>
-                
+
                 <dt>sexe</dt>
                 <dd>{{ Monitor.sexe }}</dd>
-                
+
                 <dt>social media</dt>
                 <dd>
                     <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
@@ -56,7 +56,7 @@
         </div>
 
 
-    </div> 
+    </div>
 
 
 
@@ -77,25 +77,25 @@ export default {
     },
     data() {
         return {
-             Monitor:{
-               id_Monitor:"",
-               nom_monitor:"",
-               prenom_monitor:"",
-               tel:"",
-               email:"",
-               cin:"",
-               adresse:"",
-               datNaissance:"",
-               photo:"",
-               sexe:"",
-               id_utilisateur:""
-           },
+            Monitor: {
+                id_Monitor: "",
+                nom_monitor: "",
+                prenom_monitor: "",
+                tel: "",
+                email: "",
+                cin: "",
+                adresse: "",
+                datNaissance: "",
+                photo: "",
+                sexe: "",
+                id_utilisateur: ""
+            },
 
 
         }
     },
     methods: {
-        retour(){
+        retour() {
             this.$router.push('/Monitors')
         },
         showAlert() {
@@ -114,7 +114,7 @@ export default {
         detail() {
             fetch(`http://localhost/Statique/Backend/Monitor/getMonitor?id=${this.$route.params.id}`).then(res => res.json()).then(Monitor => {
                 this.Monitor = Monitor;
-                
+
             })
         },
 
@@ -130,9 +130,9 @@ export default {
 
     },
     mounted() {
-       fetch(`http://localhost/Statique/Backend/Monitor/getMonitor?id=${this.$route.params.id}`).then(res => res.json()).then(Monitor => {
-                this.Monitor = Monitor;
-            })
+        fetch(`http://localhost/Statique/Backend/Monitor/getMonitor?id=${this.$route.params.id}`).then(res => res.json()).then(Monitor => {
+            this.Monitor = Monitor;
+        })
 
     },
 
@@ -140,7 +140,7 @@ export default {
 </script>
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
 $base-text-color: #151515;
 $base-link-color: #1daaff;
 $base-hover-color: darken($base-link-color, 20);
@@ -150,7 +150,9 @@ $profile-avatar-size: 150px;
 * {
     box-sizing: border-box;
 }
-
+main{
+    width: 90%;
+}
 html,
 body {
     font-family: 'Open Sans', sans-serif;
@@ -215,11 +217,12 @@ body {
         margin: 0;
 
         img {
-               width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    padding: 10px;
-    box-shadow: 0px 0px 20px rgb(21 21 21 / 15%);
+            width: 200px;
+            object-fit: cover;
+            height: 200px;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0px 0px 20px rgb(21 21 21 / 15%);
         }
     }
 
@@ -245,6 +248,7 @@ body {
     // end header
 
     main {
+        width: 100%;
         dl {
             display: block;
             width: 100%;
@@ -305,6 +309,7 @@ body {
 
         .bttn {
             display: flex;
+            justify-content: flex-end;
         }
     }
 }
@@ -319,7 +324,8 @@ label {
     display: block;
     cursor: pointer;
 }
-.close{
+
+.close {
     display: flex;
     width: 100%;
     float: right;
@@ -327,6 +333,7 @@ label {
     font-size: 2em;
     cursor: pointer;
 }
+
 @media screen and (max-width: 520px) {
     .sous-info {
         flex-direction: column;

@@ -11,8 +11,8 @@
                         <i class="fa fa-search"></i>
                     </div>
                 </span>
-                <input class="form-control py-2 border-left-0 border" type="search" value="..."
-                    id="example-search-input" />
+                <input class="form-control py-2 border-left-0 border" type="search" value=""
+                    id="example-search-input" v-model="keyword" />
                 <span class="input-group-append">
                     <button class="btn btn-outline-secondary border-left-0 border" type="button">
                         Search
@@ -30,7 +30,8 @@
 
 
     <div class="content-card">
-        <div class="card" v-for="(data, index) in datap " :key="index">
+        <div  v-for="data in datap ">
+         <div class="card" v-if="data?.cin.toLowerCase().includes(keyword.toLowerCase())">
             <div class="profil-img">
                 <img :src="data.img" alt="John" style="width:100%">
             </div>
@@ -42,6 +43,7 @@
 
 
             <p><button>detaill</button></p>
+        </div>
         </div>
 
 
@@ -60,6 +62,7 @@ export default {
     },
     data() {
         return {
+            keyword: '',
             datap: [
                 { img: require(`@/assets/images/sec1.png`), cin: "hh21846", profession: "secritaire", name: "Faiza Rabhi", tel: "0652745372" },
                 { img: require(`@/assets/images/img1.jpg`), cin: "hh27344", profession: "director", name: "Lambaraa Abdellah", tel: "0632193749" },
@@ -124,6 +127,7 @@ $hover:#F8CE03;
 .content-card {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     margin-top: 10px;
 }
 

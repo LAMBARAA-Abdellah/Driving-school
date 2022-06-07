@@ -32,8 +32,8 @@
 
 
     <div class="content-card">
-        <div class="card" v-for="std in Students">
-            <div v-if="std?.cin.toLowerCase().includes(keyword.toLowerCase())">
+        <div  v-for="std in Students">
+            <div class="card" v-if="std?.cin.toLowerCase().includes(keyword.toLowerCase())">
 
                 <div class="profil-img">
                     <img :src="'assets/images/' + std.photo" alt="">
@@ -65,20 +65,6 @@ export default {
     data() {
         return {
             value: 20.4,
-            //         datas: [
-            //     { img: require(`@/assets/images/sec1.png`),cin:"hh21846",totale:"1000", name: "Nemli Youness", tel : "0652745372" },
-            //     { img: require(`@/assets/images/img1.jpg`), cin:"hh21846",totale:"800", name: " Rabhi", tel : "0652745372" },
-            //     { img: require(`@/assets/images/sec.png`), cin:"hh21846",totale:"2000", name: "Faiza Rabhi", tel : "0652745372" },
-            // ],
-            // student: {
-            //     id_candidat: "",
-            //     nom_candidat: "",
-            //     prenom_candidat: "",
-            //     cin: "",
-            //     tel: "",
-            //     email: "",
-            //     photo: "",
-            // },
             Students: [],
             keyword: '',
         }
@@ -162,6 +148,7 @@ $hover: #F8CE03;
 
 .content-card {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 10px;
 }

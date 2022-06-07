@@ -12,8 +12,8 @@
                         <i class="fa fa-search"></i>
                     </div>
                 </span>
-                <input class="form-control py-2 border-left-0 border" type="search" value="..."
-                    id="example-search-input" />
+                <input class="form-control py-2 border-left-0 border" type="search" placeholder="matricule..."
+                    id="example-search-input" v-model="keyword"  />
                 <span class="input-group-append">
                     <button class="btn btn-outline-secondary border-left-0 border" type="button">
                         Search
@@ -30,20 +30,23 @@
     <hr style=" border-top: 6px solid rgba(0,0,0,.1) !important">
 
     <div class="content-card">
-        <div class="card" v-for="(data, index) in datap " :key="index">
+        <div  v-for="voiture in voitures ">
+           <div class="card" v-if="voiture?.matricule.toLowerCase().includes(keyword.toLowerCase())">
             <div class="profil-img">
-                <img :src="data.img" alt="John" style="width:100%">
+                 <img :src="'assets/images/' + voiture.photo" alt="">
             </div>
 
-            <h3>{{data.marque}}</h3>
-           <p class="title">matricule:{{ data.matricule }}</p>
-            <p class="title">model:{{ data.model }}</p>
+            <h3>{{voiture.marque}}</h3>
+           <p class="title">matricule:{{ voiture.matricule }}</p>
+            <p class="title">model:{{ voiture.module }}</p>
 
 
-            <router-link :to="'/detailCar/' + data.id_voiture">
+            <router-link :to="'/detailVoiture/' + voiture.id_voiture">
                 <p><button>detaill</button></p>
             </router-link>
+            </div>
         </div>
+        
 
 
     </div>
@@ -61,32 +64,22 @@ export default {
     },
     data() {
         return {
-
-            Voitureform: {
-                id_voiture: "",
-                marque: "",
-                matricule: "",
-                photo: "",
-                id_utilisateur: "1"
-
-            },
-
-            datap: [
-                { img: require(`@/assets/images/m3.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34"},
-                { img: require(`@/assets/images/v1.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34", },
-                { img: require(`@/assets/images/c2.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34", },
-                { img: require(`@/assets/images/v2.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34",  },
-                { img: require(`@/assets/images/v3.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34", },
-                { img: require(`@/assets/images/c2.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34", },
-               
-            
-
-
-
-
-            ],
+            keyword: '',
+            voitures: [],
 
         }
+    },
+    methods:{
+        getCars(){
+            fetch("http://localhost/Statique/Backend/voiture/allVoiture").then(res => res.json()).then(voitures => {
+                this.voitures = voitures;
+            })
+        }
+     
+
+    },
+    mounted() {
+        this.getCars();
     },
 
 
@@ -145,6 +138,7 @@ $hover: #F8CE03;
 
 .content-card {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 10px;
 }

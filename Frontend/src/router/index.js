@@ -50,6 +50,10 @@ const routes = [
         path:'/cars',
         component: () => import('@/components/DashboardPage/Cars.vue'),
       },
+      { 
+        path:'/detailVoiture/:id',
+        component: () => import('@/components/DashboardPage/detailVoiture.vue'),
+      },
       {
         path:'/Students',
         component: () => import('@/components/DashboardPage/Student.vue'),
