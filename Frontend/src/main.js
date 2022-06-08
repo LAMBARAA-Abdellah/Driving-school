@@ -4,7 +4,4 @@ import router from './router'
 import store from './store'
 import VueSweetalert2 from 'vue-sweetalert2';
 
-
-
-
 createApp(App).use(store).use(router).mount('#app')

@@ -61,7 +61,7 @@
         </div>
 
         <div class="w-100">
-            <input @click="AddPersonnel()" class=" btn aaa btn-primary ms-auto" type="button" value="Ajouter">
+            <input @click="AddPersonnel()" class="btn aaa btn-primary ms-auto" type="button" value="Ajouter">
         </div>
 
 
@@ -100,8 +100,6 @@ export default {
                 profession: "",
                 id_admin: "1"
             },
-
-
         }
     },
     methods: {
@@ -113,7 +111,6 @@ export default {
             }).then((result) => {
                 if (result) {
                     this.showPopup = false
-                    // window.location = "/Students"
                     this.$router.push('/Personnels')
                 }
             })
@@ -157,8 +154,6 @@ export default {
             });
         }
     },
-
-
 
     props: {
         msg: String

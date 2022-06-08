@@ -1,7 +1,21 @@
 <template>
-  <Bar :chart-options="chartOptions" :chart-data="chartData" :chart-id="chartId" :dataset-id-key="datasetIdKey"
-    :plugins="plugins" :css-classes="cssClasses" :styles="styles" :width="width" :height="height" />
-  <DoughnutChart />
+  <v-app>
+   <v-container>
+            <v-row>
+              <v-col>
+                <h1>{{ heading }}</h1>
+                <v-btn color='black' class="white--text" @click='generatePDF'>Generate PDF</v-btn>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col>
+                <ul>
+                  <li v-for='item in items'>{{ item.title }} - {{ item.body }}</li>
+                </ul>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-app>
 </template>
 
 <script>
@@ -15,8 +29,7 @@ ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 export default {
   name: 'BarChart',
   components: {
-    DoughnutChart,
-    Bar
+    
   },
   props: {
     chartId: {
@@ -54,32 +67,7 @@ export default {
   },
   data() {
     return {
-      chartData: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-        datasets: [{
-          data: [40, 20, 12, 24, 20, 12, 30, 20, 12, 20, 20, 12,],
-          backgroundColor: ["#F8CE03"],
-        }]
-      },
-      chartOptions: {
-        responsive: true
-      },
-      chartDataa: {
-        labels: ['skill1'],
-        datasets: [
-          {
-            // backgroundColor: [randomColor()],
-            data: [1]
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        animation: {
-          animateRotate: false
-        }
-      }
+     
     }
   }
 }
