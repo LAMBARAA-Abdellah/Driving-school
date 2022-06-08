@@ -2,7 +2,8 @@
 
 
 
-<div class="hello">
+    <div class="hello">
+
         <!-- <h1>👋 <span>{{msg}}</span> <span class="sd">D</span>riving <span class="sd">S</span>chool!</h1> -->
         <div class="div-search">
             <div class="input-group">
@@ -11,8 +12,8 @@
                         <i class="fa fa-search"></i>
                     </div>
                 </span>
-                <input class="form-control py-2 border-left-0 border" type="search" value=""
-                    id="example-search-input" v-model="keyword" />
+                <input class="form-control py-2 border-left-0 border" type="search" value="" id="example-search-input"
+                    v-model="keyword" />
                 <span class="input-group-append">
                     <button class="btn btn-outline-secondary border-left-0 border" type="button">
                         Search
@@ -30,20 +31,17 @@
 
 
     <div class="content-card">
-        <div  v-for="data in datap ">
-         <div class="card" v-if="data?.cin.toLowerCase().includes(keyword.toLowerCase())">
+        <div class="card" v-for="data in personnels ">
             <div class="profil-img">
-                <img :src="data.img" alt="John" style="width:100%">
+                <img :src="'assets/images/' + data.photo" alt="">
             </div>
-
-            <h4>{{ data.name }}</h4>
+            <h4>{{ data.nom_utilisateur }} {{ data.prenom_utilisateur }}</h4>
             <p class="title">Cin:{{ data.cin }}</p>
             <p class="title">Tel:{{ data.tel }}</p>
             <p>{{ data.profession }}</p>
-            <router-link :to="'/detailPersonnel/' + std.id_Candidat">
-                    <p><button>detaill</button></p>
-                </router-link>
-        </div>
+            <router-link :to="'/detailPersonnel/' + data.id_utilisateur">
+                <p><button>detaill</button></p>
+            </router-link>
         </div>
 
 
@@ -63,11 +61,25 @@ export default {
     data() {
         return {
             keyword: '',
-           personnel: [],
+            personnels: [],
 
         }
     },
 
+    methods: {
+        getPersonnels() {
+            fetch("http://localhost/Statique/Backend/personnel/allPersonnel").then(res => res.json()).then(personnels => {
+                this.personnels = personnels;
+            })
+        },
+
+    },
+    mounted() {
+        // this.id = localStorage.getItem("id");
+        // console.log(localStorage.getItem("id"));
+        this.getPersonnels();
+        // this.Studentsearch();
+    },
 
     props: {
         msg: String
@@ -76,7 +88,8 @@ export default {
 </script>
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
+
 .hello {
     display: flex;
     background: white;
@@ -91,11 +104,11 @@ $hover:#F8CE03;
         font-family: ui-sans-serif !important;
 
         .sd {
-        color: #F8CE03;
-        font-family: ui-sans-serif !important;
+            color: #F8CE03;
+            font-family: ui-sans-serif !important;
 
 
-    }
+        }
     }
 
 
@@ -103,14 +116,14 @@ $hover:#F8CE03;
 }
 
 @media screen and (max-width: 576px) {
-   .hello{ 
-           height: 132px;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px 30px;
-    align-items: end;
-   }
-   
+    .hello {
+        height: 132px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px 30px;
+        align-items: end;
+    }
+
 }
 
 @mixin flex {
@@ -132,6 +145,7 @@ $hover:#F8CE03;
     height: 300px;
 
     img {
+        object-fit: cover;
         display: block;
         width: 100%;
         height: 100%;
@@ -148,18 +162,19 @@ $hover:#F8CE03;
     margin: auto;
     text-align: center;
     margin-bottom: 20px;
+
     button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-}
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+    }
 }
 
 .title {
