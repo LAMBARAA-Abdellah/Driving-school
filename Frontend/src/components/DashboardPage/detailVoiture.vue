@@ -29,7 +29,7 @@
         <div class="bttn">
 
             <div>
-                <router-link :to="'/UpdateVoiture/' + Voiture.id_voiture">
+                <router-link :to="'/updateCar/' + Voiture.id_voiture">
                     <submit class="btn btn-primary">Modifier</submit>
                 </router-link>
 
@@ -102,18 +102,8 @@ export default {
                 this.$router.push('/cars');
             })
         },
-        deleteStudent(id) {
-            fetch(`http://localhost/Statique/Backend/student/deleteStudent?id=${id}`,
-                {
-                    method: "GET"
-                }
-            ).then(() => {
-                this.$router.push('/Students');
-            })
-        },
     },
     mounted() {
-        console.log(this.$route.params);
         this.detail();
 
     },

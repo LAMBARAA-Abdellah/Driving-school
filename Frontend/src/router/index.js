@@ -51,8 +51,16 @@ const routes = [
         component: () => import('@/components/DashboardPage/Cars.vue'),
       },
       { 
+        path:'/AddCar',
+        component: () => import('@/components/DashboardPage/AddCar.vue'),
+      },
+      { 
         path:'/detailVoiture/:id',
         component: () => import('@/components/DashboardPage/detailVoiture.vue'),
+      },
+      {
+        path:'/updateCar/:id',
+        component: () => import('@/components/DashboardPage/updateCar.vue'),
       },
       {
         path:'/Students',
@@ -93,10 +101,7 @@ const routes = [
         path:'/detailmonitor/:id',
         component: () => import('@/components/DashboardPage/detailMonitor.vue'),
       },
-      { 
-        path:'/AddCar',
-        component: () => import('@/components/DashboardPage/AddCar.vue'),
-      },
+    
       { 
         path:'/AddPersonnel',
         component: () => import('@/components/DashboardPage/AddPersonnel.vue'),

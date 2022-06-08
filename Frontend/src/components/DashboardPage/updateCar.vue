@@ -1,17 +1,16 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-    <Add action="ajouter " msg="Car"/>
+    <Add action="ajouter " msg="Car" />
     <form action="">
-    <div class="content">
-    
-        
-             <div class="profil-img">
-                <img id="blah" src="" alt="">
+        <div class="content">
 
-                <input id="img" type="file" name="" @change="displayImg">
+            <div class="profil-img">
+                <img id="blah" :src="'/assets/images/' + carform.photo" alt="">
+                <input id="img" type="file" @change="displayImg">
 
             </div>
             <div class="form">
+                <input type="text" name="" id="" class="form-control" v-model="carform.id_voiture">
                 <div class="form-group">
                     <label for="">Matricule</label>
                     <input type="text" name="" id="" class="form-control" v-model="carform.matricule">
@@ -23,21 +22,22 @@
                 <div class="form-group">
                     <label for="">Model</label>
                     <!-- <input type="years" name="" id="" class="form-control"> -->
-                    <input type="number" min="1900" max="2099" step="1" value="2022" v-model="carform.module"/>
+                    <input type="number" min="1900" max="2099" step="1" value="2022" v-model="carform.module" />
                 </div>
-               
-                
-            </div>
-               
-    <div />
- </div>
- 
 
-    <div class="w-100">
-     <input @click="AddCar()" class=" btn aaa btn-secondary ms-auto" type="button" value="Ajouter">
-    </div>
-       
-   </form>
+
+            </div>
+
+            <div />
+        </div>
+
+
+        <div class="w-100">
+            <input @click="updateCar()" class=" btn aaa btn-primary ms-auto" type="button" value="Modifer">
+            <input @click="retour()" class=" btn aaa btn-danger ms-auto" type="button" value="Cancel">
+        </div>
+
+    </form>
 
 </template>
 
@@ -56,34 +56,23 @@ export default {
 
 
     },
-      data() {
+    data() {
         return {
             carform: {
                 matricule: '',
                 marque: '',
                 module: '',
                 photo: '',
-                id_utilisateur: '1'
+                id_voiture: '',
             },
 
 
         }
     },
     methods: {
-        showAlert() {
-            swal({
-                icon: 'success',
-                title: 'Your Appointment has been created',
-                confirmButtonText: 'Continue',
-            }).then((result) => {
-                if (result) {
-                    this.showPopup = false
-                   // window.location = "/Students"
-                   this.$router.push('/cars')
-                }
-            })
+        retour() {
+            this.$router.push('/Cars')
         },
-
         displayImg(ev) {
             const imgInp = ev.target;
             const [file] = imgInp.files;
@@ -93,26 +82,40 @@ export default {
                 blah.src = URL.createObjectURL(file)
             }
         },
-        AddCar() {
-            fetch("http://localhost/Statique/Backend/voiture/addVoiture", {
-                method: "POST",
-                body: JSON.stringify({
-                    matricule: this.carform.matricule,
-                    marque: this.carform.marque,
-                    module: this.carform.module,
-                    photo: this.carform.photo,
-                    id_utilisateur: this.carform.id_utilisateur,
-                    
-                })
-            }).then((reponse => {
-                return reponse.json();
-            })).then((data) => {
-                if (data) {
-                    this.showAlert();
+        showAlert() {
+            swal({
+                icon: 'success',
+                title: 'Your Appointment has been created',
+                confirmButtonText: 'Continue',
+            }).then((result) => {
+                if (result) {
+                    this.showPopup = false
+                    // window.location = "/Monitors"
+                    this.$router.push('/cars')
                 }
+            })
+        },
+        detail() {
+            fetch(`http://localhost/Statique/Backend/voiture/getVoiture?id=${this.$route.params.id}`).then(res => res.json()).then(Voiture => {
+                this.carform = Voiture;
 
-            });
-        }
+            })
+        },
+        updateMonitor() {
+            fetch("http://localhost/Statique/Backend/Monitor/updateMonitor", {
+                method: "POST",
+                body: JSON.stringify(this.Monitor),
+            }).then((result) => {
+                this.$router.push("/Monitors");
+            })
+
+        },
+
+    },
+    mounted() {
+        console.log(this.$route.params);
+        this.detail();
+
     },
 
 
@@ -124,27 +127,32 @@ export default {
 </script>
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
 
 
 input {
     width: 300px;
-   
+
 }
-select{
+
+select {
     width: 300px;
 }
-.btn{
+
+.btn {
     width: 140px;
 }
-form{
+
+form {
     background-color: #F9F8F8;
 }
-.aaa{
+
+.aaa {
     margin: 20px;
 }
+
 .content {
-   display: flex;
+    display: flex;
     flex-wrap: wrap;
     height: auto;
     flex-direction: column;
@@ -160,7 +168,7 @@ form{
             display: block;
             background-position: center;
             background-size: cover;
-        height: 200px;
+            height: 200px;
             width: 100%;
         }
 
@@ -175,24 +183,23 @@ form{
     .form {
         width: 100%;
         margin-top: 60px;
-      display: flex;
-      flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
 
-        .div-bot{
+        .div-bot {
             display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
 
-           
+
         }
     }
 }
-
 </style>
