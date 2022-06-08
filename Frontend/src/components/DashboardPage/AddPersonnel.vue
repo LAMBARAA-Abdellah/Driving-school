@@ -1,11 +1,9 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-    <Add action="ajouter " msg="Personnel"/>
-    <form action="">
-    <div class="content">
-    
-        
-          <div class="profil-img">
+    <Add action="ajouter " msg="Personnel" />
+    <form @submit.prevent>
+        <div class="content">
+            <div class="profil-img">
                 <img id="blah" src="" alt="">
 
                 <input id="img" type="file" name="" @change="displayImg">
@@ -14,58 +12,60 @@
             <div class="form">
                 <div class="form-group">
                     <label for="">Nom</label>
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="" id="" class="form-control" v-model="Personnelform.nom_utilisateur">
                 </div>
                 <div class="form-group">
                     <label for="">Prenom</label>
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="" id="" class="form-control" v-model="Personnelform.prenom_utilisateur">
                 </div>
                 <div class="form-group">
                     <label for="">Email</label>
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="" id="" class="form-control" v-model="Personnelform.email">
                 </div>
                 <div class="form-group">
                     <label for="">CIN</label>
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="" id="" class="form-control" v-model="Personnelform.cin">
                 </div>
                 <div class="form-group">
                     <label for="">Telephone</label>
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="" id="" class="form-control" v-model="Personnelform.tel">
                 </div>
                 <div class="form-group">
                     <label for="">Adresse</label>
-                    <input type="text" name="" id="" class="form-control">
+                    <input type="text" name="" id="" class="form-control" v-model="Personnelform.adresse">
                 </div>
                 <div class="div-bot">
-                     <div class="form-group">
-                    <label for="">Date de naissance</label>
-                    <input type="date" name="" id="" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="">Genre</label>
-                    <select name="" id="" class="form-control">
-                        <option value="">Homme</option>
-                        <option value="">Femme</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="">profession</label>
-                    <input type="text" name="" id="" class="form-control">
-                </div>
-                 
-                </div>
-               
-        <div />
- </div>
- 
+                    <div class="form-group">
+                        <label for="">Date de naissance</label>
+                        <input type="date" name="" id="" class="form-control" v-model="Personnelform.datNaissance">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Genre</label>
+                        <select name="" id="" class="form-control" v-model="Personnelform.sexe">
+                            <option value="">Homme</option>
+                            <option value="">Femme</option>
+                        </select>
+                    </div>
 
-    </div>
-    <div class="w-100">
-     <input class=" btn aaa btn-secondary ms-auto" type="button" value="Ajouter">
-    </div>
-       
-   </form>
+                    <div class="form-group">
+                        <label for="">profession</label>
+                        <input type="text" name="" id="" class="form-control" v-model="Personnelform.profession">
+                    </div>
+
+                </div>
+
+                <div />
+            </div>
+
+
+        </div>
+
+        <div class="w-100">
+            <input @click="AddPersonnel()" class=" btn aaa btn-primary ms-auto" type="button" value="Ajouter">
+        </div>
+
+
+    </form>
 
 </template>
 
@@ -83,22 +83,22 @@ export default {
 
 
     },
-  data() {
+    data() {
         return {
-            Studentform: {
-                nom_candidat: "",
-                prenom_candidat: "",
+            Personnelform: {
+                nom_utilisateur: '',
+                prenom_utilisateur: '',
                 cin: "",
                 tel: "",
                 email: "",
+                login: "",
+                pass: "",
                 photo: "",
                 adresse: "",
                 datNaissance: "",
                 sexe: "",
-                permis: "",
-                Total: "",
-                avance: "",
-                id_utilisateur: "1"
+                profession: "",
+                id_admin: "1"
             },
 
 
@@ -113,44 +113,45 @@ export default {
             }).then((result) => {
                 if (result) {
                     this.showPopup = false
-                   // window.location = "/Students"
-                   this.$router.push('/Students')
+                    // window.location = "/Students"
+                    this.$router.push('/Personnels')
                 }
             })
         },
-
         displayImg(ev) {
             const imgInp = ev.target;
             const [file] = imgInp.files;
             if (file) {
-                this.Studentform.photo = file.name;
+                this.Personnelform.photo = file.name;
                 var blah = document.getElementById("blah")
                 blah.src = URL.createObjectURL(file)
             }
         },
-        AddStudent() {
-            fetch("http://localhost/Statique/Backend/student/addstudent", {
+        AddPersonnel() {
+            fetch("http://localhost/Statique/Backend/personnel/addPersonnel", {
                 method: "POST",
                 body: JSON.stringify({
-                    nom_candidat: this.Studentform.nom_candidat,
-                    prenom_candidat: this.Studentform.prenom_candidat,
-                    cin: this.Studentform.cin,
-                    tel: this.Studentform.tel,
-                    email: this.Studentform.email,
-                    photo: this.Studentform.photo,
-                    adresse: this.Studentform.adresse,
-                    datNaissance: this.Studentform.datNaissance,
-                    sexe: this.Studentform.sexe,
-                    permis: this.Studentform.permis,
-                    Total: this.Studentform.Total,
-                    avance: this.Studentform.avance,
-                    id_utilisateur: this.Studentform.id_utilisateur
+                    nom_utilisateur: this.Personnelform.nom_utilisateur,
+                    prenom_utilisateur: this.Personnelform.prenom_utilisateur,
+                    cin: this.Personnelform.cin,
+                    tel: this.Personnelform.tel,
+                    email: this.Personnelform.email,
+                    login: this.Personnelform.login,
+                    pass: this.Personnelform.pass,
+                    photo: this.Personnelform.photo,
+                    adresse: this.Personnelform.adresse,
+                    datNaissance: this.Personnelform.datNaissance,
+                    sexe: this.Personnelform.sexe,
+                    profession: this.Personnelform.profession,
+                    id_admin: this.Personnelform.id_admin
+                    
+
                 })
             }).then((reponse => {
-                return reponse.json();
+                reponse.json();
+                this.showAlert();
             })).then((data) => {
                 if (data) {
-                    console.log("hhhhhhh");
                     this.showAlert();
                 }
 
@@ -167,26 +168,31 @@ export default {
 </script>
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
 
 
 input {
     width: 300px;
-   
+
 }
-select{
+
+select {
     width: 300px;
 }
-.btn{
+
+.btn {
     width: 140px;
 }
-form{
+
+form {
     background-color: #F9F8F8;
-    
+
 }
-.aaa{
+
+.aaa {
     margin: 20px;
 }
+
 .content {
     padding: 40px auto;
     display: flex;
@@ -205,7 +211,7 @@ form{
             display: block;
             background-position: center;
             background-size: cover;
-        height: 200px;
+            height: 200px;
             width: 100%;
         }
 
@@ -219,24 +225,23 @@ form{
 
     .form {
         margin-top: 60px;
-      display: flex;
-      flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
 
-        .div-bot{
+        .div-bot {
             display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
 
-           
+
         }
     }
 }
-
 </style>

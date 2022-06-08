@@ -1,37 +1,40 @@
 <template>
     <div class="candidat">
         <h4>Information:</h4>
-        <h4> {{ Monitor.nom_monitor }} {{ Monitor.nom_monitor }}</h4>
+        <h4> {{ Personnel.nom_utilisateur }} {{ Personnel.prenom_utilisateur }}</h4>
     </div>
 
     <div class="profile">
         <p class="close" @click="retour()">&times;</p>
         <div class="header">
             <figure>
-                <img :src="'/assets/images/' + Monitor.photo" alt="" />
+                <img :src="'/assets/images/' + Personnel.photo" alt="" />
             </figure>
             <header>
-                <h1>{{ Monitor.nom_monitor }} {{ Monitor.prenom_monitor }}
+                <h1>{{ Personnel.nom_utilisateur }} {{ Personnel.prenom_utilisateur }}
                 </h1>
             </header>
         </div>
         <main>
             <dl>
                 <dt>Full name</dt>
-                <dd>{{ Monitor.nom_monitor }} {{ Monitor.nom_monitor }}</dd>
+                <dd>{{ Personnel.nom_utilisateur }} {{ Personnel.prenom_utilisateur }}</dd>
                 <dt>Date of birth</dt>
-                <dd>{{ Monitor.datNaissance }}</dd>
+                <dd>{{ Personnel.datNaissance }}</dd>
                 <dt>Adresse</dt>
-                <dd>{{ Monitor.adresse }}</dd>
+                <dd>{{ Personnel.adresse }}</dd>
                 <dt>Cin</dt>
-                <dd>{{ Monitor.cin }}</dd>
+                <dd>{{ Personnel.cin }}</dd>
                 <dt>Telephone</dt>
-                <dd>{{ Monitor.tel }}</dd>
+                <dd>{{ Personnel.tel }}</dd>
                 <dt>email</dt>
-                <dd>{{ Monitor.email }}</dd>
-
+                <dd>{{ Personnel.email }}</dd>
+                <dt>password</dt>
+                <dd>{{ Personnel.pass }}</dd>
+                <dt>profession</dt>
+                <dd>{{ Personnel.profession }}</dd>
                 <dt>sexe</dt>
-                <dd>{{ Monitor.sexe }}</dd>
+                <dd>{{ Personnel.sexe }}</dd>
 
                 <dt>social media</dt>
                 <dd>
@@ -42,16 +45,13 @@
             </dl>
         </main>
         <div class="bttn">
+        
             <div>
-                <submit class="btn btn-warning">AddTranche</submit>
-            </div>
-
-            <div>
-                <router-link :to="'/UpdateMonitor/' + Monitor.id_Monitor">
+                <router-link :to="'/UpdatePersonnel/' + Personnel.id_utilisateur">
                     <submit class="btn btn-primary">Modifier</submit>
                 </router-link>
 
-                <submit @click="deleteMonitor(Monitor.id_Monitor)" class="btn btn-danger">Suprimer</submit>
+                <submit @click="deletePersonnel(Personnel.id_utilisateur)" class="btn btn-danger">Suprimer</submit>
             </div>
         </div>
 
@@ -71,24 +71,28 @@ import swal from "sweetalert";
 
 
 export default {
-    name: 'Monitor',
+    name: 'Personnel',
     components: {
         Hello
     },
     data() {
         return {
-            Monitor: {
-                id_Monitor: "",
-                nom_monitor: "",
-                prenom_monitor: "",
+            Personnel: {
+                id_utilisateur: "",
+                nom_utilisateur: '',
+                prenom_utilisateur: '',
+                cin: "",
                 tel: "",
                 email: "",
-                cin: "",
+                login: "",
+                pass: "",
+                photo: "",
                 adresse: "",
                 datNaissance: "",
-                photo: "",
                 sexe: "",
-                id_utilisateur: ""
+                profession: "",
+                id_admin: "1"
+
             },
 
 
@@ -96,7 +100,7 @@ export default {
     },
     methods: {
         retour() {
-            this.$router.push('/Monitors')
+            this.$router.push('/Personnels')
         },
         showAlert() {
             swal({
@@ -106,34 +110,31 @@ export default {
             }).then((result) => {
                 if (result) {
                     this.showPopup = false
-                    // window.location = "/Monitors"
-                    this.$router.push('/Monitors')
+                    // window.location = "/Personnels"
+                    this.$router.push('/Personnels')
                 }
             })
         },
         detail() {
-            fetch(`http://localhost/Statique/Backend/Monitor/getMonitor?id=${this.$route.params.id}`).then(res => res.json()).then(Monitor => {
-                this.Monitor = Monitor;
+            fetch(`http://localhost/Statique/Backend/personnel/getPersonnel?id=${this.$route.params.id}`).then(res => res.json()).then(Personnel => {
+                this.Personnel = Personnel;
 
             })
         },
 
-        deleteMonitor(id) {
-            fetch(`http://localhost/Statique/Backend/Monitor/deleteMonitor?id=${id}`,
+        deletePersonnel(id) {
+            fetch(`http://localhost/Statique/Backend/Personnel/deletePersonnel?id=${id}`,
                 {
                     method: "GET"
                 }
             ).then(() => {
-                this.$router.push('/Monitors');
+                this.$router.push('/Personnels');
             })
         },
 
     },
     mounted() {
-        fetch(`http://localhost/Statique/Backend/Monitor/getMonitor?id=${this.$route.params.id}`).then(res => res.json()).then(Monitor => {
-            this.Monitor = Monitor;
-        })
-
+        this.detail();
     },
 
 }
@@ -198,7 +199,7 @@ body {
     .bttn {
         display: flex;
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-end;
         margin: 20px 0 0 0;
 
         .btn {

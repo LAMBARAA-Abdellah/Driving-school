@@ -12,7 +12,7 @@
                         <i class="fa fa-search"></i>
                     </div>
                 </span>
-                <input class="form-control py-2 border-left-0 border" type="search" value="" id="example-search-input"
+                <input class="form-control py-2 border-left-0 border" type="search" id="example-search-input"
                     v-model="keyword" />
                 <span class="input-group-append">
                     <button class="btn btn-outline-secondary border-left-0 border" type="button">
@@ -32,16 +32,18 @@
 
     <div class="content-card">
         <div class="card" v-for="data in personnels ">
-            <div class="profil-img">
-                <img :src="'assets/images/' + data.photo" alt="">
+            <div class="card" v-if="data?.cin.toLowerCase().includes(keyword.toLowerCase())">
+                <div class="profil-img">
+                    <img :src="'assets/images/' + data.photo" alt="">
+                </div>
+                <h4>{{ data.nom_utilisateur }} {{ data.prenom_utilisateur }}</h4>
+                <p class="title">Cin:{{ data.cin }}</p>
+                <p class="title">Tel:{{ data.tel }}</p>
+                <p>{{ data.profession }}</p>
+                <router-link :to="'/detailPersonnel/' + data.id_utilisateur">
+                    <p><button>detaill</button></p>
+                </router-link>
             </div>
-            <h4>{{ data.nom_utilisateur }} {{ data.prenom_utilisateur }}</h4>
-            <p class="title">Cin:{{ data.cin }}</p>
-            <p class="title">Tel:{{ data.tel }}</p>
-            <p>{{ data.profession }}</p>
-            <router-link :to="'/detailPersonnel/' + data.id_utilisateur">
-                <p><button>detaill</button></p>
-            </router-link>
         </div>
 
 

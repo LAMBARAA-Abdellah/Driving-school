@@ -12,7 +12,7 @@
                         <i class="fa fa-search"></i>
                     </div>
                 </span>
-                <input class="form-control py-2 border-left-0 border" type="search" value=""
+                <input class="form-control py-2 border-left-0 border" type="search" 
                     id="example-search-input" v-model="keyword" />
                 <span class="input-group-append">
                     <button class="btn btn-outline-secondary border-left-0 border" type="button">
