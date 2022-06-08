@@ -31,7 +31,7 @@
 
 
     <div class="content-card">
-        <div class="card" v-for="data in personnels ">
+        <div  v-for="data in personnels ">
             <div class="card" v-if="data?.cin.toLowerCase().includes(keyword.toLowerCase())">
                 <div class="profil-img">
                     <img :src="'assets/images/' + data.photo" alt="">

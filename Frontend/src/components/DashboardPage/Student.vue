@@ -29,8 +29,6 @@
         </router-link>
     </div>
     <hr style=" border-top: 6px solid rgba(0,0,0,.1) !important">
-
-
     <div class="content-card">
         <div  v-for="std in Students">
             <div class="card" v-if="std?.cin.toLowerCase().includes(keyword.toLowerCase())">
@@ -41,7 +39,7 @@
                 <h4>{{ std.nom_candidat }} {{ std.prenom_candidat }}</h4>
                 <p class="title">Cin:{{ std.cin }}</p>
                 <p class="title">Tel:{{ std.tel }}</p>
-                <!-- <div class="total"><h6 class="title">Payé:</h6><h1 class="prix">{{std.totale}}dh</h1></div> -->
+
                 <router-link :to="'/detailstudent/' + std.id_Candidat">
                     <p><button>detaill</button></p>
                 </router-link>

@@ -143,15 +143,14 @@ export default {
                     datNaissance: this.Personnelform.datNaissance,
                     sexe: this.Personnelform.sexe,
                     profession: this.Personnelform.profession,
-                    id_admin: this.Personnelform.id_admin
-                    
+                    id_admin: this.Personnelform.id_admin                   
 
                 })
-            }).then((reponse => {
-                reponse.json();
-                this.showAlert();
+           }).then((reponse => {
+                return reponse.json();
             })).then((data) => {
                 if (data) {
+                    console.log("hhhhhhh");
                     this.showAlert();
                 }
 

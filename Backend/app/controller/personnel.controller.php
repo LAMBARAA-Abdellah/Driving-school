@@ -17,7 +17,6 @@ class personnel extends controller
             $data['pass'] = uniqid();
             echo json_encode($data);
             $this->personnelModel->addPersonnel($data);
-            var_dump("add width succes");
         }
     }
     public function updatePersonnel()

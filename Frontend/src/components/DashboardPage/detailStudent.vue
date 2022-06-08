@@ -198,6 +198,19 @@ export default {
                 }
             })
         },
+           deleteAlert() {
+            swal({
+                icon: 'warning',
+                title: 'Your Appointment has been deleted',
+                confirmButtonText: 'Continue',
+            }).then((result) => {
+                if (result) {
+                    this.showPopup = false
+                    // window.location = "/Students"
+                    this.$router.push('/Students')
+                }
+            })
+        },
         detail() {
             fetch(`http://localhost/Statique/Backend/student/getStudent?id=${this.$route.params.id}`).then(res => res.json()).then(Student => {
                 this.Student = Student;
@@ -238,7 +251,7 @@ export default {
                     method: "GET"
                 }
             ).then(() => {
-                this.$router.push('/Students');
+                this.deleteAlert();
             })
         },
 

@@ -34,7 +34,6 @@ class personnels
         $this->db->bind(':sexe', $data['sexe']);
         $this->db->bind(':profession', $data['profession']);
         $this->db->bind(':photo', $data['photo']);
-        var_dump($data);
         if ($this->db->execute()) {
             return true;
         } else {
