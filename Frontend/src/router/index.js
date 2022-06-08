@@ -65,17 +65,6 @@ const routes = [
       {
         path:'/Students',
         component: () => import('@/components/DashboardPage/Student.vue'),
-        
-      }
-      ,
-      {
-        path:'/Archieves',
-        component: () => import('@/components/DashboardPage/Archieve.vue'),
-      },
-      
-      {
-        path:'/Personnels',
-        component: () => import('@/components/DashboardPage/Personnel.vue'),
       },
       { 
         path:'/AddStudent',
@@ -89,6 +78,28 @@ const routes = [
         path:'/detailStudent/:id',
         component: () => import('@/components/DashboardPage/detailStudent.vue'),
       },
+      {
+        path:'/Archieves',
+        component: () => import('@/components/DashboardPage/Archieve.vue'),
+      },
+      
+      {
+        path:'/Personnels',
+        component: () => import('@/components/DashboardPage/Personnel.vue'),
+      },
+      { 
+        path:'/AddPersonnel',
+        component: () => import('@/components/DashboardPage/AddPersonnel.vue'),
+      },
+      {
+        path:'/detailPersonnel/:id',
+        component: () => import('@/components/DashboardPage/detailPersonnel.vue'),
+      },
+      {
+        path:'/updatePersonnel/:id',
+        component: () => import('@/components/DashboardPage/updatePersonnel.vue'),
+      },
+      
       { 
         path:'/AddMonitor',
         component: () => import('@/components/DashboardPage/AddMonitor.vue'),
@@ -102,10 +113,7 @@ const routes = [
         component: () => import('@/components/DashboardPage/detailMonitor.vue'),
       },
     
-      { 
-        path:'/AddPersonnel',
-        component: () => import('@/components/DashboardPage/AddPersonnel.vue'),
-      },
+      
       
       
     ]
