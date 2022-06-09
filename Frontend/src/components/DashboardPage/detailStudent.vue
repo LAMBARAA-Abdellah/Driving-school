@@ -3,6 +3,7 @@
         <h4>Information:</h4>
         <h4>{{ Student.nom_candidat }} {{ Student.prenom_candidat }}</h4>
     </div>
+    <button color='black' class="white--text" @click='generatePDF'>Generate PDF</button>
 
     <div class="profile">
     <p class="close" @click="retour()">&times;</p>
@@ -160,6 +161,7 @@ export default {
     components: {
         Hello
     },
+      vuetify: new Vuetify(),
     data() {
         return {
             Student: {
@@ -177,11 +179,79 @@ export default {
                 avance: "",
                 id_utilisateur: "1"
             },
-
+            heading: "Sample PDF Generator",
+      moreText: [
+        "This is another few sentences of text to look at it.",
+        "Just testing the paragraphs to see how they format.",
+        "jsPDF likes arrays for sentences.",
+        "Do paragraphs wrap properly?",
+        "Yes, they do!",
+        "What does it look like?",
+        "Not bad at all."
+      ],
+      description:[
+          "What is the purpose of driving? Image result for description driving school The purpose of driving. Driving serves many purposes. At its most fundamental level, driving a motor vehicle is a reliable, efficient and economical mode of transport"
+      ],
+      logo:[
+          "Driving School",
+      ]
+     
+     
         }
 
     },
     methods: {
+         generatePDF() {
+      const columns = [
+        { title: "Title", dataKey: "title" },
+        { title: "Body", dataKey: "body" }
+      ];
+      const doc = new jsPDF({
+        orientation: "portrait",
+        unit: "in",
+        format: "letter"
+      });
+      // text is placed using x, y coordinates
+      doc.setFontSize(16).text(this.heading, 0.5, 3.0);
+      // create a line under heading
+      doc.setLineWidth(0.01).line(0.5, 2.5, 8.0, 2.5);
+      // Using autoTable plugin
+      doc.autoTable({
+        columns,
+        body: this.items,
+        margin: { left: 0.5, top: 3.25 }
+      });
+      // Using array of sentences
+      doc
+        .setFont("helvetica")
+        .setFontSize(12)
+        .text(this.moreText, 0.5, 7.5, { align: "left", maxWidth: "7.5" });
+
+        // Using array of sentences
+        doc
+        .setFont("helvetica")
+        .setFontSize(12)
+        .text(this.description, 0.5, 1.5, { align: "left", maxWidth: "7.5" });
+      
+        // Using array of sentences
+        doc
+        .setFont("helvetica")
+        .setFontSize(12)
+        .text(this.logo, 0.5, 0.5, { align: "left", maxWidth: "7.5" });
+
+      // Creating footer and saving file
+      doc
+        .setFont("times")
+        .setFontSize(11)
+        .setFontStyle("italic")
+        .setTextColor(0, 0, 255)
+        .text(
+          "This is a simple footer located .5 inches from page bottom",
+          0.5,
+          doc.internal.pageSize.height - 0.5
+        )
+        .save(`${this.heading}.pdf`);
+    },
         retour(){
             this.$router.push('/Students')
         },
@@ -256,6 +326,54 @@ export default {
         },
 
     },
+    computed: {
+        items() {
+            return [
+                {
+                    title: "Nom et prenom",
+                    body: this.Student.nom_candidat + " " + this.Student.prenom_candidat
+                },
+                {
+                    title: "Cin",
+                    body: this.Student.cin
+                },
+                {
+                    title: "Telephone",
+                    body: this.Student.tel
+                },
+                {
+                    title: "Email",
+                    body: this.Student.email
+                },
+                {
+                    title: "adresse",
+                    body: this.Student.adresse
+                },
+                {
+                    title: "date Naissance",
+                    body: this.Student.datNaissance
+                },
+                {
+                    title: "Sexe",
+                    body: this.Student.sexe
+                },
+                {
+                    title: "Permis",
+                    body: this.Student.permis
+                },
+                {
+                    title: "Total",
+                    body: this.Student.Total + " Dh"
+                },
+                {
+                    title: "Avance",
+                    body: this.Student.avance   + " Dh"
+                },
+ 
+            ];  
+        }
+    },
+    
     mounted() {
         console.log('Component mounted.');
         console.log(this.$route.params);
