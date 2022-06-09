@@ -79,6 +79,10 @@ const routes = [
         component: () => import('@/components/DashboardPage/detailStudent.vue'),
       },
       {
+        path:'/tranche/:id',
+        component: () => import('@/components/DashboardPage/AddTranche.vue'),
+      },
+      {
         path:'/Archieves',
         component: () => import('@/components/DashboardPage/Archieve.vue'),
       },

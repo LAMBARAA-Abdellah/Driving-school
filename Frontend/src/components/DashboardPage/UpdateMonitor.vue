@@ -113,7 +113,7 @@ export default {
             })
         },
          retour(){
-            this.$router.push('/Monitors')
+            this.$router.push('/detailmonitor/' + this.$route.params.id);
         },
          displayImg(ev) {
             const imgInp = ev.target;

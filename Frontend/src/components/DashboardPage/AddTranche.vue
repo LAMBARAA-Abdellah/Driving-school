@@ -1,28 +1,29 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-    <Add action="ajouter " msg="Car" />
+    <Add action="ajouter " msg="Tranche" />
     <form action="">
         <div class="content">
+{{Student.nom_candidat}}hhh
 
             <div class="profil-img">
-                <img id="blah" :src="'/assets/images/' + carform.photo" alt="">
-                <input id="img" type="file" @change="displayImg">
+                <img id="blah" src="" alt="">
+
+                <input id="img" type="file" name="" @change="displayImg">
 
             </div>
             <div class="form">
-                <input type="text" name="" id="" class="form-control" hidden v-model="carform.id_voiture">
                 <div class="form-group">
                     <label for="">Matricule</label>
-                    <input type="text" name="" id="" class="form-control" v-model="carform.matricule">
+                    <input type="text" name="" id="" class="form-control" v-model="Student.nom_candidat">
                 </div>
                 <div class="form-group">
                     <label for="">Marque</label>
-                    <input type="text" name="" id="" class="form-control" v-model="carform.marque">
+                    <input type="text" name="" id="" class="form-control" >
                 </div>
                 <div class="form-group">
                     <label for="">Model</label>
                     <!-- <input type="years" name="" id="" class="form-control"> -->
-                    <input type="number" min="1900" max="2099" step="1" v-model="carform.module" />
+                    <input type="number" min="1900" max="2099" step="1" />
                 </div>
 
 
@@ -33,8 +34,7 @@
 
 
         <div class="w-100">
-            <input @click="updateCar()" class=" btn aaa btn-primary ms-auto" type="button" value="Modifer">
-            <input @click="retour()" class=" btn aaa btn-danger ms-auto" type="button" value="Cancel">
+            <input @click="AddCar()" class=" btn aaa btn-secondary ms-auto" type="button" value="Ajouter">
         </div>
 
     </form>
@@ -58,30 +58,11 @@ export default {
     },
     data() {
         return {
-            carform: {
-                matricule: '',
-                marque: '',
-                module: '',
-                photo: '',
-                id_voiture: '',
-            },
 
 
         }
     },
     methods: {
-        retour() {
-            this.$router.push('/detailVoiture/' + this.$route.params.id);
-        },
-        displayImg(ev) {
-            const imgInp = ev.target;
-            const [file] = imgInp.files;
-            if (file) {
-                this.carform.photo = file.name;
-                var blah = document.getElementById("blah")
-                blah.src = URL.createObjectURL(file)
-            }
-        },
         showAlert() {
             swal({
                 icon: 'success',
@@ -90,35 +71,23 @@ export default {
             }).then((result) => {
                 if (result) {
                     this.showPopup = false
-                    // window.location = "/Monitors"
+                    // window.location = "/Students"
                     this.$router.push('/cars')
                 }
             })
         },
-        detail() {
-            fetch(`http://localhost/Statique/Backend/voiture/getVoiture?id=${this.$route.params.id}`).then(res => res.json()).then(Voiture => {
-                this.carform = Voiture;
 
-            })
-        },
-        updateCar() {
-            fetch("http://localhost/Statique/Backend/voiture/updateVoiture", {
-                method: "POST",
-                body: JSON.stringify(this.carform),
-            }).then((result) => {
-                this.$router.push("/cars");
-            })
-
-        },
 
     },
+    computed: {
+        Student() {
+            return this.$store.state.student
+        }
+    },
+
     mounted() {
-        console.log(this.$route.params);
-        this.detail();
-
+        this.$store.dispatch('fetchStudent', this.$route.params.id)
     },
-
-
 
     props: {
         msg: String

@@ -106,26 +106,14 @@ export default {
     },
     data() {
         return {
-            Student: {
-                nom_candidat: "",
-                prenom_candidat: "",
-                cin: "",
-                tel: "",
-                email: "",
-                photo: "",
-                adresse: "",
-                datNaissance: "",
-                sexe: "",
-                permis: "",
-                Total: "",
-                avance: "",
-                id_utilisateur: 1,
-                id_Candidat: ""
-            },
         }
     },
 
     methods: {
+        retour() {
+            this.$router.push('/detailStudent/' + this.$route.params.id);
+
+        },
         showAlert() {
             swal({
                 icon: 'success',
@@ -151,10 +139,8 @@ export default {
         },
 
         detail() {
-            fetch(`http://localhost/Statique/Backend/student/getStudent?id=${this.$route.params.id}`)
-                .then(res => res.json()).then(Student => {
-                    this.Student = Student;
-                })
+            this.$store.dispatch('fetchStudent', this.$route.params.id) 
+
         },
         updateStudent() {
             fetch("http://localhost/Statique/Backend/student/updateStudent", {
@@ -173,6 +159,11 @@ export default {
                 this.Student = Student;
             })
 
+    },
+    computed: {
+        Student() {
+            return this.$store.state.student 
+        }
     },
 
     props: {

@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <label for="">Model</label>
                     <!-- <input type="years" name="" id="" class="form-control"> -->
-                    <input type="number" min="1900" max="2099" step="1"  v-model="carform.module"/>
+                    <input type="number" class="form-control" min="1900" max="2099" step="1"  v-model="carform.module"/>
                 </div>
                
                 
@@ -61,7 +61,7 @@ export default {
             carform: {
                 matricule: '',
                 marque: '',
-                module: '',
+                module: '2020',
                 photo: '',
                 id_utilisateur: '1'
             },

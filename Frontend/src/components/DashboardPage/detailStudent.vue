@@ -3,10 +3,12 @@
         <h4>Information:</h4>
         <h4>{{ Student.nom_candidat }} {{ Student.prenom_candidat }}</h4>
     </div>
-    <button color='black' class="white--text" @click='generatePDF'>Generate PDF</button>
+    <div class="vn-orange" style="text-align: center;">
+        <a @click='generatePDF' href="#" class="btn-wrap">DOWNLOAD</a>
+    </div>
 
     <div class="profile">
-    <p class="close" @click="retour()">&times;</p>
+        <p class="close" @click="retour()">&times;</p>
         <div class="header">
             <figure>
                 <img :src="'/assets/images/' + Student.photo" alt="" />
@@ -41,7 +43,7 @@
                 <dt>total</dt>
                 <dd>{{ Student.Total }} dh</dd>
                 <dt>avance</dt>
-                <dd>{{ Student.avance}}dh</dd>
+                <dd>{{ Student.avance }}dh</dd>
                 <dt>Social</dt>
                 <dd>
                     <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
@@ -52,7 +54,8 @@
         </main>
         <div class="bttn">
             <div>
-                <submit class="btn btn-warning">AddTranche</submit>
+            
+                <submit @click="$router.push('/tranche/' + Student.id_Candidat)"  class="btn btn-warning">AddTranche</submit>
             </div>
 
             <div>
@@ -161,98 +164,84 @@ export default {
     components: {
         Hello
     },
-      vuetify: new Vuetify(),
+    vuetify: new Vuetify(),
     data() {
         return {
-            Student: {
-                nom_candidat: "",
-                prenom_candidat: "",
-                cin: "",
-                tel: "",
-                email: "",
-                photo: "",
-                adresse: "",
-                datNaissance: "",
-                sexe: "",
-                permis: "",
-                Total: "",
-                avance: "",
-                id_utilisateur: "1"
-            },
-            heading: "Sample PDF Generator",
-      moreText: [
-        "This is another few sentences of text to look at it.",
-        "Just testing the paragraphs to see how they format.",
-        "jsPDF likes arrays for sentences.",
-        "Do paragraphs wrap properly?",
-        "Yes, they do!",
-        "What does it look like?",
-        "Not bad at all."
-      ],
-      description:[
-          "What is the purpose of driving? Image result for description driving school The purpose of driving. Driving serves many purposes. At its most fundamental level, driving a motor vehicle is a reliable, efficient and economical mode of transport"
-      ],
-      logo:[
-          "Driving School",
-      ]
-     
-     
+
+            heading: "Contrat driving school",
+            moreText: [
+                "This is another few sentences of text to look at it.",
+                "Just testing the paragraphs to see how they format.",
+                "jsPDF likes arrays for sentences.",
+                "Do paragraphs wrap properly?",
+                "Yes, they do!",
+                "What does it look like?",
+                "Not bad at all."
+            ],
+            description: [
+                "What is the purpose of driving? Image result for description driving school The purpose of driving. Driving serves many purposes. At its most fundamental level, driving a motor vehicle is a reliable, efficient and economical mode of transport"
+            ],
+            logo: [
+                "Driving School",
+            ]
+
+
         }
 
     },
     methods: {
-         generatePDF() {
-      const columns = [
-        { title: "Title", dataKey: "title" },
-        { title: "Body", dataKey: "body" }
-      ];
-      const doc = new jsPDF({
-        orientation: "portrait",
-        unit: "in",
-        format: "letter"
-      });
-      // text is placed using x, y coordinates
-      doc.setFontSize(16).text(this.heading, 0.5, 3.0);
-      // create a line under heading
-      doc.setLineWidth(0.01).line(0.5, 2.5, 8.0, 2.5);
-      // Using autoTable plugin
-      doc.autoTable({
-        columns,
-        body: this.items,
-        margin: { left: 0.5, top: 3.25 }
-      });
-      // Using array of sentences
-      doc
-        .setFont("helvetica")
-        .setFontSize(12)
-        .text(this.moreText, 0.5, 7.5, { align: "left", maxWidth: "7.5" });
+        generatePDF() {
+            const columns = [
+                { title: "Title", dataKey: "title" },
+                { title: "Body", dataKey: "body" }
+            ];
+            const doc = new jsPDF({
+                orientation: "portrait",
+                unit: "in",
+                format: "letter"
+            });
+            // text is placed using x, y coordinates
+            doc.setFontSize(16).text(this.heading, 0.5, 1.8);
+            // create a line under heading
+            doc.setLineWidth(0.01).line(0.5, 2, 8.0, 2);
+            // Using autoTable plugin
+            doc.autoTable({
+                columns,
+                body: this.items,
+                margin: { left: 0.5, top: 2.25 }
+            });
+            // Using array of sentences
+            doc
+                .setFont("helvetica")
+                .setFontSize(12)
+                .text(this.moreText, 0.5, 6.5, { align: "left", maxWidth: "7.5" });
 
-        // Using array of sentences
-        doc
-        .setFont("helvetica")
-        .setFontSize(12)
-        .text(this.description, 0.5, 1.5, { align: "left", maxWidth: "7.5" });
-      
-        // Using array of sentences
-        doc
-        .setFont("helvetica")
-        .setFontSize(12)
-        .text(this.logo, 0.5, 0.5, { align: "left", maxWidth: "7.5" });
+            // Using array of sentences
+            doc
+                .setFont("helvetica")
+                .setFontSize(12)
+                .text(this.description, 0.5, 1, { align: "left", maxWidth: "7.5" });
 
-      // Creating footer and saving file
-      doc
-        .setFont("times")
-        .setFontSize(11)
-        .setFontStyle("italic")
-        .setTextColor(0, 0, 255)
-        .text(
-          "This is a simple footer located .5 inches from page bottom",
-          0.5,
-          doc.internal.pageSize.height - 0.5
-        )
-        .save(`${this.heading}.pdf`);
-    },
-        retour(){
+            // Using array of sentences
+            doc
+                .setFont("helvetica")
+                .setFontSize(20)
+                .text(this.logo, 3.5, 0.5, { align: "left", maxWidth: "7.5" });
+
+            // Creating footer and saving file
+            doc
+                .setFont("times")
+                .setFontSize(11)
+                .setFontStyle("italic")
+                .setTextColor(0, 0, 255)
+                .text(
+                    "This is a simple footer located .5 inches from page bottom",
+                    0.5,
+                    doc.internal.pageSize.height - 0.5
+                )
+                .save(`${this.heading}.pdf`);
+        },
+        retour() {
             this.$router.push('/Students')
         },
         showAlert() {
@@ -268,7 +257,7 @@ export default {
                 }
             })
         },
-           deleteAlert() {
+        deleteAlert() {
             swal({
                 icon: 'warning',
                 title: 'Your Appointment has been deleted',
@@ -282,9 +271,7 @@ export default {
             })
         },
         detail() {
-            fetch(`http://localhost/Statique/Backend/student/getStudent?id=${this.$route.params.id}`).then(res => res.json()).then(Student => {
-                this.Student = Student;
-            })
+            this.$store.dispatch('fetchStudent', this.$route.params.id)
         },
         // deleteStudent(id) {
         //     swal.fire({
@@ -367,13 +354,16 @@ export default {
                 },
                 {
                     title: "Avance",
-                    body: this.Student.avance   + " Dh"
+                    body: this.Student.avance + " Dh"
                 },
- 
-            ];  
+
+            ];
+        },
+        Student() {
+            return this.$store.state.student
         }
     },
-    
+
     mounted() {
         console.log('Component mounted.');
         console.log(this.$route.params);
@@ -385,7 +375,7 @@ export default {
 </script>
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
 $base-text-color: #151515;
 $base-link-color: #1daaff;
 $base-hover-color: darken($base-link-color, 20);
@@ -402,6 +392,38 @@ body {
     font-size: 16px;
     user-select: none;
 }
+
+.vn-orange a {
+    background-color: #f39c12;
+    display: inline-block;
+    position: relative;
+    margin: 30px 5px;
+    padding: 20px 20px 20px 80px;
+    color: #fff;
+    transition: all 0.4s ease
+}
+
+.vn-orange a:before {
+    content: "\f019";
+    font-family: fontAwesome;
+    position: absolute;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    font-size: 28px;
+    border-radius: 0 20px 0 0;
+    color: #000;
+    background-color: #fff;
+    opacity: 0.3;
+    padding: 20px;
+    top: 0;
+    left: 0
+}
+
+.vn-orange a:hover {
+    background: #2c3e50
+}
+
 
 /* 
   some styling for display on codepen,
@@ -427,7 +449,7 @@ body {
 
 .profile {
     @extend .codepen;
-    max-width: 80%;
+    width: 80%;
     border: 1px solid lighten($base-text-color, 80);
     border-radius: 20px;
     padding: 2em;
@@ -450,6 +472,7 @@ body {
     }
 
     .header {
+        margin-top: -6%;
         width: 80%;
         display: flex;
         justify-content: space-between;
@@ -461,8 +484,8 @@ body {
 
         img {
             object-fit: cover;
-           width: 200px;
-           height: 200px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             padding: 10px;
             box-shadow: 0px 0px 20px rgba($base-text-color, .15);
@@ -491,7 +514,8 @@ body {
     // end header
 
     main {
-         width: 100%;
+        width: 100%;
+
         dl {
             display: block;
             width: 100%;
@@ -566,7 +590,8 @@ label {
     display: block;
     cursor: pointer;
 }
-.close{
+
+.close {
     display: flex;
     width: 100%;
     float: right;
@@ -574,6 +599,7 @@ label {
     font-size: 2em;
     cursor: pointer;
 }
+
 @media screen and (max-width: 520px) {
     .sous-info {
         flex-direction: column;
@@ -586,6 +612,16 @@ label {
         .header {
             display: flex;
             flex-direction: column;
+
+            h1 {
+                display: none;
+            }
+        }
+
+        .bttn {
+
+            height: 100px;
+            flex-direction: column-reverse;
         }
     }
 

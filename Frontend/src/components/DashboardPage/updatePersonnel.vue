@@ -122,7 +122,7 @@ export default {
             })
         },
          retour(){
-            this.$router.push('/Personnels')
+            this.$router.push('/detailPersonnel/' + this.$route.params.id);
         },
          displayImg(ev) {
             const imgInp = ev.target;

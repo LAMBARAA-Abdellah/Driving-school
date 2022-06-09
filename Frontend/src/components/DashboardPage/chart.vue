@@ -4,6 +4,11 @@
             <v-row>
               <v-col>
                 <h1>{{ heading }}</h1>
+
+
+                <div class="vn-orange" style="text-align: center;">
+<a @click='generatePDF' href="#" class="btn-wrap">DOWNLOAD</a>
+</div>
                 <button color='black' class="white--text" @click='generatePDF'>Generate PDF</button>
               </v-col>
             </v-row>
@@ -130,3 +135,38 @@ export default {
 
 }
 </script>
+<style lang="scss">
+
+.vn-orange a{
+background-color:#f39c12;
+  display:inline-block;
+  position:relative;
+  margin:30px 5px;
+  padding:20px 20px 20px 80px;
+  color:#fff;
+  transition:all 0.4s ease
+}
+
+.vn-orange a:before{
+  content:"\f019";
+  font-family:fontAwesome;
+  position:absolute;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  font-size:28px;
+  border-radius:0 20px 0 0;
+  color:#000;
+  background-color:#fff;
+  opacity:0.3;
+  padding:20px;
+  top:0;
+  left:0
+}
+
+.vn-orange a:hover{
+  background:#2c3e50
+}
+
+  
+</style>
