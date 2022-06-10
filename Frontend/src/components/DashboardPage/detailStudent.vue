@@ -54,9 +54,12 @@
         </main>
         <div class="bttn">
             <div>
-            
-                <submit @click="$router.push('/tranche/' + Student.id_Candidat)"  class="btn btn-warning">AddTranche</submit>
+                
+                <submit @click="$router.push('/tranche/'+ Student.id_Candidat)"  class="btn btn-warning">AddTranche</submit>
             </div>
+            <!-- <router-link :to="'/tranche/'+ Student.id_Candidat">
+                <submit  class="btn btn-warning">AddTranche</submit>
+                </router-link> -->
 
             <div>
                 <router-link :to="'/UpdateStudent/' + Student.id_Candidat">

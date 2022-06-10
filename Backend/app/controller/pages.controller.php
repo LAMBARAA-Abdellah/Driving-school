@@ -6,17 +6,17 @@ class Pages extends controller
         $this->studentModel = $this->model('students');
            
     }
-    // public function index()
-    // {
-    //     $students = $this->studentModel->getStudents();
+    public function index()
+    {
+        $students = $this->studentModel->getStudents();
             
-    //         if($students){
-    //             $data = [
-    //             'students' => $students
-    //         ];
-    //         return $this->view('pages/home', $students);
-    //         }
+            if($students){
+                $data = [
+                'students' => $students
+            ];
+            return $this->view('pages/home', $students);
+            }
 
     
-    // }
+    }
 }

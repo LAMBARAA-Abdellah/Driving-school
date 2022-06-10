@@ -3,14 +3,11 @@
     <Add action="ajouter " msg="Tranche" />
     <form action="">
         <div class="content">
-{{Student.nom_candidat}}hhh
-
-            <div class="profil-img">
-                <img id="blah" src="" alt="">
-
-                <input id="img" type="file" name="" @change="displayImg">
-
-            </div>
+                <div class="profil-img">
+                    <img :src="'/assets/images/' + Student.photo" alt="lmodir">
+                </div>
+                <H2> {{ Student.prenom_candidat }} {{ Student.prenom_candidat }}</H2>
+               
             <div class="form">
                 <div class="form-group">
                     <label for="">Matricule</label>
@@ -18,7 +15,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Marque</label>
-                    <input type="text" name="" id="" class="form-control" >
+                    <input type="text" name="" id="" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Model</label>
@@ -34,13 +31,12 @@
 
 
         <div class="w-100">
-            <input @click="AddCar()" class=" btn aaa btn-secondary ms-auto" type="button" value="Ajouter">
+            <input  class=" btn aaa btn-secondary ms-auto" type="button" value="Ajouter">
         </div>
 
     </form>
 
 </template>
-
 <script>
 import Hello from './Hello.vue';
 import Add from './add.vue';
@@ -133,7 +129,7 @@ form {
         margin-top: 100px;
 
         img {
-            background-image: url("@/assets/images/carb.png");
+            object-fit: cover;
             display: block;
             background-position: center;
             background-size: cover;
