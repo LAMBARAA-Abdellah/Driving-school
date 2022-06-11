@@ -43,8 +43,8 @@
                 <div class="profile-details">
                     <img src="@/assets/images/IMG_1462.jpg" alt="profileImg" />
                     <div class="name_job">
-                        <div class="name">Lambaraa Abdellah</div>
-                        <div class="job">Admin</div>
+                        <div class="name">{{ this.name }}</div>
+                        <div class="job">{{ this.role }}</div>
                     </div>
                 </div>
                 <i v-if="isExitButton" class="bx bx-log-out" id="log_out" @click="logout()" />
@@ -218,13 +218,21 @@ export default {
 
 
             ],
+
+            role: this.$cookies.get("role"),
+            name: this.$cookies.get("name"),
             isOpened: false,
             isclick: true,
-            keyword : ''
+            keyword: ''
         };
     },
     mounted() {
         this.isOpened = this.isMenuOpen;
+        this.role;
+        this.name;
+
+
+
     },
 
     computed: {
@@ -254,14 +262,14 @@ export default {
     //                 : this.menuClosedPaddingLeftBody;
     //     },
     // },
-     watch: {
-    isOpened() {
-      window.document.body.style.paddingLeft =
-        this.isOpened && this.isPaddingLeft && window.innerWidth > 1010
-          ? this.menuOpenedPaddingLeftBody
-          : this.menuClosedPaddingLeftBody;
+    watch: {
+        isOpened() {
+            window.document.body.style.paddingLeft =
+                this.isOpened && this.isPaddingLeft && window.innerWidth > 1010
+                    ? this.menuOpenedPaddingLeftBody
+                    : this.menuClosedPaddingLeftBody;
+        },
     },
-  },
     methods: {
         click() {
             this.isclick = !this.isclick
@@ -271,11 +279,17 @@ export default {
             this.$router.push(event);
         },
         logout() {
-            localStorage.removeItem("user");
-            this.setRole(" ");
+            // localStorage.removeItem("user");
+            this.destroyCookies();
             this.$router.push("/Login");
             // this.$router.go();
         },
+    //DESTROY COOKIES
+        destroyCookies() {
+            this.$cookies.remove("role");
+            this.$cookies.remove("name");
+            this.$cookies.remove("id");
+}
     },
 };
 </script>
@@ -292,7 +306,7 @@ export default {
 }
 
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
 
 
 

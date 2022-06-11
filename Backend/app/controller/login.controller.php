@@ -17,10 +17,9 @@ class login extends controller
             $data = json_decode($json, true);
             // $data = array_values((array)$data);
             //    var_dump($data);
-            echo json_encode($data);
+            // echo json_encode($data);
             $reponse = $this->AdminModel->CheckLogin($data);
             if($reponse){
-               
                 echo json_encode(array('reponse' => 'true', 'data' => $reponse));
             }elseif( $reponse = $this->UserModel->CheckLogin($data))
             {
