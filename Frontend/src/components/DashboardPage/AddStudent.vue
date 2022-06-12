@@ -240,8 +240,10 @@ form {
         width: 200px;
         height: 200px;
         margin-top: 100px;
+        border: none;
 
         img {
+            border-radius: 50%;
             background-image: url("@/assets/images/profil2.png");
             display: block;
             background-position: center;

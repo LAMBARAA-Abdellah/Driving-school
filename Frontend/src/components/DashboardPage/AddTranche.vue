@@ -6,6 +6,7 @@
             <div class="profil-img">
                 <img :src="'/assets/images/' + Student.photo" alt="lmodir">
             </div>
+            <h1>{{ Student.id_Candidat }}</h1>
             <H2> {{ Student.prenom_candidat }} {{ Student.nom_candidat }}</H2>
 
             <div class="argent">
@@ -30,9 +31,11 @@
             <div class="form">
 
                 <div class="form-group">
+                    <input type="text" name="" id="" class="form-control" hidden v-model="Student.id_Candidat">
                     <label for="">Tranche payé</label>
                     <div class="arg">
-                        <input step="1" type="number" default="0" name="" id="" class="form-control"> &nbsp; &nbsp;DH
+                        <input step="1" type="number" default="0" name="" id="" class="form-control"
+                            v-model="TrancheForm.tranche"> &nbsp; &nbsp;DH
                     </div>
 
                 </div>
@@ -45,7 +48,7 @@
 
 
         <div class="w-100">
-            <input class=" btn aaa btn-primary ms-auto" type="button" value="Ajouter">
+            <input @click="AddTranche()" class=" btn aaa btn-primary ms-auto" type="button" value="Ajouter">
         </div>
 
     </form>
@@ -69,6 +72,10 @@ export default {
     data() {
         return {
             reste: 0,
+            TrancheForm: {
+                id_Candidat: '',
+                tranche: '',
+            },
 
         }
     },
@@ -82,12 +89,29 @@ export default {
                 if (result) {
                     this.showPopup = false
                     // window.location = "/Students"
-                    this.$router.push('/cars')
+                    this.$router.push('/detailStudent/' + this.$route.params.id);
                 }
             })
         },
         Calculer() {
             this.reste = this.Student.Total - this.Student.avance
+        },
+        AddTranche() {
+            fetch("http://localhost/Statique/Backend/student/addTranche", {
+                method: "POST",
+                body: JSON.stringify({
+                    id_Candidat: this.Student.id_Candidat,
+                    tranche: this.TrancheForm.tranche,
+                })
+            }).then((reponse => {
+                 reponse.json();
+                    this.showAlert();
+            })).then((data) => {
+                if (data) {
+                    this.$router.push('/detailStudent/' + this.$route.params.id)
+                }
+
+            });
         }
 
 
@@ -95,7 +119,10 @@ export default {
     computed: {
         Student() {
             return this.$store.state.student
-        }
+        },
+
+
+
     },
 
     mounted() {
@@ -178,6 +205,7 @@ form {
         margin-top: 50px;
 
         img {
+            border-radius: 50%;
             object-fit: cover;
             display: block;
             background-position: center;

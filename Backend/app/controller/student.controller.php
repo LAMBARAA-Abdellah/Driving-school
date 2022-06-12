@@ -86,6 +86,18 @@ class student extends controller
             var_dump( $this->studentModel->deleteStudent($id));
         }
     }
+    public function addTranche(){
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $json = file_get_contents('php://input');
+            $data = json_decode($json, true);
+            // $data = array_values((array)$data);
+            //    var_dump($data);
+            // echo json_encode($data);
+            $reponse = $this->studentModel->addTranche($data);
+           
+            //echo json_encode($reponse);
+        }
+    }
 
     
 }

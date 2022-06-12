@@ -87,6 +87,17 @@ class students
             return false;
         }
     }
+    function addTranche($data)
+    {
+        $this->db->query('INSERT INTO tranche (id_Candidat,tranche) VALUES (:id_Candidat , :tranche)');
+        $this->db->bind(':id_Candidat', $data['id_Candidat']);
+        $this->db->bind(':tranche', $data['tranche']);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>

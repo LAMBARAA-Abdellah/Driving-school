@@ -218,6 +218,7 @@ form {
             background-size: cover;
             height: 200px;
             width: 100%;
+            border-radius: 50%;
         }
 
         input {
