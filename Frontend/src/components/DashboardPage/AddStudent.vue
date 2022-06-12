@@ -69,17 +69,18 @@
                     <div class="form-group">
                         <label for="">Total a payé</label>
                         <div class="arg">
-                            <input type="number" name="" id="" class="form-control" v-model="Studentform.Total"> <span>DH</span>
+                            <input type="number" name="" id="" class="form-control"
+                                v-model="Studentform.Total">&nbsp;&nbsp; <span>DH</span>
                         </div>
-                        
+
                     </div>
                     <div class="form-group">
                         <label for="">Tranche payé</label>
                         <div class="arg">
-                        <input type="number" default="0" name="" id="" class="form-control"
-                            v-model="Studentform.avance"> <span>DH</span>
+                            <input type="number" default="0" name="" id="" class="form-control"
+                                v-model="Studentform.avance"> &nbsp; &nbsp;<span>DH</span>
                         </div>
-                        
+
                     </div>
                 </div>
 
@@ -143,8 +144,8 @@ export default {
             }).then((result) => {
                 if (result) {
                     this.showPopup = false
-                   // window.location = "/Students"
-                   this.$router.push('/Students')
+                    // window.location = "/Students"
+                    this.$router.push('/Students')
                 }
             })
         },
@@ -197,13 +198,14 @@ export default {
 </script>
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
 
-.arg{
+.arg {
     display: flex;
-  
+
     align-items: center;
 }
+
 input {
     width: 300px;
 

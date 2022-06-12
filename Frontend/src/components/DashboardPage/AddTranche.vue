@@ -3,24 +3,38 @@
     <Add action="ajouter " msg="Tranche" />
     <form action="">
         <div class="content">
-                <div class="profil-img">
-                    <img :src="'/assets/images/' + Student.photo" alt="lmodir">
+            <div class="profil-img">
+                <img :src="'/assets/images/' + Student.photo" alt="lmodir">
+            </div>
+            <H2> {{ Student.prenom_candidat }} {{ Student.nom_candidat }}</H2>
+
+            <div class="argent">
+                <div>
+                    <h4>Totale a payé</h4>
+                    <span class="total">{{ Student.Total }} DH</span>
                 </div>
-                <H2> {{ Student.prenom_candidat }} {{ Student.prenom_candidat }}</H2>
-               
+                <div>
+                    <h4>Avance</h4>
+                    <span class="avance">{{ Student.avance }} DH</span>
+                </div>
+                <div>
+                    <h4>reste a payé </h4>
+                    <span class="reste">{{ this.reste }} DH</span>
+                </div>
+
+
+
+
+
+            </div>
             <div class="form">
+
                 <div class="form-group">
-                    <label for="">Matricule</label>
-                    <input type="text" name="" id="" class="form-control" v-model="Student.nom_candidat">
-                </div>
-                <div class="form-group">
-                    <label for="">Marque</label>
-                    <input type="text" name="" id="" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="">Model</label>
-                    <!-- <input type="years" name="" id="" class="form-control"> -->
-                    <input type="number" min="1900" max="2099" step="1" />
+                    <label for="">Tranche payé</label>
+                    <div class="arg">
+                        <input step="1" type="number" default="0" name="" id="" class="form-control"> &nbsp; &nbsp;DH
+                    </div>
+
                 </div>
 
 
@@ -31,7 +45,7 @@
 
 
         <div class="w-100">
-            <input  class=" btn aaa btn-secondary ms-auto" type="button" value="Ajouter">
+            <input class=" btn aaa btn-primary ms-auto" type="button" value="Ajouter">
         </div>
 
     </form>
@@ -54,7 +68,7 @@ export default {
     },
     data() {
         return {
-
+            reste: 0,
 
         }
     },
@@ -72,6 +86,9 @@ export default {
                 }
             })
         },
+        Calculer() {
+            this.reste = this.Student.Total - this.Student.avance
+        }
 
 
     },
@@ -82,7 +99,8 @@ export default {
     },
 
     mounted() {
-        this.$store.dispatch('fetchStudent', this.$route.params.id)
+        this.$store.dispatch('fetchStudent', this.$route.params.id),
+            this.Calculer()
     },
 
     props: {
@@ -94,6 +112,37 @@ export default {
 $color-sousnavbar: #383838;
 $hover: #F8CE03;
 
+.arg {
+    display: flex;
+
+    align-items: center;
+}
+
+.argent {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+span {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.total {
+    color: blue;
+
+}
+
+.avance {
+    color: green;
+}
+
+.reste {
+    color: red;
+}
 
 input {
     width: 300px;
@@ -126,7 +175,7 @@ form {
     .profil-img {
         width: 200px;
         height: 200px;
-        margin-top: 100px;
+        margin-top: 50px;
 
         img {
             object-fit: cover;
@@ -147,7 +196,7 @@ form {
 
     .form {
         width: 100%;
-        margin-top: 60px;
+        margin-top: 10px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -165,6 +214,12 @@ form {
 
 
         }
+    }
+}
+
+@media screen and (max-width: 776px) {
+    .argent {
+        flex-direction: column;
     }
 }
 </style>
