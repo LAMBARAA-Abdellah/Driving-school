@@ -91,7 +91,7 @@
         </div>
 
         <div class="w-100">
-            <input @click="AddStudent()" class=" btn aaa btn-secondary ms-auto" type="button" value="Ajouter">
+            <input @click="AddStudent()" class=" btn aaa btn-primary ms-auto" type="button" value="Ajouter">
             <input @click="Cancel()" class=" btn aaa btn-secondary ms-auto" type="button" value="cancel">
         </div>
 

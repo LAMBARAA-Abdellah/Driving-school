@@ -52,8 +52,8 @@
                 </dd>
                 <dt class="validation">Validation</dt>
                 <dd>
-                    <img src="../../../public/assets/images/val.png" alt="">
-                    <img src="../../../public/assets/images/non-val.png" alt="">
+                    <i class="valid fas fa-solid fa-check-double"></i>
+                    <i class="invalid fas fa-solid fa-ban"></i>
                 </dd>
             </dl>
         </main>
@@ -416,6 +416,23 @@ body {
     user-select: none;
 }
 
+.validation {
+    padding: 16px !important;
+}
+
+.valid {
+    color: green;
+    font-size: 38px;
+    padding-right: 20px;
+
+}
+
+.invalid {
+    color: red ;
+    opacity: 0.5;
+    font-size: 38px;
+}
+
 .vn-orange a {
     background-color: $hover;
     display: inline-block;
@@ -622,7 +639,7 @@ label {
     cursor: pointer;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 990px) {
     .sous-info {
         flex-direction: column;
     }
