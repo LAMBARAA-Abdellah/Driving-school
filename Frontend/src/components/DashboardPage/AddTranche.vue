@@ -6,7 +6,6 @@
             <div class="profil-img">
                 <img :src="'/assets/images/' + Student.photo" alt="lmodir">
             </div>
-            <h1>{{ Student.id_Candidat }}</h1>
             <H2> {{ Student.prenom_candidat }} {{ Student.nom_candidat }}</H2>
 
             <div class="argent">

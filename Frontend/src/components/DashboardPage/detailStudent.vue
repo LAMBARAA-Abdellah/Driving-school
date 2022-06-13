@@ -50,6 +50,10 @@
                     <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                 </dd>
+                <dt>Validation</dt>
+                <dd>
+                   <img src="../../../public/assets/images/val.png" alt="">
+                </dd>
             </dl>
         </main>
         <div class="bttn">
