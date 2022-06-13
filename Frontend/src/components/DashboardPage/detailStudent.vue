@@ -44,8 +44,6 @@
                 <dd>{{ Student.Total }} DH</dd>
                 <dt>avance</dt>
                 <dd>{{ Tranche.avance || 0 }} DH</dd>
-                <dt>reste</dt>
-                <dd>{{ this.reste }} DH</dd>
                  <dt>Status</dt>
                 <dd>{{ Student.status}}</dd>
 
@@ -57,7 +55,7 @@
                 </dd>
                 <dt class="validation">Validation</dt>
                 <dd>
-                    <i class="valid fas fa-solid fa-check"></i>
+                    <i  class="valid fas fa-solid fa-check"></i>
                     <i class="invalid fas fa-solid fa-ban"></i>
                 </dd>
             </dl>
@@ -381,7 +379,7 @@ export default {
                 },
                 {
                     title: "Avance",
-                    body: this.Student.avance + " Dh"
+                    body: this.Tranche.avance + " Dh"
                 },
 
             ];
@@ -437,6 +435,7 @@ body {
     color: red ;
     opacity: 0.5;
     font-size: 38px;
+    cursor: pointer;
 }
 
 .vn-orange a {

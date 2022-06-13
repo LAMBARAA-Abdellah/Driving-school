@@ -176,6 +176,7 @@ $hover: #F8CE03;
         cursor: pointer;
         width: 100%;
         font-size: 18px;
+     
     }
 }
 
@@ -190,7 +191,7 @@ a {
     text-decoration: none;
     font-size: 22px;
     color: black;
-    padding: 10px;
+ 
 }
 
 button:hover {

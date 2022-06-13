@@ -13,7 +13,7 @@
                         <i class="fa fa-search"></i>
                     </div>
                 </span>
-                <input class="form-control py-2 border-left-0 border" type="search"  placeholder="Search"
+                <input class="form-control py-2 border-left-0 border" type="search" placeholder="Search"
                     id="example-search-input" v-model="keyword" />
                 <span class="input-group-append">
                     <button class="btn btn-outline-secondary border-left-0 border" type="button">
@@ -30,7 +30,7 @@
     </div>
     <hr style=" border-top: 6px solid rgba(0,0,0,.1) !important">
     <div class="content-card">
-        <div  v-for="std in Students">
+        <div v-for="std in Students">
             <div class="card" v-if="std?.cin.toLowerCase().includes(keyword.toLowerCase())">
 
                 <div class="profil-img">
@@ -185,6 +185,7 @@ $hover: #F8CE03;
         cursor: pointer;
         width: 100%;
         font-size: 18px;
+        margin-top: 15px;
     }
 }
 
@@ -198,7 +199,7 @@ a {
     text-decoration: none;
     font-size: 22px;
     color: black;
-    padding: 10px;
+
 }
 
 button:hover {

@@ -44,7 +44,7 @@ class students
 
     public function getStudents()
     {
-        $this->db->query('SELECT * FROM candidat');
+        $this->db->query('SELECT * FROM candidat where archive=0');
         // $results = $this->db->execute();
         $results = $this->db->fetchAll();
         return $results;
@@ -76,11 +76,11 @@ class students
         $this->db->bind(':sexe', $data['sexe']);
         $this->db->bind(':permis', $data['permis']);
         $this->db->bind(':Total', $data['Total']);
-        $this->db->bind(':avance', $data['avance'] );
+        $this->db->bind(':avance', $data['avance']);
         $this->db->bind(':photo', $data['photo']);
         //$this->db->bind(':id_utilisateur', $data[11]);
-        $this->db->bind(':id_Candidat', $data['id_Candidat'] );
-        
+        $this->db->bind(':id_Candidat', $data['id_Candidat']);
+
         if ($this->db->execute()) {
             return true;
         } else {
@@ -100,9 +100,20 @@ class students
     }
     function getTranche($id)
     {
-        $this->db->query('SELECT SUM(tranche) AS avance FROM tranche WHERE id_Candidat = :id' );
+        $this->db->query('SELECT SUM(tranche) AS avance FROM tranche WHERE id_Candidat = :id');
         $this->db->bind(':id', $id);
         return $this->db->fetch();
+    }
+    function validateStudent($id)
+    {
+        $this->db->query('UPDATE candidat SET archive = :archive WHERE id_Candidat = :id');
+        $this->db->bind(':etat', 1);
+        $this->db->bind(':id', $id);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 

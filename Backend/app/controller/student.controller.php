@@ -105,6 +105,18 @@ class student extends controller
             echo json_encode($reponse);
         }
     }
+    public function validateStudent(){
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $json = file_get_contents('php://input');
+            $data = json_decode($json, true);
+            // $data = array_values((array)$data);
+            //    var_dump($data);
+             echo json_encode($data);
+            $reponse = $this->studentModel->validateStudent($data);
+           
+            //echo json_encode($reponse);
+        }
+    }
 
     
 }

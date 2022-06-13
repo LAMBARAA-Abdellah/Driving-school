@@ -12,8 +12,8 @@
                         <i class="fa fa-search"></i>
                     </div>
                 </span>
-                <input class="form-control py-2 border-left-0 border" type="search" 
-                    id="example-search-input" v-model="keyword" />
+                <input class="form-control py-2 border-left-0 border" type="search" id="example-search-input"
+                    v-model="keyword" />
                 <span class="input-group-append">
                     <button class="btn btn-outline-secondary border-left-0 border" type="button">
                         Search
@@ -31,18 +31,18 @@
 
 
     <div class="content-card">
-        <div  v-for="data in Monitor ">
-         <div class="card" v-if="data?.cin.toLowerCase().includes(keyword.toLowerCase())">
-            <div class="profil-img">
-                <img :src="'assets/images/' + data.photo" alt="John" style="width:100%">
+        <div v-for="data in Monitor ">
+            <div class="card" v-if="data?.cin.toLowerCase().includes(keyword.toLowerCase())">
+                <div class="profil-img">
+                    <img :src="'assets/images/' + data.photo" alt="John" style="width:100%">
+                </div>
+                <h4>{{ data.prenom_monitor }} {{ data.nom_monitor }}</h4>
+                <p class="title">Cin:{{ data.cin }}</p>
+                <p class="title">Tel:{{ data.tel }}</p>
+                <router-link :to="'/detailmonitor/' + data.id_Monitor">
+                    <p><button>detaill</button></p>
+                </router-link>
             </div>
-            <h4>{{ data.prenom_monitor }} {{ data.nom_monitor }}</h4>
-            <p class="title">Cin:{{ data.cin }}</p>
-            <p class="title">Tel:{{ data.tel }}</p>
-            <router-link :to="'/detailmonitor/' + data.id_Monitor">
-                <p><button>detaill</button></p>
-            </router-link>
-        </div>
         </div>
 
 
@@ -172,6 +172,7 @@ $hover: #F8CE03;
         cursor: pointer;
         width: 100%;
         font-size: 18px;
+        margin-top: 15px;
     }
 }
 
@@ -186,7 +187,7 @@ a {
     text-decoration: none;
     font-size: 22px;
     color: black;
-    padding: 10px;
+
 }
 
 button:hover {

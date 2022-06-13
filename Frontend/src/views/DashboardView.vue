@@ -70,6 +70,7 @@ export default {
     components: {
         Icon,
     },
+
     inject: ["setRole"],
     props: {
         //! Menu settings
@@ -228,8 +229,9 @@ export default {
     },
     mounted() {
         this.isOpened = this.isMenuOpen;
-        this.role;
-        this.name;
+        if (!this.$cookies.get("role")) {
+      return this.$router.push('/Login')
+    }
 
 
 
