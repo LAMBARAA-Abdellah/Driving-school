@@ -44,7 +44,7 @@ class students
 
     public function getStudents()
     {
-        $this->db->query('SELECT * FROM candidat where archive=0');
+        $this->db->query('SELECT * FROM candidat');
         // $results = $this->db->execute();
         $results = $this->db->fetchAll();
         return $results;
@@ -104,11 +104,11 @@ class students
         $this->db->bind(':id', $id);
         return $this->db->fetch();
     }
-    function validateStudent($id)
+    function validateStudent($data)
     {
         $this->db->query('UPDATE candidat SET archive = :archive WHERE id_Candidat = :id');
         $this->db->bind(':etat', 1);
-        $this->db->bind(':id', $id);
+        $this->db->bind(':id', $data['id_Candidat']);
         if ($this->db->execute()) {
             return true;
         } else {

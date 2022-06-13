@@ -8,6 +8,7 @@ class post extends controller
     }
     public function index()
     {
+        
     }
 
 }

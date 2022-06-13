@@ -7,6 +7,10 @@ class student extends controller
     {
         $this->studentModel = $this->model('students');
     }
+    public function index()
+    {
+        
+    }
     public function add()
     {
         $data = [
@@ -56,7 +60,11 @@ class student extends controller
             echo "update width succes";
         }
     }
-
+    public function allStudents()
+    {
+        $students = $this->studentModel->getStudents();
+        echo json_encode($students);
+    }
     public function getStudent()
     {
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -66,17 +74,7 @@ class student extends controller
             echo json_encode($reponse);
         }
     }
-    public function allStudents()
-    {
-        $students = $this->studentModel->getStudents();
-        echo json_encode($students);
-    }
-
-
-
   
-
-
 
     public function deleteStudent()
     {

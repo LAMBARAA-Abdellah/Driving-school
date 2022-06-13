@@ -31,7 +31,7 @@
 
 
     <div class="content-card">
-        <div  v-for="data in personnels ">
+        <div v-for="data in personnels ">
             <div class="card" v-if="data?.cin.toLowerCase().includes(keyword.toLowerCase())">
                 <div class="profil-img">
                     <img :src="'assets/images/' + data.photo" alt="">
@@ -176,7 +176,7 @@ $hover: #F8CE03;
         cursor: pointer;
         width: 100%;
         font-size: 18px;
-     
+
     }
 }
 
@@ -191,7 +191,7 @@ a {
     text-decoration: none;
     font-size: 22px;
     color: black;
- 
+
 }
 
 button:hover {

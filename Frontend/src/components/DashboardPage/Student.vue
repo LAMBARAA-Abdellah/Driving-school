@@ -31,7 +31,7 @@
     <hr style=" border-top: 6px solid rgba(0,0,0,.1) !important">
     <div class="content-card">
         <div v-for="std in Students">
-            <div class="card" v-if="std?.cin.toLowerCase().includes(keyword.toLowerCase())">
+            <div class="card" v-if="std?.cin.toLowerCase().includes(keyword.toLowerCase()) && std.archive==0">
 
                 <div class="profil-img">
                     <img :src="'assets/images/' + std.photo" alt="">
