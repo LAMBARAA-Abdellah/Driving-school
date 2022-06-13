@@ -16,6 +16,7 @@ export default createStore({
       permis: "",
       Total: "",
       avance: "",
+      status: "",
       id_utilisateur: "1"
   },
     

@@ -44,6 +44,11 @@
                 <dd>{{ Student.Total }} DH</dd>
                 <dt>avance</dt>
                 <dd>{{ Tranche.avance || 0 }} DH</dd>
+                <dt>reste</dt>
+                <dd>{{ this.reste }} DH</dd>
+                 <dt>Status</dt>
+                <dd>{{ Student.status}}</dd>
+
                 <dt>Social</dt>
                 <dd>
                     <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
@@ -52,7 +57,7 @@
                 </dd>
                 <dt class="validation">Validation</dt>
                 <dd>
-                    <i class="valid fas fa-solid fa-check-double"></i>
+                    <i class="valid fas fa-solid fa-check"></i>
                     <i class="invalid fas fa-solid fa-ban"></i>
                 </dd>
             </dl>
@@ -423,7 +428,8 @@ body {
 .valid {
     color: green;
     font-size: 38px;
-    padding-right: 20px;
+    padding-right: 50px;
+    cursor: pointer;
 
 }
 
