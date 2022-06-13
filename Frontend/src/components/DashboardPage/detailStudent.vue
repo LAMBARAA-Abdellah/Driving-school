@@ -43,16 +43,17 @@
                 <dt>total</dt>
                 <dd>{{ Student.Total }} DH</dd>
                 <dt>avance</dt>
-                <dd>{{ Tranche.avance || 0}}  DH</dd>
+                <dd>{{ Tranche.avance || 0 }} DH</dd>
                 <dt>Social</dt>
                 <dd>
                     <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
                     <a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                 </dd>
-                <dt>Validation</dt>
+                <dt class="validation">Validation</dt>
                 <dd>
-                   <img src="../../../public/assets/images/val.png" alt="">
+                    <img src="../../../public/assets/images/val.png" alt="">
+                    <img src="../../../public/assets/images/non-val.png" alt="">
                 </dd>
             </dl>
         </main>
@@ -61,7 +62,7 @@
 
                 <submit @click="$router.push('/tranche/' + Student.id_Candidat)" class="btn btn-warning">AddTranche
                 </submit>
-                 <submit @click="$router.push('//' + Student.id_Candidat)" class="btn btn-warning">Validation
+                <submit @click="$router.push('//' + Student.id_Candidat)" class="btn btn-warning">Validation
                 </submit>
             </div>
             <!-- <router-link :to="'/tranche/'+ Student.id_Candidat">
