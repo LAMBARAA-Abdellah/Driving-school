@@ -16,7 +16,7 @@
                 </div>
                 <div>
                     <h4>Avance</h4>
-                    <span class="avance">{{ Student.avance }} DH</span>
+                    <span class="avance">{{ Tranche.avance  || 0}} DH</span>
                 </div>
                 <div>
                     <h4>reste a payé </h4>
@@ -34,7 +34,7 @@
                     <input type="text" name="" id="" class="form-control" hidden v-model="Student.id_Candidat">
                     <label for="">Tranche payé</label>
                     <div class="arg">
-                        <input step="1" type="number" default="0" name="" id="" class="form-control"
+                        <input step="1" type="number" :max="this.reste" default="0" name="" id="" class="form-control"
                             v-model="TrancheForm.tranche"> &nbsp; &nbsp;DH
                     </div>
 
@@ -49,6 +49,7 @@
 
         <div class="w-100">
             <input @click="AddTranche()" class=" btn aaa btn-primary ms-auto" type="button" value="Ajouter">
+            <input @click="retour()" class=" btn aaa btn-danger ms-auto" type="button" value="Cancel">
         </div>
 
     </form>
@@ -76,10 +77,18 @@ export default {
                 id_Candidat: '',
                 tranche: '',
             },
+            Tranche: {
+                avance: '',
+
+            }
+
 
         }
     },
     methods: {
+        retour() {
+            this.$router.push('/detailStudent/' + this.Student.id_Candidat);
+        },
         showAlert() {
             swal({
                 icon: 'success',
@@ -94,8 +103,8 @@ export default {
             })
         },
         Calculer() {
-            this.reste = this.Student.Total - this.Student.avance
-        },
+            this.reste = this.Student.Total - this.Tranche.avance;
+                  },
         AddTranche() {
             fetch("http://localhost/Statique/Backend/student/addTranche", {
                 method: "POST",
@@ -104,15 +113,21 @@ export default {
                     tranche: this.TrancheForm.tranche,
                 })
             }).then((reponse => {
-                 reponse.json();
-                    this.showAlert();
+                reponse.json();
+                this.showAlert();
             })).then((data) => {
                 if (data) {
                     this.$router.push('/detailStudent/' + this.$route.params.id)
                 }
 
             });
-        }
+        },
+        GetTranche() {
+            fetch(`http://localhost/Statique/Backend/student/getTranche?id=${this.$route.params.id}`).then(res => res.json()).then(avance => {
+                this.Tranche = avance;
+
+            })
+        },
 
 
     },
@@ -127,7 +142,8 @@ export default {
 
     mounted() {
         this.$store.dispatch('fetchStudent', this.$route.params.id),
-            this.Calculer()
+            this.Calculer(),
+            this.GetTranche()
     },
 
     props: {

@@ -98,6 +98,13 @@ class student extends controller
             //echo json_encode($reponse);
         }
     }
+    public function getTranche(){
+        if ($_SERVER["REQUEST_METHOD"] === "GET") {
+            $id = $_GET['id'];
+            $reponse = $this->studentModel->getTranche($id);
+            echo json_encode($reponse);
+        }
+    }
 
     
 }

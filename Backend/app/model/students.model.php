@@ -98,6 +98,12 @@ class students
             return false;
         }
     }
+    function getTranche($id)
+    {
+        $this->db->query('SELECT SUM(tranche) AS avance FROM tranche WHERE id_Candidat = :id' );
+        $this->db->bind(':id', $id);
+        return $this->db->fetch();
+    }
 }
 
 ?>

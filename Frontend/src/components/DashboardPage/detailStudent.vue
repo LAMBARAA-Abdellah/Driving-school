@@ -41,9 +41,9 @@
                 <dt>permis</dt>
                 <dd>{{ Student.permis }}</dd>
                 <dt>total</dt>
-                <dd>{{ Student.Total }} dh</dd>
+                <dd>{{ Student.Total }} DH</dd>
                 <dt>avance</dt>
-                <dd>{{ Student.avance }}dh</dd>
+                <dd>{{ Tranche.avance || 0}}  DH</dd>
                 <dt>Social</dt>
                 <dd>
                     <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
@@ -54,8 +54,11 @@
         </main>
         <div class="bttn">
             <div>
-                
-                <submit @click="$router.push('/tranche/'+ Student.id_Candidat)"  class="btn btn-warning">AddTranche</submit>
+
+                <submit @click="$router.push('/tranche/' + Student.id_Candidat)" class="btn btn-warning">AddTranche
+                </submit>
+                 <submit @click="$router.push('//' + Student.id_Candidat)" class="btn btn-warning">Validation
+                </submit>
             </div>
             <!-- <router-link :to="'/tranche/'+ Student.id_Candidat">
                 <submit  class="btn btn-warning">AddTranche</submit>
@@ -170,6 +173,10 @@ export default {
     vuetify: new Vuetify(),
     data() {
         return {
+            Tranche: {
+                avance: '',
+            },
+
 
             heading: "Contrat driving school",
             moreText: [
@@ -276,6 +283,13 @@ export default {
         detail() {
             this.$store.dispatch('fetchStudent', this.$route.params.id)
         },
+        GetTranche() {
+            fetch(`http://localhost/Statique/Backend/student/getTranche?id=${this.$route.params.id}`).then(res => res.json()).then(avance => {
+                this.Tranche = avance;
+
+            })
+        },
+
         // deleteStudent(id) {
         //     swal.fire({
         //         title: 'Are you sure?',
@@ -371,6 +385,7 @@ export default {
         console.log('Component mounted.');
         console.log(this.$route.params);
         this.detail();
+        this.GetTranche();
 
     },
 
@@ -397,10 +412,9 @@ body {
 }
 
 .vn-orange a {
-    background-color: #f39c12;
+    background-color: $hover;
     display: inline-block;
     position: relative;
-    margin: 30px 5px;
     padding: 20px 20px 20px 80px;
     color: #fff;
     transition: all 0.4s ease
@@ -424,7 +438,7 @@ body {
 }
 
 .vn-orange a:hover {
-    background: #2c3e50
+    background: $color-sousnavbar;
 }
 
 

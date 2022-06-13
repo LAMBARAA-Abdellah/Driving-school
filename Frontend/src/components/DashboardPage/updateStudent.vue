@@ -65,14 +65,14 @@
                         <div />
 
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="">Total a payé</label>
                         <input type="number" name="" id="" class="form-control" v-model="Student.Total">
                     </div>
                     <div class="form-group">
                         <label for="">Tranche payé</label>
                         <input type="text" default="0" name="" id="" class="form-control" v-model="Student.avance">
-                    </div>
+                    </div> -->
                 </div>
 
                 <div />
@@ -209,7 +209,7 @@ form {
     .profil-img {
         width: 200px;
         height: 200px;
-        margin-top: 100px;
+        margin-top: 50px;
 
         img {
             background-image: url("@/assets/images/profil2.png");
