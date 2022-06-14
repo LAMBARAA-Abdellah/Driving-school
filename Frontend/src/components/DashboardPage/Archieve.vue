@@ -39,6 +39,7 @@
                 <h4>{{ std.nom_candidat }} {{ std.prenom_candidat }}</h4>
                 <p class="title">Cin:{{ std.cin }}</p>
                 <p class="title">Tel:{{ std.tel }}</p>
+                <p class="title">Tel:{{ std.status }}</p>
 
                 <router-link :to="'/detailstudent/' + std.id_Candidat">
                     <p><button>detaill</button></p>
@@ -157,8 +158,8 @@ $hover: #F8CE03;
 
     img {
         display: block;
-        width: 100%;
-        height: 100%;
+        width: 300px;
+    height: 300px;
         position: center;
         object-fit: cover;
 

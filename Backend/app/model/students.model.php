@@ -44,7 +44,7 @@ class students
 
     public function getStudents()
     {
-        $this->db->query('SELECT * FROM candidat');
+        $this->db->query('SELECT * FROM candidat ORDER BY dateCreation DESC');
         // $results = $this->db->execute();
         $results = $this->db->fetchAll();
         return $results;
@@ -103,6 +103,17 @@ class students
         $this->db->query('SELECT SUM(tranche) AS avance FROM tranche WHERE id_Candidat = :id');
         $this->db->bind(':id', $id);
         return $this->db->fetch();
+    }
+    
+    function archiveStudent($id)
+    {
+        $this->db->query('UPDATE candidat SET archive = 1 WHERE id_Candidat = :id');
+        $this->db->bind(':id', $id);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
     function validateStudent($data)
     {

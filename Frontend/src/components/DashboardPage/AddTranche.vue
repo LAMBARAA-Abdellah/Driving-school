@@ -19,7 +19,7 @@
                 </div>
                 <div>
                     <h4>reste a payé </h4>
-                    <span class="reste">{{ this.reste }} DH</span>
+                    <span class="reste">{{Calculer()}} DH</span>
                 </div>
 
 
@@ -102,7 +102,7 @@ export default {
             })
         },
         Calculer() {
-            this.reste = this.Student.Total - this.Tranche.avance;
+            return this.Student.Total - this.Tranche.avance;
                   },
         AddTranche() {
             fetch("http://localhost/Statique/Backend/student/addTranche", {

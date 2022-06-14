@@ -97,7 +97,7 @@ export default {
     }
 }
 </script>
-<style scoped lang="scss" >
+<style  lang="scss" scoped>
 $color-sousnavbar: #383838;
 $hover: #F8CE03;
 

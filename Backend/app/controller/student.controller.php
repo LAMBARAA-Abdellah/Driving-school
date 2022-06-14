@@ -103,6 +103,13 @@ class student extends controller
             echo json_encode($reponse);
         }
     }
+    public function archiveStudent(){
+        if ($_SERVER["REQUEST_METHOD"] === "GET") {
+            $id = $_GET['id'];
+            $reponse = $this->studentModel->archiveStudent($id);
+            echo json_encode($reponse);
+        }
+    }
     public function validateStudent(){
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $json = file_get_contents('php://input');

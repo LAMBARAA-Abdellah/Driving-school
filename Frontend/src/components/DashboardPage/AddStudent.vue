@@ -74,14 +74,14 @@
                         </div>
 
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="">Tranche payé</label>
                         <div class="arg">
                             <input type="number" default="0" name="" id="" class="form-control"
-                                v-model="Studentform.avance"> &nbsp; &nbsp;<span>DH</span>
+                                v-model="TrancheForm.tranche"> &nbsp; &nbsp;<span>DH</span>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
 
                 <div />
@@ -131,6 +131,7 @@ export default {
                 avance: "",
                 id_utilisateur: "1"
             },
+            
 
 
         }
@@ -159,6 +160,7 @@ export default {
                 blah.src = URL.createObjectURL(file)
             }
         },
+       
         AddStudent() {
             fetch("http://localhost/Statique/Backend/student/addstudent", {
                 method: "POST",

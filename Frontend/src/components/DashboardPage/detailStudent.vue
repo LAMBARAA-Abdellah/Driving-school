@@ -44,8 +44,8 @@
                 <dd>{{ Student.Total }} DH</dd>
                 <dt>avance</dt>
                 <dd>{{ Tranche.avance || 0 }} DH</dd>
-                 <dt>Status</dt>
-                <dd>{{ Student.status}}</dd>
+                <dt>Status</dt>
+                <dd>{{ Student.status }}</dd>
 
                 <dt>Social</dt>
                 <dd>
@@ -55,7 +55,7 @@
                 </dd>
                 <dt class="validation">Validation</dt>
                 <dd>
-                    <i  class="valid fas fa-solid fa-check"></i>
+                    <i class="valid fas fa-solid fa-check"></i>
                     <i class="invalid fas fa-solid fa-ban"></i>
                 </dd>
             </dl>
@@ -65,7 +65,7 @@
 
                 <submit @click="$router.push('/tranche/' + Student.id_Candidat)" class="btn btn-warning">AddTranche
                 </submit>
-                <submit @click="$router.push('//' + Student.id_Candidat)" class="btn btn-warning">Validation
+                <submit @click="archiveStudent(Student.id_Candidat)" class="btn btn-warning">Archiver
                 </submit>
             </div>
             <!-- <router-link :to="'/tranche/'+ Student.id_Candidat">
@@ -271,7 +271,7 @@ export default {
                 if (result) {
                     this.showPopup = false
                     // window.location = "/Students"
-                    this.$router.push('/Students')
+                    this.$router.push('/Archieves')
                 }
             })
         },
@@ -334,6 +334,15 @@ export default {
                 }
             ).then(() => {
                 this.deleteAlert();
+            })
+        },
+        archiveStudent(id) {
+            fetch(`http://localhost/Statique/Backend/student/archiveStudent?id=${id}`,
+                {
+                    method: "GET"
+                }
+            ).then(() => {
+                this.showAlert();
             })
         },
 
@@ -432,7 +441,7 @@ body {
 }
 
 .invalid {
-    color: red ;
+    color: red;
     opacity: 0.5;
     font-size: 38px;
     cursor: pointer;

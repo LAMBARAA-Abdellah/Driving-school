@@ -7,12 +7,12 @@
 
     <div class="content-card">
         <div class="card" v-for="(data, index) in datap " :key="index">
-            <div class="profil-img">
+            <div class="profil">
                 <img :src="data.img" alt="John" style="width:100%">
             </div>
 
-            <h1>{{data.marque}}</h1>
-           <p class="title">matricule:{{ data.matricule }}</p>
+            <h1>{{ data.marque }}</h1>
+            <p class="title">matricule:{{ data.matricule }}</p>
             <p class="title">model:{{ data.model }}</p>
 
 
@@ -31,7 +31,7 @@ import Hello from './Hello.vue';
 
 
 export default {
-    name: 'Monitor',
+    name: 'Archieves',
     components: {
         Hello
     },
@@ -48,14 +48,14 @@ export default {
             },
 
             datap: [
-                { img: require(`@/assets/images/m3.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34"},
+                { img: require(`@/assets/images/m3.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34" },
                 { img: require(`@/assets/images/v1.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34", },
                 { img: require(`@/assets/images/c2.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34", },
-                { img: require(`@/assets/images/v2.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34",  },
+                { img: require(`@/assets/images/v2.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34", },
                 { img: require(`@/assets/images/v3.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34", },
                 { img: require(`@/assets/images/c2.png`), marque: "Audi 8", model: "2020", matricule: "AB-12-34", },
-               
-            
+
+
 
 
 
@@ -93,14 +93,14 @@ $hover: #F8CE03;
     margin-top: 10px;
 }
 
-.profil-img {
+.profil {
     width: 300px;
     height: 300px;
 
     img {
-        display: block;
-        width: 100%;
-        height: 100%;
+
+        width: 300px;
+        height: 300px;
         position: center;
         object-fit: cover;
 
