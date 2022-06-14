@@ -345,8 +345,18 @@ export default {
                 this.showAlert();
             })
         },
+        valideStudent(id) {
+            fetch(`http://localhost/Statique/Backend/student/valideStudent?id=${id}`,
+                {
+                    method: "GET"
+                }
+            ).then(() => {
+                this.showAlert();
+            })
+        },
 
     },
+    
     computed: {
         items() {
             return [

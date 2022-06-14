@@ -104,7 +104,7 @@ class students
         $this->db->bind(':id', $id);
         return $this->db->fetch();
     }
-    
+
     function archiveStudent($id)
     {
         $this->db->query('UPDATE candidat SET archive = 1 WHERE id_Candidat = :id');
@@ -115,11 +115,11 @@ class students
             return false;
         }
     }
-    function validateStudent($data)
+    function validateStudent($id)
     {
-        $this->db->query('UPDATE candidat SET archive = :archive WHERE id_Candidat = :id');
-        $this->db->bind(':etat', 1);
-        $this->db->bind(':id', $data['id_Candidat']);
+        $this->db->query('UPDATE candidat SET status = :status WHERE id_Candidat = :id');
+        $this->db->bind(':status', "Active");
+        $this->db->bind(':id', $id);
         if ($this->db->execute()) {
             return true;
         } else {

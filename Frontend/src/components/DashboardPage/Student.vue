@@ -157,8 +157,8 @@ $hover: #F8CE03;
 
     img {
         display: block;
-        width: 100%;
-        height: 100%;
+       width: 300px;
+    height: 300px;
         position: center;
         object-fit: cover;
 

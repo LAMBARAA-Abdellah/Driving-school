@@ -22,11 +22,11 @@
                 </span>
             </div>
         </div>
-        <router-link to="/AddStudent">
+        <!-- <router-link to="/AddStudent">
             <button class="btn btn-warning">
                 Ajouter
             </button>
-        </router-link>
+        </router-link> -->
     </div>
     <hr style=" border-top: 6px solid rgba(0,0,0,.1) !important">
     <div class="content-card">

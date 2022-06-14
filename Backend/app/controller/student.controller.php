@@ -111,13 +111,10 @@ class student extends controller
         }
     }
     public function validateStudent(){
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $json = file_get_contents('php://input');
-            $data = json_decode($json, true);
-            // $data = array_values((array)$data);
-            //    var_dump($data);
-             echo json_encode($data);
-            $reponse = $this->studentModel->validateStudent($data);
+        if ($_SERVER["REQUEST_METHOD"] === "GET") {
+            $id = $_GET['id'];
+            $reponse = $this->studentModel->validateStudent($id);
+            echo json_encode($reponse);
            
             //echo json_encode($reponse);
         }
