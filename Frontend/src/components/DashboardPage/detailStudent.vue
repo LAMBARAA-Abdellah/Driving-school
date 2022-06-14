@@ -55,8 +55,8 @@
                 </dd>
                 <dt class="validation">Validation</dt>
                 <dd>
-                    <i class="valid fas fa-solid fa-check"></i>
-                    <i class="invalid fas fa-solid fa-ban"></i>
+                    <i @click="validateStudent(Student.id_Candidat)" class="valid fas fa-solid fa-check"></i>
+                    <i @click="nonValideStudent(Student.id_Candidat)" class="invalid fas fa-solid fa-ban"></i>
                 </dd>
             </dl>
         </main>
@@ -271,7 +271,33 @@ export default {
                 if (result) {
                     this.showPopup = false
                     // window.location = "/Students"
-                    this.$router.push('/Archieves')
+                   
+                }
+            })
+        },
+        showAlertValidate() {
+            swal({
+                icon: 'success',
+                title: 'Your Candidat has been validated',
+                confirmButtonText: 'Continue',
+            }).then((result) => {
+                if (result) {
+                    this.showPopup = false
+                    // window.location = "/Students"
+                   
+                }
+            })
+        },
+           showAlertNonValidate() {
+            swal({
+                icon: 'warning',
+                title: ' Your Candidat has been non validated',
+                confirmButtonText: 'Continue',
+            }).then((result) => {
+                if (result) {
+                    this.showPopup = false
+                    // window.location = "/Students"
+                   
                 }
             })
         },
@@ -345,18 +371,31 @@ export default {
                 this.showAlert();
             })
         },
-        valideStudent(id) {
-            fetch(`http://localhost/Statique/Backend/student/valideStudent?id=${id}`,
+        validateStudent(id) {
+            fetch(`http://localhost/Statique/Backend/student/validateStudent?id=${id}`,
                 {
                     method: "GET"
                 }
             ).then(() => {
-                this.showAlert();
+                this.showAlertValidate();
+                this.detail();
+                
+            })
+        },
+         nonValideStudent(id) {
+            fetch(`http://localhost/Statique/Backend/student/validentStudent?id=${id}`,
+                {
+                    method: "GET"
+                }
+            ).then(() => {
+                this.showAlertNonValidate();
+                this.detail();
+                
             })
         },
 
     },
-    
+
     computed: {
         items() {
             return [

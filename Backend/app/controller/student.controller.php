@@ -119,6 +119,15 @@ class student extends controller
             //echo json_encode($reponse);
         }
     }
+    public function validentStudent(){
+        if ($_SERVER["REQUEST_METHOD"] === "GET") {
+            $id = $_GET['id'];
+            $reponse = $this->studentModel->validentStudent($id);
+            echo json_encode($reponse);
+           
+            //echo json_encode($reponse);
+        }
+    }
 
     
 }

@@ -118,7 +118,18 @@ class students
     function validateStudent($id)
     {
         $this->db->query('UPDATE candidat SET status = :status WHERE id_Candidat = :id');
-        $this->db->bind(':status', "Active");
+        $this->db->bind(':status', "Validé");
+        $this->db->bind(':id', $id);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function validentStudent($id)
+    {
+        $this->db->query('UPDATE candidat SET status = :status WHERE id_Candidat = :id');
+        $this->db->bind(':status', "Non validé");
         $this->db->bind(':id', $id);
         if ($this->db->execute()) {
             return true;
