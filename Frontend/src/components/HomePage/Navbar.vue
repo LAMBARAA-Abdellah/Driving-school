@@ -32,7 +32,7 @@
         </div>
         <div class="container nav-container">
         
-            <input class="checkbox" type="checkbox" />
+            <input class="checkbox" type="checkbox" @click="show=!show" />
             <div class="hamburger-lines">
                 <span class="line line1"></span>
                 <span class="line line2"></span>
@@ -103,29 +103,27 @@
     
 <div class="popUp1" id="addC">
          <!-- <img @click="hideC()" class="x" src="" alt="x" > -->
-         
-         
-          <span class="token" @click="hideC()" aria-hidden="true">&times;</span>
+          <span @click="hideC()" class="token" :class="{'show':show}" aria-hidden="true">&times;</span>
                     <h4 class="send">Send your message</h4>
          <div class="modal-body">
         <form>
           <div class="form-group">
             <!-- <label for="recipient-name" class="col-form-label">Full name</label> -->
-            <input type="text" class="form-control" id="recipient-name" placeholder="Full name...">
+            <input type="text" class="form-control" id="recipient-name" placeholder="Full name..." v-model="MessageForm.name">
           </div>
             <div class="form-group">
             <!-- <label for="recipient-name" class="col-form-label">Phone</label> -->
-            <input type="text" class="form-control" id="recipient-name" placeholder="Phone...">
+            <input type="tel" class="form-control" id="recipient-name" placeholder="Phone..." v-model="MessageForm.phone">
           </div>
             <div class="form-group">
             <!-- <label for="recipient-name" class="col-form-label">Email</label> -->
-            <input type="text" class="form-control" id="recipient-name" placeholder="Email adresse...">
+            <input type="email" class="form-control" id="recipient-name" placeholder="Email adresse..." v-model="MessageForm.email">
           </div>
           <div class="form-group">
             <!-- <label for="message-text" class="col-form-label">Message:</label> -->
-            <textarea class="form-control" id="message-text" placeholder="Your essage..."></textarea>
+            <textarea class="form-control" id="message-text" placeholder="Your essage..." v-model="MessageForm.message"></textarea>
           </div>
-          <input class="btn " type="submit" value="Envoyer">
+          <input @click="AddMessage()" class="btn " type="submit" value="Envoyer">
         </form>
         
       </div>
@@ -143,14 +141,50 @@ export default {
     props: {
         msg: String
     },
+    data(){
+        return {
+        show: false,
+            MessageForm: {
+                name: '',
+                email: '',
+                phone: '',
+                message: ''
+            }
+        
+        }
+    },
      methods: {
        client(){
-            document.getElementById("addC").classList.toggle("show");
+             document.getElementById("addC").classList.toggle("show");
         },
        hideC() {
-        document.getElementById("addC").classList.remove("show");
+         document.getElementById("addC").classList.remove("show");
 
+        },
+        AddMessage() {
+            fetch("http://localhost/Statique/Backend/chat/addMessage", {
+                method: "POST",
+                body: JSON.stringify({
+                    name: this.MessageForm.name,
+                    email: this.MessageForm.email,
+                    phone: this.MessageForm.phone,
+                    message: this.MessageForm.message
+                })
+            }).then((reponse => {
+                return reponse.json();
+            })).then((data) => {
+                if (data) {
+                    this.MessageForm.name = '';
+                    this.MessageForm.email = '';
+                    this.MessageForm.phone = '';
+                    this.MessageForm.message = '';
+                }
+
+            });
         }
+
+    
+
     }
 }
 </script>
@@ -349,7 +383,7 @@ $hover:#F8CE03;
     }
     .logo{
         position: absolute;
-        right: 3%;
+        right: 5%;
         top:15px;
     }
 }

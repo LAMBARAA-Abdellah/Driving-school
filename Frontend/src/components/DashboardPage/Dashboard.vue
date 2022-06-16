@@ -180,6 +180,7 @@ export default {
 <style lang="scss" scoped>
 .statistique {
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height: 400px;
   .ver,.circle{

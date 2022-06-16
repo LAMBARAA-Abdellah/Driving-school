@@ -31,7 +31,6 @@
 </template>
 
 <script>
-import '@/index.css'
 import router from '@/router';
 export default {
   name: 'Login',
@@ -100,6 +99,9 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .card-login {
   display: flex;
   flex-direction: column;

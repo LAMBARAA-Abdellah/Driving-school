@@ -126,6 +126,14 @@ const routes = [
         path: '/detailmonitor/:id',
         component: () => import('@/components/DashboardPage/detailMonitor.vue'),
       },
+      {
+        path: '/chat',
+        component: () => import('@/components/DashboardPage/chat.vue'),
+      },
+      {
+        path:'/AddSeance',
+        component:()=>import('@/components/DashboardPage/Seance/addSeance.vue')
+      }
 
 
 
