@@ -57,7 +57,7 @@
                 <td>{{ seance.debut }}</td>
                 <td>{{ seance.fin }}</td>
                 <td>{{ seance.seance }}</td>
-                <td> <i @click="validateStudent(Student.id_Candidat)" class=" fas fa-plus-square"></i> <i
+                <td> <i @click="$router.push('/seance/' + seance.id)" class=" fas fa-plus-square"></i> <i
                     @click="detail(seance.id), state = !state" class="	fas fa-edit"></i> <i
                     @click="deleteSeance(seance.id)" class="fas fa-archive"></i></td>
               </tr>

@@ -133,7 +133,11 @@ const routes = [
       {
         path:'/seance',
         component:()=>import('@/components/DashboardPage/Seance/addSeance.vue')
-      }
+      },
+      {
+        path:'/seance/:id',
+        component:()=>import('@/components/DashboardPage/Seance/detail.vue')
+      },
 
 
 

@@ -216,6 +216,7 @@ export default {
                 { name: "Monitors", link: "/monitors", icon: "icon-park-outline:steering-wheel", tooltip: "Monitors" },
                 { name: "Cars", link: "/cars", icon: "ant-design:car-filled", tooltip: "Car" },
                 { name: "Personnel", link: "/Personnels", icon: "ant-design:team-outlined", tooltip: "personnel" },
+                { name: "Seance", link: "/seance", icon: "ant-design:calendar-filled", tooltip: "Seance" },
                 { name: "Chat", link: "/chat", icon: "bi:chat-fill", tooltip: "Chat" },
                 { name: "Archieve", link: "/Archieves", icon: "akar-icons:block", tooltip: "Archieve" },
                 { name: "Setting", link: "/settings", icon: "ant-design:setting-outlined", tooltip: "Setting" },
