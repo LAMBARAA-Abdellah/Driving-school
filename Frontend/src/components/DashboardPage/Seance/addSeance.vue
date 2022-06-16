@@ -13,61 +13,56 @@
       </div>
       <div class="form-group">
         <label for="email">Date seance</label>
-        <input type="date" class="form-control" id="email" placeholder="Enter email" name="email">
+        <input type="date" class="form-control" id="email" placeholder="Enter email">
       </div>
       <div class="form-group">
         <label for="debut">Heure debut</label>
-        <input type="time" class="form-control" id="debut" placeholder="Enter password" name="pwd">
+        <input type="time" class="form-control" id="debut" placeholder="Enter password">
       </div>
       <div class="form-group">
         <label class="tt" for="fin">Heure fin</label>
-        <input type="time" class="form-control" id="fin" placeholder="Enter password" name="pwd">
+        <input type="time" class="form-control" id="fin" placeholder="Enter password">
       </div>
       <div class="form-group">
         <input type="submit" class="btn btn-primary" value="Ajouter">
       </div>
     </form>
-    
+
     <div class="list">
-            <h4>Listes des séances</h4>
-            <div class="overflow-x-auto">
-  <div class="overflow-x-auto">
-  <table class="table w-full">
-    <!-- head -->
-    <thead>
-      <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- row 1 -->
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
-      </tr>
-      <!-- row 2 -->
-      <tr class="hover">
-        <th>2</th>
-        <td>Hart Hagerty</td>
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
-      </tr>
-      <!-- row 3 -->
-      <tr>
-        <th>3</th>
-        <td>Brice Swyre</td>
-        <td>Tax Accountant</td>
-        <td>Red</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
+      <h4>Listes des séances</h4>
+      <div class="overflow-x-auto">
+        <div class="overflow-x-auto">
+          <table class="table w-full">
+            <!-- head -->
+            <thead>
+              <tr>
+                <th></th>
+                <th>Date seance</th>
+                <th>Heure debut</th>
+                <th>Heure fin</th>
+                <th>Type seance</th>
+                <th>action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- row 1 -->
+
+              <tr v-for="(seance,i) in seances">
+
+                <th>{{i+1}}</th>
+                <td>{{ seance.date }}</td>
+                <td>{{ seance.debut }}</td>
+                <td>{{ seance.fin }}</td>
+                <td>{{ seance.seance }}</td>
+                <td> <i @click="validateStudent(Student.id_Candidat)" class="valid fas fa-solid fa-plus"></i> <i @click="validateStudent(Student.id_Candidat)" class="fas fa-archive"></i> <i @click="validateStudent(Student.id_Candidat)" class="	fas fa-edit"></i></td>
+              </tr>
+
+              <!-- row 2 -->
+
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -84,12 +79,61 @@ export default {
   props: {
 
   },
-
   data() {
     return {
+      seances: [],
+      seance: {
+        date: '',
+        debut: '',
+        fin: '',
+        seance: '',
+      },
+
 
     }
   },
+  methods: {
+    getSeances() {
+      fetch("http://localhost/Statique/Backend/seance/getSeances").then(res => res.json()).then(seances => {
+        this.seances = seances;
+      })
+    },
+    deleteMessage(id) {
+      fetch(`http://localhost/Statique/Backend/chat/deleteMessage?id=${id}`,
+        {
+          method: "GET"
+        }
+      ).then(() => {
+        this.getMessages();
+      })
+    },
+
+    archive(id) {
+      fetch(`http://localhost/Statique/Backend/chat/archiveMessage?id=${id}`,
+        {
+          method: "GET"
+        }
+      ).then(() => {
+        this.getMessages();
+      })
+    },
+    cancel(id) {
+      fetch(`http://localhost/Statique/Backend/chat/cancel?id=${id}`,
+        {
+          method: "GET"
+        }
+      ).then(() => {
+        this.getMessages();
+      })
+    },
+
+
+  },
+  mounted() {
+    this.getSeances();
+  },
+
+
 
 
 }
@@ -97,9 +141,6 @@ export default {
 
 </script>
 <style lang="scss" scoped>
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 $color-sousnavbar: #383838;
 $hover: #F8CE03;
 
@@ -107,7 +148,8 @@ $hover: #F8CE03;
   margin-top: 20px;
 
   h4 {
-    margin-bottom: 40px;
+    font-weight: bold;
+    margin: 40px;
   }
 }
 
@@ -120,9 +162,11 @@ $hover: #F8CE03;
     font-weight: bold;
   }
 }
-.btn{
+
+.btn {
   margin-top: 20px;
 }
+
 .form-inline {
   justify-content: space-evenly;
 

@@ -131,7 +131,7 @@ const routes = [
         component: () => import('@/components/DashboardPage/chat.vue'),
       },
       {
-        path:'/AddSeance',
+        path:'/seance',
         component:()=>import('@/components/DashboardPage/Seance/addSeance.vue')
       }
 
