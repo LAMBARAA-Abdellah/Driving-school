@@ -54,7 +54,7 @@
                 <td>{{ seance.debut }}</td>
                 <td>{{ seance.fin }}</td>
                 <td>{{ seance.seance }}</td>
-                <td> <i @click="validateStudent(Student.id_Candidat)" class="valid fas fa-solid fa-plus"></i> <i @click="validateStudent(Student.id_Candidat)" class="fas fa-archive"></i> <i @click="validateStudent(Student.id_Candidat)" class="	fas fa-edit"></i></td>
+                <td> <i @click="validateStudent(Student.id_Candidat)" class=" fas fa-plus-square"></i> <i @click="validateStudent(Student.id_Candidat)" class="	fas fa-edit"></i> <i @click="validateStudent(Student.id_Candidat)" class="fas fa-archive"></i></td>
               </tr>
 
               <!-- row 2 -->
@@ -144,6 +144,11 @@ export default {
 $color-sousnavbar: #383838;
 $hover: #F8CE03;
 
+.fas{
+  margin: 0 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
 .container {
   margin-top: 20px;
 
