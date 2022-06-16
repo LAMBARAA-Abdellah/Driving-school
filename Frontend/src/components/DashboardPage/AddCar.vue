@@ -1,7 +1,7 @@
 <template>
     <!-- <Hello msg="Students" /> -->
     <Add action="ajouter " msg="Car"/>
-    <form >
+    <form @submit.prevent >
     <div class="content">
     
         

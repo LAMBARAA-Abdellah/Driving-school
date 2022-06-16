@@ -28,6 +28,12 @@ class seances
         $results = $this->db->fetchAll();
         return $results;
     }
+    public function detail($id){
+        $this->db->query('SELECT * FROM seance WHERE id = :id');
+        $this->db->bind(':id', $id);
+        $results = $this->db->fetch();
+        return $results;
+    }
     public function updateSeance($data)
     {
         $this->db->query('UPDATE seance SET date = :date, debut = :debut, fin = :fin, seance = :seance WHERE id = :id');
