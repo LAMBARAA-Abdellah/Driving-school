@@ -32,14 +32,14 @@
         </form>
 
         <div class="list">
-            <h4>Listes des Absence</h4>
+            <h4>Listes des Etudiant</h4>
             <div class="overflow-x-auto">
                 <div class="overflow-x-auto">
                     <table class="table w-full">
                         <!-- head -->
                         <thead>
                             <tr>
-                                <th></th>
+                                <th>photo</th>
                                 <th>CIN</th>
                                 <th>Nom complet</th>
                                 <th>Telephone</th>
@@ -52,17 +52,21 @@
 
                             <tr v-for="(Student, i) in Students">
 
-                                <th>{{ i + 1 }}</th>
-                                <td>{{ Student.cin }}</td>
-                                <td>{{ Student.nom_candidat }}</td>
-                                <td>{{ Student.tel }}</td>
+                                <th v-if="Student.archive == 0">
+                                    <img :src="'../assets/images/' + Student.photo" alt="dd">
+
+                                </th>
+                                <td v-if="Student.archive == 0">{{ Student.cin }}</td>
+                                <td v-if="Student.archive == 0">{{ Student.nom_candidat }} {{ Student.prenom_candidat }}
+                                </td>
+                                <td v-if="Student.archive == 0">{{ Student.tel }}</td>
                                 <!-- <td>{{ Student.seance }}</td> -->
 
-                                <td>
-                                    <i @click="$router.push('/seance/' + seance.id)" class=" fas fa-plus-square"></i>
-                                    <i @click="detail(seance.id), state = !state" class="	fas fa-edit"></i>
-                                    <i @click="deleteSeance(seance.id)" class="fas fa-archive"></i>
+                                <td v-if="Student.archive == 0">
+                                    <i @click="$router.push('/seance/' + seance.id)"
+                                        class=" fas fa-minus-square"></i>
                                 </td>
+                                <td v-if="Student.archive == 0">oui</td>
                             </tr>
 
                             <!-- row 2 -->
@@ -104,20 +108,12 @@ export default {
         }
     },
     methods: {
-         getstudents() {
+        getstudents() {
             fetch("http://localhost/Statique/Backend/student/allStudents").then(res => res.json()).then(Students => {
                 this.Students = Students;
             })
         },
-        deleteSeance(id) {
-            fetch(`http://localhost/Statique/Backend/seance/deleteSeance?id=${id}`,
-                {
-                    method: "GET"
-                }
-            ).then(() => {
-                this.getSeances();
-            })
-        },
+
         detail() {
             fetch(`http://localhost/Statique/Backend/seance/detail?id=${this.$route.params.id}`).then(res => res.json()).then(seance => {
                 this.seance = seance;
@@ -126,39 +122,6 @@ export default {
         },
 
 
-        AddSeance() {
-            fetch("http://localhost/Statique/Backend/seance/addSeance", {
-                method: "POST",
-                body: JSON.stringify({
-                    date: this.seance.date,
-                    debut: this.seance.debut,
-                    fin: this.seance.fin,
-                    seance: this.seance.seance,
-                })
-            }).then((reponse => {
-                this.getSeances();
-                this.seance.date = '';
-                this.seance.debut = '';
-                this.seance.fin = '';
-                this.seance.seance = '';
-                return reponse.json();
-            }));
-        },
-        updateSeance() {
-            fetch("http://localhost/Statique/Backend/seance/updateSeance", {
-                method: "POST",
-                body: JSON.stringify(this.seance),
-            }).then((result) => {
-                this.getSeances();
-                this.seance.date = '';
-                this.seance.debut = '';
-                this.seance.fin = '';
-                this.seance.seance = '';
-                return result.json();
-
-            })
-
-        },
 
 
     },
@@ -177,6 +140,12 @@ export default {
 <style lang="scss" scoped>
 $color-sousnavbar: #383838;
 $hover: #F8CE03;
+
+th img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20%;
+}
 
 .fas {
     margin: 0 10px;
