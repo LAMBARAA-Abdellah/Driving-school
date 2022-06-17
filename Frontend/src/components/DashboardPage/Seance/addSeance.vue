@@ -59,7 +59,8 @@
                 <td>{{ seance.debut }}</td>
                 <td>{{ seance.fin }}</td>
                 <td>{{ seance.seance }}</td>
-                <td>{{play(seance.date) }}</td>
+                <td>{{ remainingTime(seance.date, seance.debut) }}</td>
+                <!-- <td>{{ play(seance.date ) }}</td> -->
                 <td> <i @click="$router.push('/seance/' + seance.id)" class="	fas fa-question-circle"></i> <i
                     @click="detail(seance.id), state = !state" class="	fas fa-edit"></i> <i
                     @click="deleteSeance(seance.id)" class="fas fa-archive"></i></td>
@@ -80,7 +81,9 @@
 
 </template>
 <script>
-
+import { compareAsc, format } from 'date-fns'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 
 export default {
   name: 'Hello',
@@ -108,6 +111,9 @@ export default {
       setTimeout(() => {
         return Date.now() - time
       }, 1000);
+    },
+    remainingTime(date, time) {
+      return dayjs().to(date+' '+time)
     },
 
     getSeances() {
@@ -168,13 +174,23 @@ export default {
 
     },
 
-    play(date) {
+    play(date, debut) {
       // this.timerEnabled = true;
       var sep = new Date(date);
         var today = new Date();
-        var diffD = Math.floor((sep - today) / (1000 * 60 * 60 * 24));
-        return diffD;
+        var counter = sep.getTime() - today.getTime();
+        var days = Math.floor(counter / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((counter % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        if(days < 0){
+          return "Terminé";
+        }
+        else if(days == 0){
+          return " Aujourd'hui";
+        }
+        return days + " d " + hours + " h " ;
+
     },
+
 
     pause() {
       this.timerEnabled = false;
@@ -207,9 +223,11 @@ export default {
 
   },
   mounted() {
+    dayjs.extend(relativeTime);
     this.getSeances();
   },
-
+  computed: {
+  }
 
 
 
@@ -227,17 +245,7 @@ $hover: #F8CE03;
   cursor: pointer;
 }
 
-.fa-archive {
-  color: red;
-}
 
-.fa-edit {
-  color: #F8CE03;
-}
-
-.fa-question-circle {
-  color: green;
-}
 
 .container {
   margin-top: 20px;

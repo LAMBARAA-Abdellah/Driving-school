@@ -74,7 +74,7 @@ $hover:#F8CE03;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    align-items: baseline;
+
 }
 
 h2 {
@@ -93,9 +93,11 @@ h5{
 footer{
       background-image: url("@/assets/images/tt-foter-bg.jpg");
      
+     
 .footer {
-    padding: 0 30px 30px 30px;
+    padding: 0 30px 0px 30px;
     font-size: 100%;
+     height: 270px;
   
     @include flex;
     color: rgba(189, 187, 187, 0.8);
@@ -125,15 +127,19 @@ footer{
 
     .vl {
         background-color: #a3a3a3;
-    height: 210px;
+    height: 200px;
     margin-top: auto;
     border: solid 0.1em #a3a3a3;
+    }
+    .cust{
+        margin-top: 30px;
     }
 
     .media {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        margin-top: 30px;
 
         .social {
             display: flex;
@@ -178,6 +184,7 @@ footer{
     .footer{ 
         flex-direction: column;
         align-items: center;
+        height: auto;
         .footer-logo{ 
             width: 100%;
             align-items: center;

@@ -270,7 +270,7 @@ export default {
             }).then((result) => {
                 if (result) {
                     this.showPopup = false
-                    // window.location = "/Students"
+                    this.$router.push('/Archieves')
                    
                 }
             })

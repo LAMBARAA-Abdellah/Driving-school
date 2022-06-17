@@ -9,7 +9,6 @@ class student extends controller
     }
     public function index()
     {
-        
     }
     public function add()
     {
@@ -36,7 +35,7 @@ class student extends controller
         }
         return $this->view('pages/home', $data);
     }
-    
+
     public function addStudent()
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -53,10 +52,10 @@ class student extends controller
     {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $json = file_get_contents('php://input');
-            $data = json_decode($json,true);
-           // $data = array_values((array)$data);
+            $data = json_decode($json, true);
+            // $data = array_values((array)$data);
             echo json_encode($data);
-           $this->studentModel->updateStudent($data);
+            $this->studentModel->updateStudent($data);
             echo "update width succes";
         }
     }
@@ -65,6 +64,28 @@ class student extends controller
         $students = $this->studentModel->getStudents();
         echo json_encode($students);
     }
+    public function allStudentsArchive()
+    {
+        $students = $this->studentModel->getStudentsArchive();
+        echo json_encode($students);
+    }
+    public function StudentAbsence()
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "GET") {
+            $id = $_GET['id'];
+            $reponse = $this->studentModel->StudentAbsence($id);
+            echo json_encode($reponse);
+        }
+    }
+    public function deleteAbsence()
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "GET") {
+            $id = $_GET['id'];
+            $this->studentModel->deleteAbsence($id);
+            echo "delete width succes";
+        }
+    }
+
     public function getStudent()
     {
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -74,17 +95,18 @@ class student extends controller
             echo json_encode($reponse);
         }
     }
-  
+
 
     public function deleteStudent()
     {
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
             $id = $_GET['id'];
             $this->studentModel->deleteStudent($id);
-            var_dump( $this->studentModel->deleteStudent($id));
+            var_dump($this->studentModel->deleteStudent($id));
         }
     }
-    public function addTranche(){
+    public function addTranche()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $json = file_get_contents('php://input');
             $data = json_decode($json, true);
@@ -92,42 +114,44 @@ class student extends controller
             //    var_dump($data);
             // echo json_encode($data);
             $reponse = $this->studentModel->addTranche($data);
-           
+
             //echo json_encode($reponse);
         }
     }
-    public function getTranche(){
+    public function getTranche()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
             $id = $_GET['id'];
             $reponse = $this->studentModel->getTranche($id);
             echo json_encode($reponse);
         }
     }
-    public function archiveStudent(){
+    public function archiveStudent()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
             $id = $_GET['id'];
             $reponse = $this->studentModel->archiveStudent($id);
             echo json_encode($reponse);
         }
     }
-    public function validateStudent(){
+    public function validateStudent()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
             $id = $_GET['id'];
             $reponse = $this->studentModel->validateStudent($id);
             echo json_encode($reponse);
-           
+
             //echo json_encode($reponse);
         }
     }
-    public function validentStudent(){
+    public function validentStudent()
+    {
         if ($_SERVER["REQUEST_METHOD"] === "GET") {
             $id = $_GET['id'];
             $reponse = $this->studentModel->validentStudent($id);
             echo json_encode($reponse);
-           
+
             //echo json_encode($reponse);
         }
     }
-
-    
 }

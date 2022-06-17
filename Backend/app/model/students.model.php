@@ -44,12 +44,36 @@ class students
 
     public function getStudents()
     {
-        $this->db->query('SELECT * FROM candidat ORDER BY dateCreation DESC');
+        $this->db->query('SELECT * FROM candidat where archive=0  ORDER BY dateCreation DESC');
+        // $results = $this->db->execute();
+        $results = $this->db->fetchAll();
+        return $results;
+    }
+    public function getStudentsArchive()
+    {
+        $this->db->query('SELECT * FROM candidat where archive=1  ORDER BY dateCreation DESC');
         // $results = $this->db->execute();
         $results = $this->db->fetchAll();
         return $results;
     }
 
+    public function StudentAbsence($id)
+
+    {
+        $this->db->query('SELECT * FROM candidat,absence WHERE candidat.id_Candidat = absence.id_student and absence.id_seance=:id_seance group by  candidat.id_Candidat');
+        $this->db->bind(':id_seance', $id);
+        return $this->db->fetchAll();
+    }
+    public function deleteAbsence($id)
+    {
+        $this->db->query('DELETE FROM absence WHERE id_student = :id');
+        $this->db->bind(':id', $id);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     function deleteStudent($id)
     {

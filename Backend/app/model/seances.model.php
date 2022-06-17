@@ -58,6 +58,25 @@ class seances
             return false;
         }
     }
+    
+    public function addAbsence($data)
+    {
+
+        $this->db->query('INSERT INTO absence (id_seance,id_student) VALUES (:id_seance,:id_student)');
+        $this->db->bind(':id_seance', $data['id_seance']);
+        $this->db->bind(':id_student', $data['id_student']);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function getAbsences()
+    {
+        $this->db->query('SELECT * FROM absence');
+        $results = $this->db->fetchAll();
+        return $results;
+    }
    
 }
 

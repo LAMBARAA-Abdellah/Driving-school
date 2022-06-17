@@ -76,7 +76,7 @@ export default {
     },
     methods: {
         getstudents() {
-            fetch("http://localhost/Statique/Backend/student/allStudents").then(res => res.json()).then(Students => {
+            fetch("http://localhost/Statique/Backend/student/allStudentsArchive").then(res => res.json()).then(Students => {
                 this.Students = Students;
             })
         },

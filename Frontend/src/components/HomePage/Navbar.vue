@@ -21,7 +21,13 @@
             <!-- <i class="fab fa-facebook"></i> -->
             <i class="fab fa-twitter"></i>
             <i class="fab fa-instagram"></i>
-            <i class="fab fa-google"></i>
+            <i class="fab fa-whatsapp"></i>
+            
+
+
+
+
+
         </div>
     </div>
     <div class="navbar">
@@ -79,9 +85,9 @@
                 <router-link to="/programe">
                     <li><a>Programes</a></li>
                 </router-link>
-                <router-link to="/Services">
+                <!-- <router-link to="/Services">
                     <li><a>Services</a></li>
-                </router-link>
+                </router-link> -->
                 <router-link to="/Testimonials">
                     <li><a>Testimonials</a></li>
                 </router-link>
@@ -265,6 +271,7 @@ $hover:#F8CE03;
 .nav-bar {
     @include flex;
     padding: 0 100px;
+    height: 100px;
 
     img {
         width: 150px;

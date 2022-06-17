@@ -54,4 +54,23 @@ class seance extends controller
             echo "delete width succes";
         }
     }
+    public function addAbsence( )
+    {
+        if ($_SERVER["REQUEST_METHOD"] === "GET") {
+            $id_student = $_GET['id_student'];
+            $id_seance = $_GET['id_seance'];
+            $data = [
+                'id_student' => $id_student,
+                'id_seance' => $id_seance
+            ];
+            $reponse = $this->seanceModel->addAbsence($data);
+          
+        }
+    } 
+    public function getAbsences()
+    {
+        $reponse = $this->seanceModel->getAbsences();
+        echo json_encode($reponse);
+    }
+   
 }
