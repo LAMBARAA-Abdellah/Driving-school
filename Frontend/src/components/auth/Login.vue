@@ -63,13 +63,11 @@ export default {
                 console.log(data.role);
                 this.$cookies.set("id", data.row["id_Admin"]);
                 this.$cookies.set("name", data.row["nom_admin"] + data.row["prenom_admin"]);
-                // this.$cookies.set(`name ${data.row["nom_admin"]}  ${data.row["prenom_admin"]}`);
+
 
                 this.$cookies.set("idadmin", data.row["id_Admin"]);
-                this.$cookies.set("idadmin", data.row["id_Admin"]);
-                this.$cookies.set("idadmin", data.row["id_Admin"]);
-                 this.$cookies.set("role", data["role"]);
-                 
+                this.$cookies.set("role", data["role"]);
+
                 this.$cookies.get("idadmin")
                 router.push('/Dashboard');
               }
@@ -78,11 +76,14 @@ export default {
                 console.log(data.role);
 
                 this.$cookies.set("id", data.row["id_utilisateur"]);
+                this.$cookies.set("name", data.row["nom_utilisateur"] + data.row["prenom_utilisateur"]);
+
                 this.$cookies.set("role", data["role"]);
+
                 this.$cookies.get("role")
                 router.push('/Dashboard');
-              } 
-              } else {
+              }
+            } else {
               alert("rak ghalet");
             }
           });
@@ -102,6 +103,7 @@ export default {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 .card-login {
   display: flex;
   flex-direction: column;
