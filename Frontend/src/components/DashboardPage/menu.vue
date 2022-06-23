@@ -24,8 +24,11 @@
                     </li>
 
                     <!-- pour afficher tout les button de nav-bar -->
-                    <span v-for="(menuItem, index) in menuItems" :key="index">
-                        <li @click="deriction(menuItem.link)" class="cursor-pointer">
+                    <div 
+                    v-if="role == 'Utilisateur'"
+                    >
+                    <span    v-for="(menuItem, index) in menuUser" :key="index">
+                        <li  @click="deriction(menuItem.link)" class="cursor-pointer">
                             <a :active-class="isclick ? 'active' : ''">
                                 <i>
                                     <Icon :icon="menuItem.icon" />
@@ -33,21 +36,33 @@
                                 <span class="links_name">{{ menuItem.name }} </span>
                                 <!-- <i class="fas fa-angle-down"></i> -->
                             </a>
-
                         </li>
-
                     </span>
+                    </div>
+                    <div v-if="role == 'ADMIN'">
+                     <span v-for="(menuItem, index) in munuAdmin" :key="index">
+                        <li  @click="deriction(menuItem.link)" class="cursor-pointer">
+                            <a :active-class="isclick ? 'active' : ''">
+                                <i>
+                                    <Icon :icon="menuItem.icon" />
+                                </i>
+                                <span class="links_name">{{ menuItem.name }} </span>
+                                <!-- <i class="fas fa-angle-down"></i> -->
+                            </a>
+                        </li>
+                    </span>
+                    </div>
                 </ul>
             </div>
             <div class="profile">
                 <div class="profile-details">
-                    <img src="@/assets/images/IMG_1462.jpg" alt="profileImg" />
+                    <img :src="'../assets/images/' +this.photo" alt="profileImg" />
                     <div class="name_job">
-                        <div class="name">{{ this.name }}</div>
+                        <div class="name">{{ this.nom }} {{this.prenom}}</div>
                         <div class="job">{{ this.role }}</div>
                     </div>
                 </div>
-                <i v-if="isExitButton" class="bx bx-log-out" id="log_out" @click="logout()" />
+                <i v-if="isExitButton" class="logoout bx bx-log-out" id="log_out" @click="logout()" />
             </div>
         </div>
     </div>
@@ -210,8 +225,8 @@ export default {
     },
     data() {
         return {
-            menuItems: [
-                { name: "Dashboard", link: "/Dashboard", icon: "ant-design:home-outlined", tooltip: "Home" },
+            munuAdmin : [
+                {name: 'Dashboard', link: '/Dashboard', icon: 'bx-home', tooltip: "Dashboard"},
                 { name: "Students", link: "/students", icon: "ph:student-fill", tooltip: "Students" },
                 { name: "Monitors", link: "/monitors", icon: "icon-park-outline:steering-wheel", tooltip: "Monitors" },
                 { name: "Cars", link: "/cars", icon: "ant-design:car-filled", tooltip: "Car" },
@@ -219,11 +234,20 @@ export default {
                 { name: "Seance", link: "/seance", icon: "ant-design:calendar-filled", tooltip: "Seance" },
                 { name: "Chat", link: "/chat", icon: "bi:chat-fill", tooltip: "Chat" },
                 { name: "Archieve", link: "/Archieves", icon: "akar-icons:block", tooltip: "Archieve" },
-                { name: "Setting", link: "/settings", icon: "ant-design:setting-outlined", tooltip: "Setting" },
+                { name: "Setting", link: "/settings", icon: "ant-design:setting-outlined", tooltip: "Setting" },            ],
+            menuUser: [
+                { name: "Students", link: "/students", icon: "ph:student-fill", tooltip: "Students" },
+                { name: "Monitors", link: "/monitors", icon: "icon-park-outline:steering-wheel", tooltip: "Monitors" },
+                { name: "Cars", link: "/cars", icon: "ant-design:car-filled", tooltip: "Car" },
+                // { name: "Personnel", link: "/Personnels", icon: "ant-design:team-outlined", tooltip: "personnel" },
+                { name: "Seance", link: "/seance", icon: "ant-design:calendar-filled", tooltip: "Seance" },
+                { name: "Chat", link: "/chat", icon: "bi:chat-fill", tooltip: "Chat" },
             ],
 
             role: this.$cookies.get("role"),
-            name: this.$cookies.get("name"),
+            nom: this.$cookies.get("nom"),
+            prenom: this.$cookies.get("prenom"),
+            photo: this.$cookies.get("photo"),
             isOpened: false,
             isclick: true,
             keyword: ''
@@ -317,7 +341,9 @@ $hover: #F8CE03;
 body {
     transition: all 0.5s ease;
 }
-
+.logoout{
+    cursor: pointer;
+}
 .menu-logo {
     width: 30px;
     margin: 0 10px 0 10px;

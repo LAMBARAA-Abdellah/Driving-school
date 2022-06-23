@@ -1,11 +1,11 @@
 <template>
     <!-- <Hello msg="Students" /> -->
-    <Add action="ajouter " msg="Car"/>
-    <form @submit.prevent >
-    <div class="content">
-    
-        
-             <div class="profil-img">
+    <Add action="ajouter " msg="Car" />
+    <form @submit.prevent>
+        <div class="content">
+
+
+            <div class="profil-img">
                 <img id="blah" src="" alt="">
 
                 <input id="img" type="file" name="" @change="displayImg">
@@ -23,21 +23,21 @@
                 <div class="form-group">
                     <label for="">Model</label>
                     <!-- <input type="years" name="" id="" class="form-control"> -->
-                    <input type="number" class="form-control" min="1900" max="2099" step="1"  v-model="carform.module"/>
+                    <input type="number" class="form-control" min="1900" max="2099" step="1" v-model="carform.module" />
                 </div>
-               
-                
-            </div>
-               
-    <div />
- </div>
- 
 
-    <div class="w-100">
-     <input @click="AddCar()" class=" btn aaa btn-secondary ms-auto" type="button" value="Ajouter">
-    </div>
-       
-   </form>
+
+            </div>
+
+            <div />
+        </div>
+
+
+        <div class="w-100">
+            <input @click="AddCar()" class=" btn aaa btn-primary ms-auto" type="button" value="Ajouter">
+        </div>
+
+    </form>
 
 </template>
 
@@ -56,7 +56,7 @@ export default {
 
 
     },
-      data() {
+    data() {
         return {
             carform: {
                 matricule: '',
@@ -78,8 +78,8 @@ export default {
             }).then((result) => {
                 if (result) {
                     this.showPopup = false
-                   // window.location = "/Students"
-                   this.$router.push('/cars')
+                    // window.location = "/Students"
+                    this.$router.push('/cars')
                 }
             })
         },
@@ -102,7 +102,7 @@ export default {
                     module: this.carform.module,
                     photo: this.carform.photo,
                     id_utilisateur: this.carform.id_utilisateur,
-                    
+
                 })
             }).then((reponse => {
                 return reponse.json();
@@ -124,27 +124,32 @@ export default {
 </script>
 <style scoped lang="scss" >
 $color-sousnavbar: #383838;
-$hover:#F8CE03;
+$hover: #F8CE03;
 
 
 input {
     width: 300px;
-   
+
 }
-select{
+
+select {
     width: 300px;
 }
-.btn{
+
+.btn {
     width: 140px;
 }
-form{
+
+form {
     background-color: #F9F8F8;
 }
-.aaa{
+
+.aaa {
     margin: 20px;
 }
+
 .content {
-   display: flex;
+    display: flex;
     flex-wrap: wrap;
     height: auto;
     flex-direction: column;
@@ -160,7 +165,7 @@ form{
             display: block;
             background-position: center;
             background-size: cover;
-        height: 200px;
+            height: 200px;
             width: 100%;
         }
 
@@ -175,24 +180,23 @@ form{
     .form {
         width: 100%;
         margin-top: 60px;
-      display: flex;
-      flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
 
-        .div-bot{
+        .div-bot {
             display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 100%;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
 
-           
+
         }
     }
 }
-
 </style>

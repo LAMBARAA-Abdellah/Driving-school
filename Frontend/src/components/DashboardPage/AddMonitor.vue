@@ -74,7 +74,8 @@
 
     </div>
     <div class="w-100">
-     <input @click="AddMonitor()" class=" btn aaa btn-secondary ms-auto" type="button" value="Ajouter">
+     <input @click="AddMonitor()" class=" btn aaa btn-primary ms-auto" type="button" value="Ajouter">
+     <input @click="cancel()" class=" btn aaa btn-secondary ms-auto" type="button" value="cancel">
     </div>
        
    </form>
@@ -113,7 +114,10 @@ export default {
         }
     },
     methods: {
-        showAlert() {
+         cancel(){
+            this.$router.push('/Monitors');
+        },
+       showAlert() {
             swal({
                 icon: 'success',
                 title: 'Your Appointment has been created',

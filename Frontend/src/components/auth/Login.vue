@@ -10,6 +10,7 @@
       <div class="bg-white w-96 shadow-xl rounded p-5 card-login">
         <img class="" src="@/assets/images/Driving1.png" alt="">
         <form @submit.prevent="check" class="space-y-5 mt-5">
+        <p class="text-red-600">{{login.err}}</p>
           <input type="text" class="w-full h-12 border border-gray-800 rounded px-3" placeholder="E-amai ou Téléohone"
             v-model="login.email" />
           <input type="password" class="w-full h-12 border border-gray-800 rounded px-3" placeholder="Mot de passe"
@@ -38,7 +39,8 @@ export default {
     return {
       login: {
         email: '',
-        pass: ''
+        pass: '',
+        err: ''
       }
     }
   },
@@ -59,10 +61,11 @@ export default {
               console.log("hello");
               if (data.row["id_Admin"]) {
 
-                console.log("hello Admin");
-                console.log(data.role);
                 this.$cookies.set("id", data.row["id_Admin"]);
-                this.$cookies.set("name", data.row["nom_admin"] + data.row["prenom_admin"]);
+                this.$cookies.set("nom", data.row["nom_admin"]);
+                this.$cookies.set("prenom", data.row["prenom_admin"]);
+
+                this.$cookies.set("photo", data.row["photo"]);
 
 
                 this.$cookies.set("idadmin", data.row["id_Admin"]);
@@ -72,19 +75,18 @@ export default {
                 router.push('/Dashboard');
               }
               else if (data.row["id_utilisateur"]) {
-                console.log("hello Utilisateur");
-                console.log(data.role);
-
                 this.$cookies.set("id", data.row["id_utilisateur"]);
-                this.$cookies.set("name", data.row["nom_utilisateur"] + data.row["prenom_utilisateur"]);
+                this.$cookies.set("nom", data.row["nom_utilisateur"]);
+                this.$cookies.set("prenom", data.row["prenom_utilisateur"]);
+                this.$cookies.set("photo", data.row["photo"]);
 
                 this.$cookies.set("role", data["role"]);
 
                 this.$cookies.get("role")
-                router.push('/Dashboard');
+                router.push('/Students');
               }
             } else {
-              alert("rak ghalet");
+              this.login.err = "Email ou mot de passe incorrect";
             }
           });
         }

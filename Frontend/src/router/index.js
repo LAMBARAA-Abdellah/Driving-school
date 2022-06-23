@@ -131,12 +131,12 @@ const routes = [
         component: () => import('@/components/DashboardPage/chat.vue'),
       },
       {
-        path:'/seance',
-        component:()=>import('@/components/DashboardPage/Seance/addSeance.vue')
+        path: '/seance',
+        component: () => import('@/components/DashboardPage/Seance/addSeance.vue')
       },
       {
-        path:'/seance/:id',
-        component:()=>import('@/components/DashboardPage/Seance/detail.vue')
+        path: '/seance/:id',
+        component: () => import('@/components/DashboardPage/Seance/detail.vue')
       },
 
 
@@ -164,17 +164,26 @@ const router = createRouter({
   routes
 })
 router.beforeEach((to, from) => {
-  // check if path is in children paths of dashboard
-
-
-  //if user is not logged in and tries to access dashboard page and cookies is not set
- 
-  //if user is  logged in and tries to access login page 
   if (to.path === '/Login') {
     if (VueCookies.get('role')) {
       return router.push('/Dashboard')
     }
+  } if (to.path === '/Dashboard' && VueCookies.get('role') === 'Utilisateur') {
+    if (VueCookies.get('role', 'Utilisateur')) {
+      return router.push('/students')
+    }
+  }if (to.path === '/Personnels' && VueCookies.get('role') === 'Utilisateur') {
+    if (VueCookies.get('role', 'Utilisateur')) {
+      return router.push('/students')
+    }
   }
+if (to.path === '/Archieve' && VueCookies.get('role') === 'Utilisateur') {
+  if (VueCookies.get('role', 'Utilisateur')) {
+    return router.push('/students')
+  }
+}
+  
+
 
 });
 export default router

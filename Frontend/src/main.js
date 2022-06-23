@@ -11,6 +11,7 @@ import TawkMessengerVue from '@tawk.to/tawk-messenger-vue-3';
 
 
 createApp(App).use(store).use(TawkMessengerVue,{ propertyId : '62a85d347b967b11799472b9',
-widgetId : '1g5gqo5ol'}).use(router).use(VueCookies).mount('#app')
+widgetId : ' '}).use(router).use(VueCookies).mount('#app')
 
+//lof
 

@@ -63,7 +63,7 @@
         </div>
         <div class="w-100">
             <input @click="updateMonitor()" class=" btn aaa btn-primary ms-auto" type="button" value="Modifier">
-            <input  @click="retour()" class=" btn aaa btn-danger ms-auto" type="button" value="Cancel">
+            <input  @click="cancel()" class=" btn aaa btn-secondary ms-auto" type="button" value="Cancel">
 
         </div>
 
@@ -108,6 +108,9 @@ export default {
     },
 
     methods: {
+          cancel(){
+            this.$router.push('/Personnels');
+        },
         showAlert() {
             swal({
                 icon: 'success',
@@ -209,6 +212,7 @@ form {
             background-size: cover;
             height: 200px;
             width: 100%;
+              border-radius: 50%;
         }
 
         input {

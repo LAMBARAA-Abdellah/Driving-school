@@ -5,7 +5,7 @@ class core
     protected $controller = 'pages';
     protected $method = 'index';
     protected $param = [];
-
+    
     public function __construct()
     {
         $url = $this->getUrl();
@@ -38,6 +38,7 @@ class core
         $this->param = $url ? array_values($url) : [];
 
         call_user_func_array([$this->controller, $this->method], $this->param);
+        
     }
 
 
@@ -53,4 +54,7 @@ class core
             return $url;
         }
     }
+    // $url[0] = contrlerName
+    // $url[1] = methodeName
+    // $url[2] = param
 }

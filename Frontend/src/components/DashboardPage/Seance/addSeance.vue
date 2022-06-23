@@ -1,6 +1,10 @@
 <template>
 
   <div class=" container">
+    <div class="alert alert-success" role="alert" v-if="alertsecc">
+      votre séance a été ajouté avec succès
+    </div>
+
     <h4 v-if="state">Ajouter seance</h4>
     <h4 v-if="!state">Modifier seance</h4>
     <form class="form-inline" @submit.prevent>
@@ -94,6 +98,7 @@ export default {
     return {
       state: true,
       seances: [],
+      alertsecc: false,
       seance: {
         date: '',
         debut: '',
@@ -113,7 +118,7 @@ export default {
       }, 1000);
     },
     remainingTime(date, time) {
-      return dayjs().to(date+' '+time)
+      return dayjs().to(date + ' ' + time)
     },
 
     getSeances() {
@@ -155,6 +160,12 @@ export default {
         this.seance.debut = '';
         this.seance.fin = '';
         this.seance.seance = '';
+        setTimeout(() => {
+          this.alertsecc = true;
+        }, 100);
+        setTimeout(() => {
+          this.alertsecc = false;
+        }, 2000);
         return reponse.json();
       }));
     },
@@ -177,17 +188,17 @@ export default {
     play(date, debut) {
       // this.timerEnabled = true;
       var sep = new Date(date);
-        var today = new Date();
-        var counter = sep.getTime() - today.getTime();
-        var days = Math.floor(counter / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((counter % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        if(days < 0){
-          return "Terminé";
-        }
-        else if(days == 0){
-          return " Aujourd'hui";
-        }
-        return days + " d " + hours + " h " ;
+      var today = new Date();
+      var counter = sep.getTime() - today.getTime();
+      var days = Math.floor(counter / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((counter % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      if (days < 0) {
+        return "Terminé";
+      }
+      else if (days == 0) {
+        return " Aujourd'hui";
+      }
+      return days + " d " + hours + " h ";
 
     },
 

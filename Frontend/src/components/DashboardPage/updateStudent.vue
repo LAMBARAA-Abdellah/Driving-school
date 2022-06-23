@@ -82,7 +82,7 @@
         </div>
         <div class="w-100">
             <input @click="updateStudent()" class=" btn aaa btn-primary ms-auto" type="button" value="Modifier">
-            <input @click="retour()" class=" btn aaa btn-danger ms-auto" type="button" value="Cancel">
+            <input @click="retour()" class=" btn aaa btn-secondary ms-auto" type="button" value="Cancel">
         </div>
 
     </form>

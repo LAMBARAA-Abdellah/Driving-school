@@ -92,7 +92,7 @@
 
         <div class="w-100">
             <input @click="AddStudent()" class=" btn aaa btn-primary ms-auto" type="button" value="Ajouter">
-            <input @click="Cancel()" class=" btn aaa btn-secondary ms-auto" type="button" value="cancel">
+            <input @click="cancel()" class=" btn aaa btn-secondary ms-auto" type="button" value="cancel">
         </div>
 
     </form>
@@ -137,6 +137,9 @@ export default {
         }
     },
     methods: {
+        cancel(){
+            this.$router.push('/students');
+        },
         showAlert() {
             swal({
                 icon: 'success',

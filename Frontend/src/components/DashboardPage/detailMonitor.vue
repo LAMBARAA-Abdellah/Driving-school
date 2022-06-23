@@ -43,7 +43,7 @@
         </main>
         <div class="bttn">
             <div>
-                <submit class="btn btn-warning">AddTranche</submit>
+                <!-- <submit class="btn btn-warning">AddTranche</submit> -->
             </div>
 
             <div>
